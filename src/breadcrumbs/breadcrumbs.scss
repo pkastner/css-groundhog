@@ -1,0 +1,79 @@
+@import "../common/variables";
+
+.breadcrumbs {
+  display: flex;
+  list-style-type: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  color: #fff;
+  font-family: $mainfont;
+  font-size: 16px;
+  background-color: $buttoncolor;
+  line-height: 1em;
+  overflow: hidden;
+  z-index: 4;
+  border-top: 1px solid #fff;
+}
+
+.breadcrumbs__item {
+  display: inline-block;
+  position: relative;
+  margin-top: 0;
+  font-size: 1rem;
+  max-height: 30px;
+  line-height: 30px;
+}
+
+.breadcrumbs__link {
+  display: block;
+  color: inherit;
+  background-color: $buttonhovercolor;
+  padding: 0 16px;
+  margin-right: 4px;
+  height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  white-space: nowrap;
+  margin-left: -4px;
+}
+
+.breadcrumbs__last {
+  padding: 0 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.breadcrumbs__item:first-child .breadcrumbs__link {
+  padding-left: 12px;
+}
+
+.breadcrumbs__link:before,
+.breadcrumbs__link:after {
+  content: " ";
+  width: 0;
+  height: 0;
+  border: 18px solid transparent;
+  position: absolute;
+  right: -19px;
+  margin-top: -3px;
+  border-left-color: $buttonhovercolor;
+  border-left-width: 8px;
+  z-index: 3;
+}
+
+.breadcrumbs__link:before {
+  right: -21px;
+  border-left-color: #fff;
+  z-index: 2;
+}
+
+.breadcrumbs__link:hover {
+  background-color: $buttoncolor;
+}
+
+.breadcrumbs__link:hover:after {
+  border-left-color: $buttoncolor;
+}
