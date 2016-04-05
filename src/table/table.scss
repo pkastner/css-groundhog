@@ -1,0 +1,55 @@
+@import "../common/variables";
+
+.table {
+  border-spacing: 0;
+  font-size: 14px;
+  line-height: 1.4em;
+  font-family: $mainfont;
+}
+
+.table th,
+.table td {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.table td {
+  height: 60px;
+}
+
+.table thead th {
+  text-align: left;
+  font-weight: normal;
+  font-size: 13px;
+  position: relative;
+  overflow: hidden;
+}
+
+.table thead th:after {
+  content: " ";
+  height: 1px;
+  position: absolute;
+  bottom: 5px;
+  margin-left: 5px;
+  width: 100%;
+  background-color: $gray200;
+}
+
+.table thead th:before {
+  content: " ";
+  height: 1px;
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  width: 10px;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.table thead th:last-child:before {
+  display: none;
+}
+
+.table tr:nth-child(2n) {
+  background-color: $gray100;
+}
