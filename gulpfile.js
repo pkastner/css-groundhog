@@ -1,11 +1,14 @@
-const stylelint = require('stylelint');
-const sass      = require('gulp-sass');
-const prefix    = require('gulp-autoprefixer');
-const gulp      = require('gulp');
+const stylelint    = require('stylelint');
+const sass         = require('gulp-sass');
+const prefix       = require('gulp-autoprefixer');
+const gulp         = require('gulp');
+const runSequence  = require('run-sequence');
+
+const styleFiles = 'src/**/*.scss';
 
 gulp.task('styles:lint', () => {
   return stylelint.lint({
-    files: ['src/**/*.scss'],
+    files: [styleFiles],
     syntax: 'scss',
     formatter: "string"
   })
@@ -14,8 +17,14 @@ gulp.task('styles:lint', () => {
 });
 
 gulp.task('styles', () => {
-  return gulp.src('src/**/*.scss')
+  return gulp.src(styleFiles)
     .pipe(sass())
     .pipe(prefix())
     .pipe(gulp.dest('dist'));
+});
+
+
+gulp.task('dev', (done) => {
+  gulp.watch([styleFiles], ['styles:lint', 'styles']);
+  runSequence('styles:lint', 'styles', done);
 });
