@@ -1,0 +1,158 @@
+@import "../common/variables";
+
+.btn {
+  appearance: none;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
+  height: 32px;
+  border-style: solid;
+  border-radius: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 32px;
+  line-height: -moz-block-height;
+  vertical-align: middle;
+  border-width: 1px;
+  border-color: $buttoncolor;
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+}
+
+.btn * {
+  /* use border-box for whole button widget to be independent from global box-sizing applied with * selector */
+  box-sizing: border-box;
+}
+
+.btn:hover {
+  border-color: $buttonhovercolor;
+}
+
+.btn:focus {
+  outline: 0;
+  border-color: $focuscolor;
+  box-shadow: 0 0 0 1px $focuscolor;
+}
+
+.btn:active {
+  border-color: $buttonactivecolor;
+}
+
+.btn > .icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  margin-top: 6px;
+  vertical-align: top;
+}
+
+.btn[disabled] {
+  pointer-events: none;
+  border-color: $disabledcolor;
+  cursor: default;
+  box-shadow: none;
+}
+
+/*
+* btn--primary styles
+*/
+
+.btn--primary {
+  background-color: $buttoncolor;
+}
+
+.btn--primary,
+.btn--primary:hover,
+.btn--primary:visited {
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background-color: $buttonhovercolor;
+}
+
+.btn--primary:active {
+  background-color: $buttonactivecolor;
+}
+
+.btn--primary:focus:active {
+  border-color: $focuscolor;
+}
+
+.btn--primary[disabled] {
+  background-color: $disabledcolor;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.btn--primary > .icon,
+.btn--primary > .icon * {
+  fill: #fff;
+}
+
+.btn--primary[disabled] > .icon,
+.btn--primary[disabled] > .icon * {
+  fill: rgba(255, 255, 255, 0.6);
+}
+
+/*
+* iconOnly button styles
+*/
+.btn.btn__icon {
+  padding-left: 0;
+  padding-right: 0;
+  width: 32px;
+  text-align: center;
+}
+
+.btn.btn__icon > .icon {
+  margin-right: 0;
+}
+
+
+/*
+* buttonSecondary styles
+*/
+.btn--secondary {
+  background-color: transparent;
+}
+
+.btn--secondary,
+.btn--secondary:hover,
+.btn--secondary:visited {
+  color: $buttoncolor;
+}
+
+.btn--secondary:not([disabled]):hover {
+  box-shadow: 0 0 0 1px $buttonhovercolor;
+}
+
+.btn--secondary:not([disabled]):focus {
+  border-color: $buttonactivecolor;
+  box-shadow: 0 0 0 2px $focuscolor;
+}
+
+.btn--secondary:not([disabled]):active {
+  box-shadow: 0 0 0 1px $buttonactivecolor;
+}
+
+.btn--secondary:not([disabled]):focus:active {
+  border-color: $buttonactivecolor;
+}
+
+.btn--secondary[disabled] {
+  color: $disabledcolor;
+}
+
+.btn--secondary > .icon,
+.btn--secondary > .icon * {
+  fill: $buttoncolor;
+}
+
+.btn--secondary[disabled] > .icon,
+.btn--secondary[disabled] > .icon * {
+  fill: $disabledcolor;
+}
