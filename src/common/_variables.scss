@@ -1,3 +1,11 @@
 @import "colors";
 
 $mainfont: "BerninaSans", "Roboto Sans", sans-serif;
+$screen-xs: 320px;
+$screen-sm: 460px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+
+$nav-breakpoint-sm: 860px;
+$nav-breakpoint: $screen-sm - 25px;

@@ -14,6 +14,7 @@ const through2     = require('through2');
 const path         = require('path');
 const bSync        = require('browser-sync');
 const fs           = require('fs');
+const merge        = require('merge2');
 
 const styleFiles = 'src/**/*.scss';
 const site = {};
@@ -48,7 +49,8 @@ gulp.task('styles', () => {
 
 gulp.task('dev', (done) => {
   gulp.watch([styleFiles], ['styles:lint', 'styles']);
-  runSequence('styles:lint', 'styles', done);
+  gulp.watch(['src/**/samples/**/*.html','src/**/README.md'], ['doc']);
+  runSequence('copy-assets', 'styles:lint', 'styles', 'doc', 'serve', done);
 });
 
 function capitalizeFirstLetter(string) {
@@ -103,6 +105,9 @@ gulp.task('doc', function() {
 });
 
 gulp.task('copy-assets', function() {
-  return gulp.src('assets/**/*')
-    .pipe(gulp.dest('dist/assets'));
+  return merge(
+    gulp.src('assets/**/*')
+      .pipe(gulp.dest('dist/assets')),
+    gulp.src('docs/_assets/**/*')
+      .pipe(gulp.dest('dist/doc')));
 })
