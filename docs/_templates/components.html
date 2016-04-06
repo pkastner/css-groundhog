@@ -33,8 +33,10 @@
     <main class="content">
       {% for sample in samples %}
       <div class="demo">
-        {% include sample %}
+        {{ sample | safe }}
       </div>
+      <pre class="demo__code"><code>{{ sample | escape }}
+      </code></pre>
       {% endfor %}
       {{ content | safe }}
     </main>

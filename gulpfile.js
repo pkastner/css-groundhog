@@ -13,6 +13,7 @@ const globby       = require('globby');
 const through2     = require('through2');
 const path         = require('path');
 const bSync        = require('browser-sync');
+const fs           = require('fs');
 
 const styleFiles = 'src/**/*.scss';
 const site = {};
@@ -67,7 +68,9 @@ function buildSite() {
     };
 
     els.pop();
-    data.samples = globby.sync(els.join('/') + '/**/*.html');
+    data.samples = globby
+      .sync(els.join('/') + '/samples/**/*.html')
+      .map(file => fs.readFileSync(file).toString());
 
     const tpl = swig.compileFile(templateFile, {cache: false});
     file.contents = new Buffer(tpl(data));
