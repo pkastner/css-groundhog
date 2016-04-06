@@ -1,0 +1,7 @@
+<nav>
+  <ul>
+{% for component in site.components %}
+    <li><a href="/doc/{{component.url}}">{{component.name}}</a></li>
+{% endfor %}
+  </ul>
+</nav>

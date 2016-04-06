@@ -29,7 +29,13 @@
         <span class="breadcrumbs__last">{{ title }}</span>
       </li>
     </ul>
+    {% include "../_includes/component_nav.html" %}
     <main class="content">
+      {% for sample in samples %}
+      <div class="demo">
+        {% include sample %}
+      </div>
+      {% endfor %}
       {{ content | safe }}
     </main>
   </body>
