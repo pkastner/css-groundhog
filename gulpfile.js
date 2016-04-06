@@ -101,3 +101,8 @@ gulp.task('doc', function() {
     .pipe(buildSite())
     .pipe(gulp.dest('dist/doc'));
 });
+
+gulp.task('copy-assets', function() {
+  return gulp.src('assets/**/*')
+    .pipe(gulp.dest('dist/assets'));
+})

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Groundhog - {{ title }}</title>
     <link rel="stylesheet" href="/css/main.css" charset="utf-8">
+    <link rel="stylesheet" href="/css/base/fonts.css" charset="utf-8">
     <style media="screen">
       body {
         background-color: #f8f8f8;
@@ -31,6 +32,7 @@
     </ul>
     {% include "../_includes/component_nav.html" %}
     <main class="content">
+      <h2>Examples</h2>
       {% for sample in samples %}
       <div class="demo">
         {{ sample | safe }}

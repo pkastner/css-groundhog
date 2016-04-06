@@ -1,6 +1,7 @@
 @import "../common/variables";
 
 .btn {
+  font-family: $mainfont;
   appearance: none;
   position: relative;
   display: inline-block;
@@ -9,6 +10,8 @@
   height: 32px;
   border-style: solid;
   border-radius: 3px;
+  padding-top: 0;
+  padding-bottom: 0;
   padding-left: 15px;
   padding-right: 15px;
   cursor: pointer;

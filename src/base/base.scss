@@ -1,3 +1,5 @@
+@import "../common/variables";
+
 * {
   box-sizing: border-box;
 }
@@ -10,4 +12,16 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: $mainfont;
+}
+
+a {
+  text-decoration: none;
+  color: $blue500;
+  transition: color 100ms ease-out;
+}
+
+a:hover {
+  color: $blue600;
+  text-decoration: underline;
 }

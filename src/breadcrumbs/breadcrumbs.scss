@@ -72,6 +72,8 @@
 
 .breadcrumbs__link:hover {
   background-color: $buttoncolor;
+  color: white;
+  text-decoration: none;
 }
 
 .breadcrumbs__link:hover:after {
