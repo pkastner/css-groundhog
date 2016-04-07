@@ -5,22 +5,11 @@
         <a class="breadcrumbs__link" href="/doc">Home</a>
       </li>
       <li class="breadcrumbs__item">
-        <a class="breadcrumbs__link" href="/doc/components">Components</a>
-      </li>
-      <li class="breadcrumbs__item">
-        <span class="breadcrumbs__last">{{ title }}</span>
+        <span class="breadcrumbs__last">Components</span>
       </li>
     </ul>
     {% include "../_includes/component_nav.html" %}
     <main class="content">
-      <h2>Examples</h2>
-      {% for sample in samples %}
-      <div class="demo">
-        {{ sample | safe }}
-      </div>
-      <pre class="demo__code"><code>{{ sample | escape }}
-      </code></pre>
-      {% endfor %}
       {{ content | safe }}
     </main>
 {% include "../_includes/foot.html" %}

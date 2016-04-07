@@ -50,17 +50,22 @@ gulp.task('styles', () => {
 gulp.task('dev', (done) => {
   gulp.watch([styleFiles], ['styles:lint', 'styles']);
   gulp.watch(['src/**/samples/**/*.html','src/**/README.md'], ['doc']);
-  runSequence('copy-assets', 'styles:lint', 'styles', 'doc', 'serve', done);
+  runSequence('copy-assets', 'styles:lint', 'styles', 'doc', 'pages', 'serve', done);
 });
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function buildElem(file, data) {
+  let template = file.page.layout || 'components';
+  const templateFile = path.join(__dirname, 'docs', '_templates', `${template}.html`);
+  const tpl = swig.compileFile(templateFile, {cache: false});
+  file.contents = new Buffer(tpl(data));
+}
+
 function buildSite() {
   return through2.obj(function(file, enc, cb) {
-    let template = file.page.template || 'components';
-    const templateFile = path.join(__dirname, 'docs', '_templates', `${template}.html`);
     let els = file.path.split('/');
     const data = {
       site,
@@ -73,9 +78,20 @@ function buildSite() {
     data.samples = globby
       .sync(els.join('/') + '/samples/**/*.html')
       .map(file => fs.readFileSync(file).toString());
+    buildElem(file, data);
+    cb(null, file);
+  });
+}
 
-    const tpl = swig.compileFile(templateFile, {cache: false});
-    file.contents = new Buffer(tpl(data));
+function buildPage() {
+  return through2.obj(function(file, enc, cb) {
+    const data = {
+      site,
+      page: file.page,
+      title: file.page.title,
+      content: file.contents.toString()
+    };
+    buildElem(file, data);
     cb(null, file);
   });
 }
@@ -87,6 +103,26 @@ gulp.task('serve', function(done) {
     }
   });
   done();
+});
+
+gulp.task('pages', function() {
+  return gulp.src(['docs/_pages/**/*.md', 'docs/_pages/**/*.html'])
+    .pipe(frontmatter({
+      property: 'page',
+      remove: true
+    }))
+    .pipe(markdown())
+    .pipe(through2.obj(function(file, enc, cb) {
+      if(file.page.permalink) {
+        file.path = path.resolve('docs/_pages') + '/' + file.page.permalink;
+        if(!file.page.permalink.endsWith('.html')) {
+          file.path += '/index.html';
+        }
+      }
+      cb(null, file);
+    }))
+    .pipe(buildPage())
+    .pipe(gulp.dest('dist/doc'));
 });
 
 gulp.task('doc', function() {
