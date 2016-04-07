@@ -1,7 +1,7 @@
 ---
 title: CSS Groundhog
 layout: default
-permalink:
+permalink: index.html
 ---
 
- # Welcome to the new age of Ruxit CSS components
+ # Welcome to Ruxit CSS components

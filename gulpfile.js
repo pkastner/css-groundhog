@@ -137,7 +137,7 @@ gulp.task('doc', function() {
       path.extname = '.html';
     }))
     .pipe(buildSite())
-    .pipe(gulp.dest('dist/doc'));
+    .pipe(gulp.dest('dist/doc/components'));
 });
 
 gulp.task('copy-assets', function() {
