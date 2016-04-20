@@ -6,6 +6,10 @@
   background-color: $gray130;
 }
 
+.sidebar--expandable {
+  background-color: $gray160;
+}
+
 .sidebar__item {
   display: flex;
   flex-direction: column;
@@ -23,6 +27,12 @@
 
 .sidebar__item--active {
   background-color: $gray160;
+}
+
+.sidebar--expandable .sidebar__item--active {
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-color: $turquoise600;
 }
 
 .sidebar__item + .sidebar__item {

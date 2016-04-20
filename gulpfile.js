@@ -102,7 +102,8 @@ function buildPage() {
 gulp.task('serve', function(done) {
   bSync.init({
     server: {
-      baseDir: "./dist"
+      baseDir: "./dist",
+      open: false
     }
   });
   done();
