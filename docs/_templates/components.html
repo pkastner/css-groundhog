@@ -11,17 +11,19 @@
         <span class="breadcrumbs__last">{{ title }}</span>
       </li>
     </ul>
-    {% include "../_includes/component_nav.html" %}
-    <main class="content">
-      <h1>{{ title }}</h1>
-      <h2>Examples</h2>
-      {% for sample in samples %}
-      <div class="demo">
-        {{ sample | safe }}
-      </div>
-      <pre class="demo__code"><code>{{ sample | escape }}
-      </code></pre>
-      {% endfor %}
-      {{ content | safe }}
-    </main>
+    <div class="area">
+      {% include "../_includes/component_nav.html" %}
+      <main class="content">
+        <h1>{{ title }}</h1>
+        <h2>Examples</h2>
+        {% for sample in samples %}
+        <div class="demo">
+          {{ sample | safe }}
+        </div>
+        <div class="demo__code"><pre><code>{{ sample | highlight('html') | safe }}
+        </code></pre></div>
+        {% endfor %}
+        {{ content | safe }}
+      </main>
+    </div>
 {% include "../_includes/foot.html" %}

@@ -8,8 +8,10 @@
         <span class="breadcrumbs__last">Components</span>
       </li>
     </ul>
-    {% include "../_includes/component_nav.html" %}
-    <main class="content">
-      {{ content | safe }}
-    </main>
+    <div class="area">
+      {% include "../_includes/component_nav.html" %}
+      <main class="content">
+        {{ content | safe }}
+      </main>
+    </div>
 {% include "../_includes/foot.html" %}

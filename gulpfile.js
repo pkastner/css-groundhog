@@ -9,6 +9,7 @@ const markdown     = require('gulp-markdown');
 const frontmatter  = require('gulp-front-matter');
 const rename       = require('gulp-rename');
 const swig         = require('swig');
+const hljs         = require('highlight.js');
 const globby       = require('globby');
 const through2     = require('through2');
 const path         = require('path');
@@ -28,6 +29,8 @@ site.components = globby
       name: capitalizeFirstLetter(parts[parts.length - 2])
     }
   });
+
+swig.setFilter('highlight', (input, lang) => hljs.highlight(lang, input).value);
 
 gulp.task('styles:lint', () => {
   return stylelint.lint({
@@ -99,7 +102,8 @@ function buildPage() {
 gulp.task('serve', function(done) {
   bSync.init({
     server: {
-      baseDir: "./dist"
+      baseDir: "./dist",
+      open: false
     }
   });
   done();
@@ -135,6 +139,11 @@ gulp.task('doc', function() {
     .pipe(rename(function(path) {
       path.basename = 'index';
       path.extname = '.html';
+    }))
+    .pipe(through2.obj(function(file, enc, cb) {
+      file.page.permalink = file.page.permalink
+        || 'components/' + path.dirname(path.relative(path.resolve(__dirname, 'src'), file.path)) + '/';
+      cb(null, file);
     }))
     .pipe(buildSite())
     .pipe(gulp.dest('dist/doc/components'));

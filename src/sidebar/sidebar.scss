@@ -1,0 +1,62 @@
+@import "../common/variables";
+
+.sidebar {
+  display: block;
+  width: 284px;
+  background-color: $gray130;
+}
+
+.sidebar--expandable {
+  background-color: $gray160;
+}
+
+.sidebar__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60px;
+  padding-left: 20px;
+  padding-right: 8px;
+  width: 100%;
+  text-decoration: none;
+}
+
+.sidebar__item:hover {
+  text-decoration: none;
+}
+
+.sidebar__item--active {
+  background-color: $gray160;
+}
+
+.sidebar--expandable .sidebar__item--active {
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-color: $turquoise600;
+}
+
+.sidebar__item + .sidebar__item {
+  border-top: 1px solid $gray200;
+}
+
+.sidebar__headline {
+  color: $gray700;
+  display: block;
+  font-size: 15px;
+  line-height: 2em;
+}
+
+.sidebar__headline:hover {
+  color: $turquoise600;
+}
+
+.sidebar__item--active .sidebar__headline {
+  color: $turquoise600;
+  font-weight: 600;
+}
+
+.sidebar__info {
+  display: block;
+  font-size: 13px;
+  color: $gray500;
+}

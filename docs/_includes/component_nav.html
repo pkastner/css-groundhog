@@ -1,7 +1,7 @@
-<nav class="component-nav">
-  <ul>
+<nav class="sidebar component-nav">
 {% for component in site.components %}
-    <li><a href="/doc/components/{{component.url}}">{{component.name}}</a></li>
+  <a class="sidebar__item{% if page.permalink.indexOf(component.url) > -1 %} sidebar__item--active{% endif %}" href="/doc/components/{{component.url}}">
+    <span class="sidebar__headline">{{component.name}}</span>
+  </a>
 {% endfor %}
-  </ul>
 </nav>
