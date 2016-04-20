@@ -1,0 +1,42 @@
+@import "../common/variables";
+@import "arrow";
+
+.pagination {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pagination,
+.pagination > ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.pagination__item {
+  margin: 0;
+  float: left;
+  display: block;
+  line-height: 2rem;
+  font-size: 0.875rem;
+  min-width: 1.625rem;
+  text-align: center;
+}
+
+.pagination__link {
+  display: inherit;
+  color: $gray620;
+}
+
+.pagination__link:hover {
+  color: $gray700;
+  text-decoration: none;
+}
+
+.pagination__current {
+  font-weight: bold;
+}
+
+.pagination__dots {
+  color: $gray300;
+}
