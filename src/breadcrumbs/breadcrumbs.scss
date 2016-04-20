@@ -70,12 +70,14 @@
   z-index: 2;
 }
 
-.breadcrumbs__link:hover {
+.breadcrumbs__link:hover,
+.breadcrumbs__link:focus {
   background-color: $buttoncolor;
   color: #fff;
   text-decoration: none;
 }
 
-.breadcrumbs__link:hover:after {
+.breadcrumbs__link:hover:after,
+.breadcrumbs__link:focus:after {
   border-left-color: $buttoncolor;
 }
