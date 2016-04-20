@@ -139,6 +139,11 @@ gulp.task('doc', function() {
       path.basename = 'index';
       path.extname = '.html';
     }))
+    .pipe(through2.obj(function(file, enc, cb) {
+      file.page.permalink = file.page.permalink
+        || 'components/' + path.dirname(path.relative(path.resolve(__dirname, 'src'), file.path)) + '/';
+      cb(null, file);
+    }))
     .pipe(buildSite())
     .pipe(gulp.dest('dist/doc/components'));
 });
