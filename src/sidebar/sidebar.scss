@@ -33,10 +33,6 @@
   background-color: $gray160;
 }
 
-.sidebar__item--expanded {
-  height: auto;
-}
-
 .sidebar__item + .sidebar__item {
   border-top: 1px solid $gray200;
 }
@@ -61,4 +57,26 @@
   display: block;
   font-size: 13px;
   color: $gray500;
+}
+
+/* Expandable addons */
+
+.sidebar .expandable__content {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  background-color: $gray130;
+}
+
+.sidebar .expandable__trigger {
+  background-color: $gray160;
+}
+
+.expandable__content .sidebar__item {
+  padding-left: 40px;
+  height: 34px;
+  border-top: none;
+}
+
+.expandable__content .sidebar__item--active {
+  background-color: $gray130;
 }

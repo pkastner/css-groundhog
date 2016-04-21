@@ -1,0 +1,60 @@
+@import "../common/variables";
+
+.expandable {
+
+}
+
+.expandable__trigger {
+  position: relative;
+  padding-left: 32px;
+  text-decoration: none;
+  color: $turquoise500;
+}
+
+.expandable__trigger:hover {
+  text-decoration: none;
+  color: $turquoise700;
+}
+
+.expandable__trigger:before {
+  content: " ";
+  position: absolute;
+  background-image: url(/assets/images/icons/dropdown_open.svg);
+  background-size: 1em;
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+  background-position: center;
+  left: 0;
+  top: 0;
+  transform: rotate(0);
+  transition: transform 0.3s ease;
+}
+
+.expandable__trigger--right {
+  padding-left: 0;
+  padding-right: 32px;
+}
+
+.expandable__trigger--right:before {
+  left: auto;
+  right: 0;
+}
+
+.expandable__content {
+  display: none;
+}
+
+.expandable--expanded {
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-color: $turquoise500;
+}
+
+.expandable--expanded .expandable__trigger:before {
+  transform: rotate(180deg);
+}
+
+.expandable--expanded .expandable__content {
+  display: block;
+}

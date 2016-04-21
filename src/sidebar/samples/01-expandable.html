@@ -1,12 +1,30 @@
-<nav class="sidebar sidebar--expandable">
-  <div class="sidebar__item sidebar__item--expandable sidebar__item--expanded">
-    <span class="sidebar__headline">Monitoring</span>
-    <span class="sidebar__info">Setup and Overview</span>
-    <a href="#" class="sidebar__item sidebar__item--active">
-      <span class="sidebar__headline">General</span>
+<nav class="sidebar">
+  <div class="expandable expandable--expanded">
+    <a href="#" class="sidebar__item expandable__trigger expandable__trigger--right">
+      <span class="sidebar__headline">Monitoring</span>
+      <span class="sidebar__info">Setup and overview</span>
     </a>
-    <a href="#" class="sidebar__item">
-      <span class="sidebar__headline">User actions</span>
+    <div class="expandable__content">
+      <a href="#" class="sidebar__item sidebar__item--active">
+        <span class="sidebar__headline">General</span>
+      </a>
+      <a href="#" class="sidebar__item">
+        <span class="sidebar__headline">User actions</span>
+      </a>
+    </div>
+  </div>
+  <div class="expandable">
+    <a href="#" class="sidebar__item expandable__trigger expandable__trigger--right">
+      <span class="sidebar__headline">Web monitoring</span>
+      <span class="sidebar__info">Global settings and configuration</span>
     </a>
+    <div class="expandable__content">
+      <a href="#" class="sidebar__item sidebar__item--active">
+        <span class="sidebar__headline">General</span>
+      </a>
+      <a href="#" class="sidebar__item">
+        <span class="sidebar__headline">User actions</span>
+      </a>
+    </div>
   </div>
 </nav>
