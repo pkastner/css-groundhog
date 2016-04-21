@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "gulp-kramdown": "^0.5.1",
     "highlight.js": "^9.3.0",
     "merge2": "^1.0.2"
   },

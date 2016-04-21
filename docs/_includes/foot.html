@@ -1,2 +1,12 @@
+  <script>
+      var expands = document.querySelectorAll('.expandable__trigger');
+      Array.prototype.forEach.call(expands, function(el) {
+        el.addEventListener('click', function(ev) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          el.parentNode.classList.toggle('expandable--expanded');
+        });
+      });
+  </script>
 </body>
 </html>
