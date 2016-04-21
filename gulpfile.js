@@ -129,6 +129,18 @@ gulp.task('pages', function() {
     .pipe(gulp.dest('dist/doc'));
 });
 
+markdown.marked.Renderer.prototype.table = function(header, body) {
+  return '<table class="table">\n'
+    + '<thead>\n'
+    + header
+    + '</thead>\n'
+    + '<tbody>\n'
+    + body
+    + '</tbody>\n'
+    + '</table>\n';
+};
+
+
 gulp.task('doc', function() {
   return gulp.src('src/**/README.md')
     .pipe(markdown())
@@ -155,4 +167,4 @@ gulp.task('copy-assets', function() {
       .pipe(gulp.dest('dist/assets')),
     gulp.src('docs/_assets/**/*')
       .pipe(gulp.dest('dist/doc')));
-})
+});
