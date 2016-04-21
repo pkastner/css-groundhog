@@ -3,11 +3,6 @@
 .sidebar {
   display: block;
   width: 284px;
-  background-color: $gray130;
-}
-
-.sidebar--expandable {
-  background-color: $gray160;
 }
 
 .sidebar__item {
@@ -19,6 +14,7 @@
   padding-right: 8px;
   width: 100%;
   text-decoration: none;
+  background-color: $gray130;
 }
 
 .sidebar__item:hover {
@@ -29,10 +25,16 @@
   background-color: $gray160;
 }
 
-.sidebar--expandable .sidebar__item--active {
+.sidebar__item--expandable {
   border-top: 2px solid;
   border-bottom: 2px solid;
   border-color: $turquoise600;
+  overflow: hidden;
+  background-color: $gray160;
+}
+
+.sidebar__item--expanded {
+  height: auto;
 }
 
 .sidebar__item + .sidebar__item {
