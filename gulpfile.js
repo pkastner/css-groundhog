@@ -131,11 +131,11 @@ gulp.task('pages', function() {
 
 gulp.task('doc', function() {
   return gulp.src('src/**/README.md')
+    .pipe(markdown())
     .pipe(frontmatter({
       property: 'page',
       remove: true
     }))
-    .pipe(markdown())
     .pipe(rename(function(path) {
       path.basename = 'index';
       path.extname = '.html';
