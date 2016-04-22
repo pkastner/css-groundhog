@@ -41,11 +41,14 @@
 }
 
 .breadcrumbs__last {
-  padding: 0 12px;
+  padding: 0 16px;
+  margin-left: -4px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+// REVIEW: Why not 16px?
+.breadcrumbs__item:first-child .breadcrumbs__last,
 .breadcrumbs__item:first-child .breadcrumbs__link {
   padding-left: 12px;
 }

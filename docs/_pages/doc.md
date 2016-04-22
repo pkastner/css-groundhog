@@ -1,7 +1,7 @@
 ---
 title: CSS Groundhog
 layout: default
-permalink: index.html
+permalink: ../index.html
 ---
 
- # Welcome to Ruxit CSS components
+ # Welcome to Groundhog! CSS Components for Dynatrace
