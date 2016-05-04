@@ -1,0 +1,35 @@
+@import "../common/variables";
+
+.footer {
+  background-color: $gray800;
+  color: #fff;
+  padding-bottom: 3rem;
+  line-height: 1.4rem;
+}
+
+.footer__socials {
+  border-top: 1px solid #fff;
+  padding-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  text-align: center;
+}
+
+.footer__sociallink {
+  display: inline-block;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0.5rem;
+  fill: #fff;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  transition: background-color 100ms ease-in-out, fill 100ms ease-in-out;
+}
+
+.footer__sociallink:hover {
+  background-color: #fff;
+  fill: $gray800;
+}
