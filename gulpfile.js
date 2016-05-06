@@ -8,6 +8,8 @@ const runSequence  = require('run-sequence');
 const markdown     = require('gulp-markdown');
 const frontmatter  = require('gulp-front-matter');
 const rename       = require('gulp-rename');
+const sprites      = require('gulp-svg-symbols');
+const svgo         = require('gulp-svgo');
 const swig         = require('swig');
 const hljs         = require('highlight.js');
 const globby       = require('globby');
@@ -168,3 +170,17 @@ gulp.task('copy-assets', function() {
     gulp.src('docs/_assets/**/*')
       .pipe(gulp.dest('dist/doc')));
 });
+
+gulp.task('icons', function() {
+  return gulp.src('assets/icons/**/*.svg')
+    .pipe(svgo())
+    .pipe(rename(function(path) {
+      path.basename = path.basename.toLowerCase();
+      path.basename = path.basename.replace(/icons_file_00._/, '');
+      path.basename = path.basename.replace(/_/g, '-');
+      path.basename = path.basename.replace(/[^\w\s-]/gi, '');
+    }))
+    .pipe(gulp.dest('dist/assets/images/icons'))
+    .pipe(sprites({ templates: ['default-svg']}))
+    .pipe(gulp.dest('dist/assets/images'));
+})
