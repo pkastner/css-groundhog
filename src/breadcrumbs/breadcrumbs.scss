@@ -9,21 +9,17 @@
   width: 100%;
   color: #fff;
   font-family: $mainfont;
-  font-size: 16px;
+  font-size: 14px;
   background-color: $buttoncolor;
-  line-height: 1em;
   overflow: hidden;
   z-index: 4;
-  border-top: 1px solid #fff;
 }
 
 .breadcrumbs__item {
   display: inline-block;
   position: relative;
-  margin-top: 0;
-  font-size: 1rem;
   max-height: 30px;
-  line-height: 30px;
+  line-height: 31px;
 }
 
 .breadcrumbs__link {
@@ -47,10 +43,9 @@
   white-space: nowrap;
 }
 
-// REVIEW: Why not 16px?
 .breadcrumbs__item:first-child .breadcrumbs__last,
 .breadcrumbs__item:first-child .breadcrumbs__link {
-  padding-left: 12px;
+  padding-left: 20px;
 }
 
 .breadcrumbs__link:before,
