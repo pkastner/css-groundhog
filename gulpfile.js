@@ -55,7 +55,7 @@ gulp.task('styles', () => {
 gulp.task('dev', (done) => {
   gulp.watch([styleFiles], ['styles:lint', 'styles']);
   gulp.watch(['src/**/samples/**/*.html','src/**/README.md'], ['doc']);
-  runSequence('copy-assets', 'styles:lint', 'styles', 'doc', 'pages', 'serve', done);
+  runSequence('copy-assets', 'icons', 'styles:lint', 'styles', 'doc', 'pages', 'serve', done);
 });
 
 function capitalizeFirstLetter(string) {
@@ -145,11 +145,11 @@ markdown.marked.Renderer.prototype.table = function(header, body) {
 
 gulp.task('doc', function() {
   return gulp.src('src/**/README.md')
-    .pipe(markdown())
     .pipe(frontmatter({
       property: 'page',
       remove: true
     }))
+    .pipe(markdown())
     .pipe(rename(function(path) {
       path.basename = 'index';
       path.extname = '.html';
@@ -173,7 +173,11 @@ gulp.task('copy-assets', function() {
 
 gulp.task('icons', function() {
   return gulp.src('assets/icons/**/*.svg')
-    .pipe(svgo())
+    .pipe(svgo({
+      plugins: [
+        { removeAttrs: { attrs: 'fill' } }
+      ]
+    }))
     .pipe(rename(function(path) {
       path.basename = path.basename.toLowerCase();
       path.basename = path.basename.replace(/icons_file_00._/, '');
