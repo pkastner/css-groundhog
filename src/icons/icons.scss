@@ -1,0 +1,44 @@
+@import "../common/variables";
+
+.icon {
+  width: 32px;
+  height: 32px;
+}
+
+.icon--small {
+  width: 18px;
+  height: 18px;
+}
+
+.icon--big {
+  width: 64px;
+  height: 64px;
+}
+
+.icon--white {
+  fill: #fff;
+}
+
+.icon--grey {
+  fill: $gray700;
+}
+
+.icon--black {
+  fill: #000;
+}
+
+.icon--green {
+  fill: $greenicon;
+}
+
+.icon--red {
+  fill: $redicon;
+}
+
+.icon--yellow {
+  fill: $yellowicon;
+}
+
+.icon--blue {
+  fill: $blueicon;
+}

@@ -108,14 +108,14 @@
 /*
 * iconOnly button styles
 */
-.btn.btn__icon {
+.btn--icon {
   padding-left: 0;
   padding-right: 0;
   width: 32px;
   text-align: center;
 }
 
-.btn.btn__icon > .icon {
+.btn--icon > .icon {
   margin-right: 0;
 }
 

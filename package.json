@@ -10,6 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "gulp-kramdown": "^0.5.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-svg-symbols": "^1.0.0",
+    "gulp-svgo": "^1.0.3",
     "highlight.js": "^9.3.0",
     "merge2": "^1.0.2"
   },
