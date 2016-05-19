@@ -1,0 +1,140 @@
+@import "../common/variables";
+
+/*
+* Tab group
+*/
+
+.tabs {
+  display: flex;
+  font-family: $mainfont;
+}
+
+
+/*
+* Tab stylings
+*/
+.tab {
+  flex: 1 1 100px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 2rem;
+  height: 2rem;
+  vertical-align: middle;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0;
+  padding-top: 0;
+  margin-left: 2px;
+  margin-right: 2px;
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  position: relative;
+  cursor: pointer;
+  box-shadow: none;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.tab:active,
+.tab:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.tab:first-of-type {
+  margin-left: 0;
+}
+
+.tab:last-of-type {
+  margin-right: 0;
+}
+
+.tab:after {
+  content: " ";
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: height 100ms ease-out;
+}
+
+/*
+* Hide tab__radio input
+*/
+.tab__input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  clip:rect(0,0,0,0);
+}
+
+
+/*
+* Tab hover and active states states
+*/
+
+.tab:hover:after {
+  height: 4px;
+  background-color: $turquoise500;
+}
+
+.tab.is-active,
+.tab__input:checked + .tab {
+  color: #fff;
+  background-color: $turquoise500;
+}
+
+
+/*
+* Themes
+*/
+
+@mixin tabtheme($color) {
+
+  .tab:after {
+    background-color: $color;
+  }
+
+  .tabhighlight {
+    color: $color;
+  }
+
+  .tab.is-active .tabhighlight,
+  .tab__input:checked + .tab .tabhighlight {
+    color: #fff;
+  }
+
+  .tab.is-active,
+  .tab__input:checked + .tab {
+    background-color: $color;
+    color: #fff;
+  }
+}
+
+.tabs--error {
+
+  @include tabtheme($red500);
+}
+
+/*
+* Disabled
+*/
+
+.tab.is-disabled,
+.tab__input:disabled + .tab {
+  color: $gray300;
+
+  &:after,
+  &:hover:after {
+    background-color: $gray300;
+    height: 1px;
+  }
+
+  .tabhighlight {
+    color: $gray300;
+  }
+}
