@@ -8,7 +8,7 @@
 }
 
 .pagination,
-.pagination > ul {
+.pagination > ul {  // REVIEW: Rethink specificity
   padding-left: 0;
   list-style-type: none;
 }

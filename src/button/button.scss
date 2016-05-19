@@ -30,6 +30,8 @@
   text-decoration: none;
 }
 
+// REVIEW: Groundhog uses box-sizing: border-box project-wide
+
 .btn * {
   /* use border-box for whole button widget to be independent from global box-sizing applied with * selector */
   box-sizing: border-box;
