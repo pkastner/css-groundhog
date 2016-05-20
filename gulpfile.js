@@ -19,6 +19,19 @@ const bSync        = require('browser-sync');
 const fs           = require('fs');
 const merge        = require('merge2');
 
+/*
+* Metalsmith dependencies
+*/
+const Metalsmith        = require('metalsmith');
+const inplace           = require('metalsmith-in-place');
+const layouts           = require('metalsmith-layouts');
+const handlebars        = require('handlebars');
+const handlebarsLayout  = require('handlebars-layouts');
+const markdownms        = require('metalsmith-markdown');
+const permalinks        = require('metalsmith-permalinks');
+const navigation        = require('metalsmith-navigation');
+
+
 const styleFiles = 'src/**/*.scss';
 const site = {};
 site.components = globby
@@ -60,45 +73,6 @@ gulp.task('dev', (done) => {
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-function buildElem(file, data) {
-  let template = file.page.layout || 'components';
-  const templateFile = path.join(__dirname, 'docs', '_templates', `${template}.html`);
-  const tpl = swig.compileFile(templateFile, {cache: false});
-  file.contents = new Buffer(tpl(data));
-}
-
-function buildSite() {
-  return through2.obj(function(file, enc, cb) {
-    let els = file.path.split('/');
-    const data = {
-      site,
-      page: file.page,
-      title: capitalizeFirstLetter(els[els.length - 2]),
-      content: file.contents.toString()
-    };
-
-    els.pop();
-    data.samples = globby
-      .sync(els.join('/') + '/samples/**/*.html')
-      .map(file => fs.readFileSync(file).toString());
-    buildElem(file, data);
-    cb(null, file);
-  });
-}
-
-function buildPage() {
-  return through2.obj(function(file, enc, cb) {
-    const data = {
-      site,
-      page: file.page,
-      title: file.page.title,
-      content: file.contents.toString()
-    };
-    buildElem(file, data);
-    cb(null, file);
-  });
 }
 
 gulp.task('serve', function(done) {
@@ -143,24 +117,41 @@ markdown.marked.Renderer.prototype.table = function(header, body) {
 };
 
 
-gulp.task('doc', function() {
-  return gulp.src('src/**/README.md')
-    .pipe(frontmatter({
-      property: 'page',
-      remove: true
-    }))
-    .pipe(markdown())
-    .pipe(rename(function(path) {
-      path.basename = 'index';
-      path.extname = '.html';
-    }))
-    .pipe(through2.obj(function(file, enc, cb) {
-      file.page.permalink = file.page.permalink
-        || 'components/' + path.dirname(path.relative(path.resolve(__dirname, 'src'), file.path)) + '/';
-      cb(null, file);
-    }))
-    .pipe(buildSite())
-    .pipe(gulp.dest('dist/doc/components'));
+gulp.task('doc', function(taskDone) {
+  Metalsmith('./')
+    .source('./docs/_pages/')
+    // .use((files, metalsmith, done) => {
+    //   console.log(files);
+    //   done();
+    // })
+    .destination('dist2')
+    .use((files, metalsmith, done) => {
+      globby('*/', {
+        cwd: path.resolve(metalsmith._directory, 'src')
+      })
+      .then((paths) => console.log(paths))
+      .then(() => done());
+    })
+    // .use(inplace({
+    //   engine: 'handlebars',
+    //   partials: './docs/_templates/partials/',
+    // }))
+    .use(markdownms())
+    .use(permalinks())
+    // .use(navigation())
+    //
+    // .use(layouts({
+    //   engine: 'handlebars',
+    //   directory: './docs/_templates/layouts/',
+    //   partials: './docs/_templates/partials/',
+    //   default: 'default.hbs'
+    // }))
+    .build((err) => {
+      if (err) {
+        throw new Error(err);
+      }
+      taskDone();
+    });
 });
 
 gulp.task('copy-assets', function() {
