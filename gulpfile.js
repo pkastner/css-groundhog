@@ -28,7 +28,8 @@ const markdownms        = require('metalsmith-markdown');
 const permalinks        = require('metalsmith-permalinks');
 const navigation        = require('metalsmith-navigation');
 const matter            = require('gray-matter');
-handlebars.registerHelper(handlebarsLayout(handlebars));
+const requiredir        = require('require-dir');
+
 
 const styleFiles = 'src/**/*.scss';
 const site = {};
@@ -94,10 +95,22 @@ markdown.marked.Renderer.prototype.table = function(header, body) {
 
 
 gulp.task('doc', function(taskDone) {
+  /*
+  * setup handlebars
+  */
+  handlebars.registerHelper(handlebarsLayout(handlebars));
+  const layoutPartials = requiredir('./docs/_templates/layouts');
+  const templatePartials = requiredir('./docs/_templates/partials');
+  const hbsPartials = Object.assign(layoutPartials, templatePartials);
+  Object.keys(hbsPartials).forEach((key) => handlebars.registerPartial(key, hbsPartials[key]));
+
   Metalsmith('./')
     .source('./docs/_pages/')
     .destination('dist2')
     .use((files, metalsmith, done) => {
+      /*
+      * components Plugin
+      */
       var componentFiles = {};
       return globby('**/README.md', {
         cwd: path.resolve(metalsmith._directory, 'src')
@@ -115,6 +128,7 @@ gulp.task('doc', function(taskDone) {
           componentFile.stats = fs.statSync(path.resolve(metalsmith._directory, 'src', component));
           componentFile.data = parsed.data;
           componentFile.type = 'component';
+          componentFile.layout = 'component_overview.hbs';
           var content = parsed.content;
 
           /*
