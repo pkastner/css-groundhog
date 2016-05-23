@@ -1,5 +1,5 @@
 ---
 title: Components
-layout: component_overview
+layout: component_overview.hbs
 ---
  # All the components!

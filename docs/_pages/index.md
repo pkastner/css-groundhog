@@ -1,6 +1,6 @@
 ---
 title: CSS Groundhog
-layout: default
+permalink: false
 ---
 
  # Welcome to Groundhog! CSS Components for Dynatrace
