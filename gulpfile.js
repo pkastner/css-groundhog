@@ -104,6 +104,8 @@ gulp.task('doc', function(taskDone) {
   const templatePartials = requiredir('./docs/_templates/partials');
   const hbsPartials = Object.assign(layoutPartials, templatePartials);
   Object.keys(hbsPartials).forEach((key) => handlebars.registerPartial(key, hbsPartials[key]));
+  const helpers = requiredir('./docs/_templates/helpers');
+  Object.keys(helpers).forEach((key) => handlebars.registerHelper(key, helpers[key]));
 
   Metalsmith('./')
     .source('./docs/_pages/')

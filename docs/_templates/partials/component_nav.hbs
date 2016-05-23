@@ -1,6 +1,6 @@
 <div class="sidebar component-nav">
   {{# each nav.componentsNav}}
-    <a class="sidebar__item" href="/{{file.path}}">
+    <a class="sidebar__item {{isactive ../this file.path 'sidebar__item' }}" href="/{{file.path}}">
       <span class=sidebar__headline>{{file.title}}</span>
     </a>
   {{/each}}
