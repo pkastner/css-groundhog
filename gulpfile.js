@@ -6,12 +6,9 @@ const prefix       = require('gulp-autoprefixer');
 const gulp         = require('gulp');
 const runSequence  = require('run-sequence');
 const markdown     = require('gulp-markdown');
-const frontmatter  = require('gulp-front-matter');
 const rename       = require('gulp-rename');
 const sprites      = require('gulp-svg-symbols');
 const svgo         = require('gulp-svgo');
-const swig         = require('swig');
-const hljs         = require('highlight.js');
 const globby       = require('globby');
 const through2     = require('through2');
 const path         = require('path');
@@ -30,7 +27,8 @@ const handlebarsLayout  = require('handlebars-layouts');
 const markdownms        = require('metalsmith-markdown');
 const permalinks        = require('metalsmith-permalinks');
 const navigation        = require('metalsmith-navigation');
-
+const matter            = require('gray-matter');
+handlebars.registerHelper(handlebarsLayout(handlebars));
 
 const styleFiles = 'src/**/*.scss';
 const site = {};
@@ -44,8 +42,6 @@ site.components = globby
       name: capitalizeFirstLetter(parts[parts.length - 2])
     }
   });
-
-swig.setFilter('highlight', (input, lang) => hljs.highlight(lang, input).value);
 
 gulp.task('styles:lint', () => {
   return stylelint.lint({
@@ -85,26 +81,6 @@ gulp.task('serve', function(done) {
   done();
 });
 
-gulp.task('pages', function() {
-  return gulp.src(['docs/_pages/**/*.md', 'docs/_pages/**/*.html'])
-    .pipe(frontmatter({
-      property: 'page',
-      remove: true
-    }))
-    .pipe(markdown())
-    .pipe(through2.obj(function(file, enc, cb) {
-      if(file.page.permalink) {
-        file.path = path.resolve('docs/_pages') + '/' + file.page.permalink;
-        if(!file.page.permalink.endsWith('.html')) {
-          file.path += '/index.html';
-        }
-      }
-      cb(null, file);
-    }))
-    .pipe(buildPage())
-    .pipe(gulp.dest('dist/doc'));
-});
-
 markdown.marked.Renderer.prototype.table = function(header, body) {
   return '<table class="table">\n'
     + '<thead>\n'
@@ -120,32 +96,88 @@ markdown.marked.Renderer.prototype.table = function(header, body) {
 gulp.task('doc', function(taskDone) {
   Metalsmith('./')
     .source('./docs/_pages/')
-    // .use((files, metalsmith, done) => {
-    //   console.log(files);
-    //   done();
-    // })
     .destination('dist2')
     .use((files, metalsmith, done) => {
-      globby('*/', {
+      var componentFiles = {};
+      return globby('**/README.md', {
         cwd: path.resolve(metalsmith._directory, 'src')
       })
-      .then((paths) => console.log(paths))
-      .then(() => done());
+      .then((componentSources) => {
+        componentSources.map((component) => {
+          var componentFile = {
+            title: capitalizeFirstLetter(path.dirname(component))
+          };
+
+          /*
+          * read README.md file and and fsStats
+          */
+          const parsed = matter(fs.readFileSync(path.resolve(metalsmith._directory, 'src', component)).toString());
+          componentFile.stats = fs.statSync(path.resolve(metalsmith._directory, 'src', component));
+          componentFile.data = parsed.data;
+          componentFile.type = 'component';
+          var content = parsed.content;
+
+          /*
+          * read Samples and append to content
+          */
+          const samples = globby
+            .sync('**.*', {cwd: path.resolve(metalsmith._directory, 'src', path.dirname(component), 'samples')})
+
+          samples.map((sample) => {
+            var ext = path.extname(sample);
+            var fileContent = fs.readFileSync(path.resolve(metalsmith._directory, 'src', path.dirname(component), 'samples', sample)).toString();
+
+            content+= `\n\n${fileContent}\n`;
+            if (ext === '.html') {
+              componentFile.samples = componentFile.samples || [];
+              componentFile.samples.push({
+                name: sample,
+                code: fileContent
+              });
+              content+= `\n~~~html\n${fileContent}\n~~~\n`;
+            }
+          });
+
+          /*
+          * Map content
+          */
+          componentFile.contents = new Buffer(content);
+          componentFiles['components/' + path.dirname(component) + '.md'] = componentFile;
+        });
+        return true;
+      })
+      .then(() => {
+        files = Object.assign(files, componentFiles);
+        return true;
+      })
+      .then(() => {
+        done();
+      });
     })
     // .use(inplace({
     //   engine: 'handlebars',
     //   partials: './docs/_templates/partials/',
     // }))
     .use(markdownms())
-    .use(permalinks())
+    .use((files, metalsmith, done) => {
+      Object.keys(files).forEach((key) => files[key].name = path.basename(key, '.html'));
+      done();
+    })
+    .use(permalinks({
+      pattern: 'doc/:name',
+
+      linksets: [{
+        match: { type: 'component' },
+        pattern: 'doc/components/:name'
+      }]
+    }))
     // .use(navigation())
     //
-    // .use(layouts({
-    //   engine: 'handlebars',
-    //   directory: './docs/_templates/layouts/',
-    //   partials: './docs/_templates/partials/',
-    //   default: 'default.hbs'
-    // }))
+    .use(layouts({
+      engine: 'handlebars',
+      directory: './docs/_templates/layouts',
+      default: 'default.hbs'
+    }))
     .build((err) => {
       if (err) {
         throw new Error(err);

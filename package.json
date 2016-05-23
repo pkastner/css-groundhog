@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "gray-matter": "^2.0.2",
     "gulp-kramdown": "^0.5.1",
     "gulp-rename": "^1.2.2",
     "gulp-svg-symbols": "^1.0.0",
