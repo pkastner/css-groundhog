@@ -1,4 +1,19 @@
 {{#extend 'default'}}
+  {{#content 'breadcrumbs'}}
+  <ul class="breadcrumbs">
+    <li class="breadcrumbs__item">
+      <a class="breadcrumbs__link" href="/">Home</a>
+    </li>
+    <li class="breadcrumbs__item">
+      <span class="breadcrumbs__last">Components</span>
+    </li>
+  </ul>
+  {{/content}}
+
+  {{#content 'sidebar'}}
+    {{> component_nav}}
+  {{/content}}
+
   {{#content 'main'}}
   {{{contents}}}
   {{/content}}

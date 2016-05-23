@@ -27,6 +27,7 @@ const handlebarsLayout  = require('handlebars-layouts');
 const markdownms        = require('metalsmith-markdown');
 const permalinks        = require('metalsmith-permalinks');
 const navigation        = require('metalsmith-navigation');
+const codehighlight     = require('metalsmith-code-highlight');
 const matter            = require('gray-matter');
 const requiredir        = require('require-dir');
 
@@ -65,7 +66,7 @@ gulp.task('styles', () => {
 gulp.task('dev', (done) => {
   gulp.watch([styleFiles], ['styles:lint', 'styles']);
   gulp.watch(['src/**/samples/**/*.html','src/**/README.md'], ['doc']);
-  runSequence('copy-assets', 'icons', 'styles:lint', 'styles', 'doc', 'pages', 'serve', done);
+  runSequence('copy-assets', 'icons', 'styles:lint', 'styles', 'doc', 'serve', done);
 });
 
 function capitalizeFirstLetter(string) {
@@ -106,7 +107,8 @@ gulp.task('doc', function(taskDone) {
 
   Metalsmith('./')
     .source('./docs/_pages/')
-    .destination('dist2')
+    .clean(false)
+    .destination('dist')
     .use((files, metalsmith, done) => {
       /*
       * components Plugin
@@ -168,11 +170,12 @@ gulp.task('doc', function(taskDone) {
         done();
       });
     })
-    // .use(inplace({
-    //   engine: 'handlebars',
-    //   partials: './docs/_templates/partials/',
-    // }))
+    .use(inplace({
+      engine: 'handlebars',
+      partials: './docs/_templates/partials/',
+    }))
     .use(markdownms())
+    .use(codehighlight())
     .use((files, metalsmith, done) => {
       Object.keys(files).forEach((key) => files[key].name = path.basename(key, '.html'));
       done();
@@ -185,8 +188,28 @@ gulp.task('doc', function(taskDone) {
         pattern: 'doc/components/:name'
       }]
     }))
-    // .use(navigation())
-    //
+    .use(navigation({
+      componentsNav: {
+        includeDirs: true,
+        filterProperty: 'type',
+        filterValue: 'component'
+      }
+    }, {
+      navListProperty: 'nav',
+      permalinks: false
+    }))
+    .use((files, metalsmith, done) => {
+      /*
+      * navigation plugin being stupid, flattening things
+      */
+      const components = metalsmith._metadata.nav.componentsNav[0].children[0].children;
+      let componentsNav = [];
+      components.forEach((dir) => {
+        componentsNav.push(dir.children[0])
+      })
+      metalsmith._metadata.nav.componentsNav = componentsNav;
+      done();
+    })
     .use(layouts({
       engine: 'handlebars',
       directory: './docs/_templates/layouts',

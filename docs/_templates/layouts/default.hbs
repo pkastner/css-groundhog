@@ -42,8 +42,19 @@
     </style>
   </head>
   <body>
-    {{#block 'main'}}
-      {{{contents}}}
+    {{> navigation}}
+    {{#block 'breadcrumbs'}}
     {{/block}}
+
+    <div class="area">
+      {{#block 'sidebar'}}
+      {{/block}}
+      <main class="content">
+        {{#block 'main'}}
+        {{{contents}}}
+        {{/block}}
+      </main>
+    </div>
+    {{> footer}}
   </body>
 </html>
