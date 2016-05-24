@@ -28,8 +28,11 @@ const markdownms        = require('metalsmith-markdown');
 const permalinks        = require('metalsmith-permalinks');
 const navigation        = require('metalsmith-navigation');
 const codehighlight     = require('metalsmith-code-highlight');
-const matter            = require('gray-matter');
+const components        = require('./build/plugins/components');
 const requiredir        = require('require-dir');
+const flatnav           = require('./build/plugins/flatnav');
+
+const capitalizeFirstLetter = require('./build/util/capitalizeFirstLetter');
 
 
 const styleFiles = 'src/**/*.scss';
@@ -65,13 +68,9 @@ gulp.task('styles', () => {
 
 gulp.task('dev', (done) => {
   gulp.watch([styleFiles], ['styles:lint', 'styles']);
-  gulp.watch(['src/**/samples/**/*.html','src/**/README.md'], ['doc']);
+  gulp.watch(['src/**/samples/**/*.html','src/**/README.md', 'docs/**/*'], ['doc']);
   runSequence('copy-assets', 'icons', 'styles:lint', 'styles', 'doc', 'serve', done);
 });
-
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 gulp.task('serve', function(done) {
   bSync.init({
@@ -111,73 +110,13 @@ gulp.task('doc', function(taskDone) {
     .source('./docs/_pages/')
     .clean(false)
     .destination('dist')
-    .use((files, metalsmith, done) => {
-      /*
-      * components Plugin
-      */
-      var componentFiles = {};
-      return globby('**/README.md', {
-        cwd: path.resolve(metalsmith._directory, 'src')
-      })
-      .then((componentSources) => {
-        componentSources.map((component) => {
-          var componentFile = {
-            title: capitalizeFirstLetter(path.dirname(component))
-          };
-
-          /*
-          * read README.md file and and fsStats
-          */
-          const parsed = matter(fs.readFileSync(path.resolve(metalsmith._directory, 'src', component)).toString());
-          componentFile.stats = fs.statSync(path.resolve(metalsmith._directory, 'src', component));
-          componentFile.data = parsed.data;
-          componentFile.type = 'component';
-          componentFile.layout = 'component_overview.hbs';
-          var content = parsed.content;
-
-          /*
-          * read Samples and append to content
-          */
-          const samples = globby
-            .sync('**.*', {cwd: path.resolve(metalsmith._directory, 'src', path.dirname(component), 'samples')})
-
-          samples.map((sample) => {
-            var ext = path.extname(sample);
-            var fileContent = fs.readFileSync(path.resolve(metalsmith._directory, 'src', path.dirname(component), 'samples', sample)).toString();
-
-            content+= `\n\n${fileContent}\n`;
-            if (ext === '.html') {
-              componentFile.samples = componentFile.samples || [];
-              componentFile.samples.push({
-                name: sample,
-                code: fileContent
-              });
-              content+= `\n~~~html\n${fileContent}\n~~~\n`;
-            }
-          });
-
-          /*
-          * Map content
-          */
-          componentFile.contents = new Buffer(content);
-          componentFiles['components/' + path.dirname(component) + '.md'] = componentFile;
-        });
-        return true;
-      })
-      .then(() => {
-        files = Object.assign(files, componentFiles);
-        return true;
-      })
-      .then(() => {
-        done();
-      });
-    })
+    .use(components())
     .use(inplace({
       engine: 'handlebars',
       partials: './docs/_templates/partials/',
     }))
     .use(markdownms())
-    .use(codehighlight())
+    .use(codehighlight({ languages: [] }))
     .use((files, metalsmith, done) => {
       Object.keys(files).forEach((key) => files[key].name = path.basename(key, '.html'));
       done();
@@ -200,18 +139,7 @@ gulp.task('doc', function(taskDone) {
       navListProperty: 'nav',
       permalinks: false
     }))
-    .use((files, metalsmith, done) => {
-      /*
-      * navigation plugin being stupid, flattening things
-      */
-      const components = metalsmith._metadata.nav.componentsNav[0].children[0].children;
-      let componentsNav = [];
-      components.forEach((dir) => {
-        componentsNav.push(dir.children[0])
-      })
-      metalsmith._metadata.nav.componentsNav = componentsNav;
-      done();
-    })
+    .use(flatnav())
     .use(layouts({
       engine: 'handlebars',
       directory: './docs/_templates/layouts',
@@ -219,6 +147,7 @@ gulp.task('doc', function(taskDone) {
     }))
     .build((err) => {
       if (err) {
+        console.log(err);
         throw new Error(err);
       }
       taskDone();

@@ -36,6 +36,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  font-family: inherit;
 }
 
 .tab:active,
@@ -70,7 +71,7 @@
   position: absolute;
   width: 0;
   height: 0;
-  clip:rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
 }
 
 

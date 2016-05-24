@@ -5,7 +5,10 @@
       <a class="breadcrumbs__link" href="/">Home</a>
     </li>
     <li class="breadcrumbs__item">
-      <span class="breadcrumbs__last">Components</span>
+      <a class="breadcrumbs__link" href="/doc/components/">Components</a>
+    </li>
+    <li class="breadcrumbs__item">
+      <span class="breadcrumbs__last">{{title}}</span>
     </li>
   </ul>
   {{/content}}
@@ -15,6 +18,20 @@
   {{/content}}
 
   {{#content 'main'}}
+  <h1>{{title}}</h1>
+  {{#if samples}}
+  <h2>Examples</h2>
+  {{#each samples}}
+    <div class="demo">
+    {{{this.code}}}
+    </div>
+    <div class="demo__code">
+      <pre><code>
+{{{highlight this.code 'html'}}}</code>
+      </pre>
+    </div>
+  {{/each}}
+  {{/if}}
   {{{contents}}}
   {{/content}}
 {{/extend}}
