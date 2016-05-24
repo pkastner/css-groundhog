@@ -13,7 +13,7 @@ underlying technology. Use it to fuel your Blogs, custom dashboards, Wikis, etc.
 If you want to see what's possible with Groundhog, check out our [showcase](/doc/showcase). We used
 some, if not all Groundhog components to make them look like being one and the same.
 
-Groundhog is designed after the contents from our [asset library](http://assets.ruxtlabs.com),
+Groundhog is designed after the contents from our [asset library](http://assets.ruxitlabs.com),
 and features up to date implementations of the components there. Additionally, we created
 extra modules that come in handy when working with websites and web applications: Layouts,
 lightboxes, etc.
