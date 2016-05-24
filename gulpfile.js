@@ -6,18 +6,34 @@ const prefix       = require('gulp-autoprefixer');
 const gulp         = require('gulp');
 const runSequence  = require('run-sequence');
 const markdown     = require('gulp-markdown');
-const frontmatter  = require('gulp-front-matter');
 const rename       = require('gulp-rename');
 const sprites      = require('gulp-svg-symbols');
 const svgo         = require('gulp-svgo');
-const swig         = require('swig');
-const hljs         = require('highlight.js');
 const globby       = require('globby');
 const through2     = require('through2');
 const path         = require('path');
 const bSync        = require('browser-sync');
 const fs           = require('fs');
 const merge        = require('merge2');
+
+/*
+* Metalsmith dependencies
+*/
+const Metalsmith        = require('metalsmith');
+const inplace           = require('metalsmith-in-place');
+const layouts           = require('metalsmith-layouts');
+const handlebars        = require('handlebars');
+const handlebarsLayout  = require('handlebars-layouts');
+const markdownms        = require('metalsmith-markdown');
+const permalinks        = require('metalsmith-permalinks');
+const navigation        = require('metalsmith-navigation');
+const codehighlight     = require('metalsmith-code-highlight');
+const components        = require('./build/plugins/components');
+const requiredir        = require('require-dir');
+const flatnav           = require('./build/plugins/flatnav');
+
+const capitalizeFirstLetter = require('./build/util/capitalizeFirstLetter');
+
 
 const styleFiles = 'src/**/*.scss';
 const site = {};
@@ -31,8 +47,6 @@ site.components = globby
       name: capitalizeFirstLetter(parts[parts.length - 2])
     }
   });
-
-swig.setFilter('highlight', (input, lang) => hljs.highlight(lang, input).value);
 
 gulp.task('styles:lint', () => {
   return stylelint.lint({
@@ -54,52 +68,9 @@ gulp.task('styles', () => {
 
 gulp.task('dev', (done) => {
   gulp.watch([styleFiles], ['styles:lint', 'styles']);
-  gulp.watch(['src/**/samples/**/*.html','src/**/README.md'], ['doc']);
-  runSequence('copy-assets', 'icons', 'styles:lint', 'styles', 'doc', 'pages', 'serve', done);
+  gulp.watch(['src/**/samples/**/*.html','src/**/README.md', 'docs/**/*'], ['doc']);
+  runSequence('copy-assets', 'icons', 'styles:lint', 'styles', 'doc', 'serve', done);
 });
-
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-function buildElem(file, data) {
-  let template = file.page.layout || 'components';
-  const templateFile = path.join(__dirname, 'docs', '_templates', `${template}.html`);
-  const tpl = swig.compileFile(templateFile, {cache: false});
-  file.contents = new Buffer(tpl(data));
-}
-
-function buildSite() {
-  return through2.obj(function(file, enc, cb) {
-    let els = file.path.split('/');
-    const data = {
-      site,
-      page: file.page,
-      title: capitalizeFirstLetter(els[els.length - 2]),
-      content: file.contents.toString()
-    };
-
-    els.pop();
-    data.samples = globby
-      .sync(els.join('/') + '/samples/**/*.html')
-      .map(file => fs.readFileSync(file).toString());
-    buildElem(file, data);
-    cb(null, file);
-  });
-}
-
-function buildPage() {
-  return through2.obj(function(file, enc, cb) {
-    const data = {
-      site,
-      page: file.page,
-      title: file.page.title,
-      content: file.contents.toString()
-    };
-    buildElem(file, data);
-    cb(null, file);
-  });
-}
 
 gulp.task('serve', function(done) {
   bSync.init({
@@ -109,26 +80,6 @@ gulp.task('serve', function(done) {
     }
   });
   done();
-});
-
-gulp.task('pages', function() {
-  return gulp.src(['docs/_pages/**/*.md', 'docs/_pages/**/*.html'])
-    .pipe(frontmatter({
-      property: 'page',
-      remove: true
-    }))
-    .pipe(markdown())
-    .pipe(through2.obj(function(file, enc, cb) {
-      if(file.page.permalink) {
-        file.path = path.resolve('docs/_pages') + '/' + file.page.permalink;
-        if(!file.page.permalink.endsWith('.html')) {
-          file.path += '/index.html';
-        }
-      }
-      cb(null, file);
-    }))
-    .pipe(buildPage())
-    .pipe(gulp.dest('dist/doc'));
 });
 
 markdown.marked.Renderer.prototype.table = function(header, body) {
@@ -143,24 +94,64 @@ markdown.marked.Renderer.prototype.table = function(header, body) {
 };
 
 
-gulp.task('doc', function() {
-  return gulp.src('src/**/README.md')
-    .pipe(frontmatter({
-      property: 'page',
-      remove: true
+gulp.task('doc', function(taskDone) {
+  /*
+  * setup handlebars
+  */
+  handlebars.registerHelper(handlebarsLayout(handlebars));
+  const layoutPartials = requiredir('./docs/_templates/layouts');
+  const templatePartials = requiredir('./docs/_templates/partials');
+  const hbsPartials = Object.assign(layoutPartials, templatePartials);
+  Object.keys(hbsPartials).forEach((key) => handlebars.registerPartial(key, hbsPartials[key]));
+  const helpers = requiredir('./docs/_templates/helpers');
+  Object.keys(helpers).forEach((key) => handlebars.registerHelper(key, helpers[key]));
+
+  Metalsmith('./')
+    .source('./docs/_pages/')
+    .clean(false)
+    .destination('dist')
+    .use(components())
+    .use(inplace({
+      engine: 'handlebars',
+      partials: './docs/_templates/partials/',
     }))
-    .pipe(markdown())
-    .pipe(rename(function(path) {
-      path.basename = 'index';
-      path.extname = '.html';
+    .use(markdownms())
+    .use(codehighlight({ languages: [] }))
+    .use((files, metalsmith, done) => {
+      Object.keys(files).forEach((key) => files[key].name = path.basename(key, '.html'));
+      done();
+    })
+    .use(permalinks({
+      pattern: 'doc/:name',
+
+      linksets: [{
+        match: { type: 'component' },
+        pattern: 'doc/components/:name'
+      }]
     }))
-    .pipe(through2.obj(function(file, enc, cb) {
-      file.page.permalink = file.page.permalink
-        || 'components/' + path.dirname(path.relative(path.resolve(__dirname, 'src'), file.path)) + '/';
-      cb(null, file);
+    .use(navigation({
+      componentsNav: {
+        includeDirs: true,
+        filterProperty: 'type',
+        filterValue: 'component'
+      }
+    }, {
+      navListProperty: 'nav',
+      permalinks: false
     }))
-    .pipe(buildSite())
-    .pipe(gulp.dest('dist/doc/components'));
+    .use(flatnav())
+    .use(layouts({
+      engine: 'handlebars',
+      directory: './docs/_templates/layouts',
+      default: 'default.hbs'
+    }))
+    .build((err) => {
+      if (err) {
+        console.log(err);
+        throw new Error(err);
+      }
+      taskDone();
+    });
 });
 
 gulp.task('copy-assets', function() {

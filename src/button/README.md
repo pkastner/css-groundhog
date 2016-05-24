@@ -1,5 +1,5 @@
 ---
-layout: components_icons
+layout: components_icons.hbs
 ---
 
 ## Using Icons with Buttons
