@@ -1,54 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Groundhog - {{ title }}</title>
-    <link rel="icon" href="/assets/images/favicon.ico">
-    <link rel="stylesheet" href="/css/main.css" charset="utf-8">
-    <link rel="stylesheet" href="/css/base/fonts.css" charset="utf-8">
-    <link rel="stylesheet" href="/assets/style/syntax.css" charset="utf-8">
-    <style media="screen">
-      body {
-        background-color: #f8f8f8;
-      }
+{{#extend 'default'}}
+  {{#content 'breadcrumbs'}}
+  <ul class="breadcrumbs">
+    <li class="breadcrumbs__item">
+      <a class="breadcrumbs__link" href="/">Home</a>
+    </li>
+    {{#unless hideComponentBreadcrumb}}
+    <li class="breadcrumbs__item">
+      <a class="breadcrumbs__link" href="/doc/layouts/">Layouts</a>
+    </li>
+    {{/unless}}
+    <li class="breadcrumbs__item">
+      <span class="breadcrumbs__last">{{title}}</span>
+    </li>
+  </ul>
+  {{/content}}
 
-      .content {
-        margin: 20px;
-        padding: 20px;
-        border-radius: 3px;
-        background-color: white;
-        flex: 1 0 50%;
-        width: 50%;
-      }
-
-      .component-nav + .content {
-        margin-left: 0;
-        margin-top: 0;
-      }
-
-      .demo__code {
-        overflow: auto;
-        max-width: 100%;
-      }
-
-      .component-nav {
-        flex: 0 0 284px;
-      }
-
-      .area {
-        display: flex;
-      }
-
-    </style>
-  </head>
-  <body>
-    {{> navigation}}
-    {{#block 'breadcrumbs'}}
-    {{/block}}
-    {{#block 'main'}}
+  {{#content 'area'}}
     {{{contents}}}
-    {{/block}}
-    {{> footer}}
-  </body>
-
-</html>
+    <div class="layout has-islands">
+      <div class="island">
+          <h2>Code</h2>
+          <div class="demo__code"><pre><code>
+{{{highlight contents 'html'}}}
+          </code></pre>
+        </div>
+      </div>
+    </div>
+  {{/content}}
+{{/extend}}

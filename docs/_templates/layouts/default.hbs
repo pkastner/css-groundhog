@@ -32,15 +32,17 @@
     {{#block 'breadcrumbs'}}
     {{/block}}
 
+    {{#block 'area'}}
     <div class="area">
       {{#block 'sidebar'}}
       {{/block}}
-      <main class="island {{additionalClasses}}">
+      <main class="island {{#if hasSidebar}} island--connected{{/if}}">
         {{#block 'main'}}
         {{{contents}}}
         {{/block}}
       </main>
     </div>
+    {{/block}}
     {{> footer}}
   </body>
 
