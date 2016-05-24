@@ -28,6 +28,7 @@
     "require-dir": "^0.3.0"
   },
   "devDependencies": {
+    "bluebird": "^3.4.0",
     "browser-sync": "^2.11.2",
     "globby": "^4.0.0",
     "gulp": "^3.9.1",
