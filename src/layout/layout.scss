@@ -1,0 +1,22 @@
+.layout.is-flex {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+
+.layout--half {
+  flex-basis: 100%;
+}
+
+@media(min-width: 600px) {
+
+  .layout--half {
+    flex-basis: 50%;
+  }
+}
+
+.layout__container {
+  display: flex;
+  flex-direction: column;
+}

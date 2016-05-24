@@ -127,6 +127,9 @@ gulp.task('doc', function(taskDone) {
       linksets: [{
         match: { type: 'component' },
         pattern: 'doc/components/:name'
+      }, {
+        match: { type: 'layout' },
+        pattern: 'doc/layouts/:name'
       }]
     }))
     .use(navigation({
