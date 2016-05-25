@@ -1,0 +1,32 @@
+@import "../common/variables";
+
+.island {
+  padding: 16px;
+  margin: 12px;
+  background-color: #fff;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 400px;
+  border-radius: 3px;
+}
+
+@media(min-width: 700px) {
+
+  .island--connected {
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 24px;
+    margin-right: 24px;
+    flex: 1 0 50%;
+    width: 50%;
+  }
+}
+
+.layout__container .island {
+  flex-basis: auto;
+}
+
+.layout.has-islands {
+  padding: 12px;
+  //background-color: $gray160; TODO: Review
+}

@@ -31,6 +31,7 @@ const codehighlight     = require('metalsmith-code-highlight');
 const components        = require('./build/plugins/components');
 const requiredir        = require('require-dir');
 const flatnav           = require('./build/plugins/flatnav');
+const addmeta           = require('./build/plugins/addmeta');
 
 const capitalizeFirstLetter = require('./build/util/capitalizeFirstLetter');
 
@@ -110,6 +111,7 @@ gulp.task('doc', function(taskDone) {
     .source('./docs/_pages/')
     .clean(false)
     .destination('dist')
+    .use(addmeta('./docs/_data/nav.json', 'nav'))
     .use(components())
     .use(inplace({
       engine: 'handlebars',
@@ -127,6 +129,9 @@ gulp.task('doc', function(taskDone) {
       linksets: [{
         match: { type: 'component' },
         pattern: 'doc/components/:name'
+      }, {
+        match: { type: 'layout' },
+        pattern: 'doc/layouts/:name'
       }]
     }))
     .use(navigation({

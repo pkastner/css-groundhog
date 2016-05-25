@@ -6,7 +6,7 @@
     </li>
     {{#unless hideComponentBreadcrumb}}
     <li class="breadcrumbs__item">
-      <a class="breadcrumbs__link" href="/doc/components/">Components</a>
+      <a class="breadcrumbs__link" href="/doc/layouts/">Layouts</a>
     </li>
     {{/unless}}
     <li class="breadcrumbs__item">
@@ -15,11 +15,16 @@
   </ul>
   {{/content}}
 
-  {{#content 'sidebar'}}
-    {{> component_nav}}
-  {{/content}}
-
-  {{#content 'main'}}
-    {{> component_content}}
+  {{#content 'area'}}
+    {{{contents}}}
+    <div class="layout has-islands">
+      <div class="island">
+          <h2>Code</h2>
+          <div class="demo__code"><pre><code>
+{{{highlight contents 'html'}}}
+          </code></pre>
+        </div>
+      </div>
+    </div>
   {{/content}}
 {{/extend}}

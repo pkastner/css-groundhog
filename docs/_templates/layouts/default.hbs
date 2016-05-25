@@ -12,20 +12,6 @@
         background-color: #f8f8f8;
       }
 
-      .content {
-        margin: 20px;
-        padding: 20px;
-        border-radius: 3px;
-        background-color: white;
-        flex: 1 0 50%;
-        width: 50%;
-      }
-
-      .component-nav + .content {
-        margin-left: 0;
-        margin-top: 0;
-      }
-
       .demo__code {
         overflow: auto;
         max-width: 100%;
@@ -46,15 +32,17 @@
     {{#block 'breadcrumbs'}}
     {{/block}}
 
+    {{#block 'area'}}
     <div class="area">
       {{#block 'sidebar'}}
       {{/block}}
-      <main class="content">
+      <main class="island {{#if hasSidebar}} island--connected{{/if}}">
         {{#block 'main'}}
         {{{contents}}}
         {{/block}}
       </main>
     </div>
+    {{/block}}
     {{> footer}}
   </body>
 

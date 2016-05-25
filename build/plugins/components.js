@@ -24,6 +24,7 @@ module.exports = () => (files, metalsmith, done) => {
         componentFile.stats = fs.statSync(path.resolve(metalsmith._directory, 'src', component));
         componentFile.data = parsed.data;
         componentFile.type = 'component';
+        componentFile.hasSidebar = true;
         componentFile.layout = parsed.data.layout || 'component_overview.hbs';
         componentFile.contents = new Buffer(parsed.content);
 

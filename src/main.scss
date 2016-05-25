@@ -1,5 +1,11 @@
 @import "base/base";
 @import "base/typography";
+
+/** Structural -- Layouts **/
+@import "layout/layout";
+@import "layout/islands";
+
+/** Components **/
 @import "navbar/navbar";
 @import "expandable/expandable";
 @import "sidebar/sidebar";
@@ -11,3 +17,6 @@
 @import "switch/switch";
 @import "table/table";
 @import "tabs/tabs";
+
+/** Trumps **/
+@import "trumps/hide-mq";
