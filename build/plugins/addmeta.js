@@ -9,7 +9,7 @@ module.exports = (file, key) => (files, metalsmith, done) => {
   if(!key) {
     throw Error('No key specified');
   }
-  metalsmith._metadata.sitedata = {};
+  metalsmith._metadata.sitedata =  metalsmith._metadata.sitedata || {};
   metalsmith._metadata.sitedata[key] = {};
   fs.readFileAsync(path.resolve(metalsmith._directory, file))
     .then(data => data.toString())
