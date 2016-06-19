@@ -108,6 +108,57 @@
 }
 
 /*
+* btn--primary--darktheme styles
+*/
+
+
+.btn--primary--darktheme {
+  background-color: $buttoncolor;
+  border-color: #fff;
+}
+/*
+.btn--primary--darktheme,
+.btn--primary--darktheme:hover,
+.btn--primary--darktheme:visited {
+  border-color: #fff;
+}*/
+
+.btn--primary--darktheme:hover {
+  background-color: $buttonhovercolor;
+  border-color: #fff;
+}
+
+.btn--primary--darktheme:active {
+  background-color: $buttonactivecolor;
+  border-color: #fff;
+}
+
+.btn--primary--darktheme:focus:active {
+  border-color: $focuscolor;
+  border-color: #fff;
+}
+
+.btn--primary--darktheme[disabled] {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+  border-color: #fff;
+}
+
+.btn--primary--darktheme > .icon,
+.btn--primary--darktheme > .icon * {
+  fill: #fff;
+  border-color: #fff;
+}
+
+.btn--primary--darktheme[disabled] > .icon,
+.btn--primary--darktheme[disabled] > .icon * {
+  fill: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #fff;
+}
+
+
+/*
 * iconOnly button styles
 */
 .btn--icon {
