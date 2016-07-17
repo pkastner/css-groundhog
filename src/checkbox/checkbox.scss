@@ -1,23 +1,23 @@
 @import "../common/variables";
 
-.switch {
+.checkbox {
   clip: rect(0 0 0 0);
   position: absolute;
 }
 
-.switch__label {
+.checkbox__label {
   position: relative;
   padding-left: 46px;
   cursor: pointer;
   user-select: none;
 }
 
-.to-right + .switch__label {
+.to-right + .checkbox__label {
   padding-left: 0;
   padding-right: 46px;
 }
 
-.switch__label:before {
+.checkbox__label:before {
   content: " ";
   display: inline-block;
   width: 36px;
@@ -36,7 +36,7 @@
   top: -1px;
 }
 
-.switch__label:after {
+.checkbox__label:after {
   content: " ";
   height: 16px;
   width: 16px;
@@ -52,18 +52,18 @@
   left: 0;
 }
 
-.to-right + .switch__label:before {
+.to-right + .checkbox__label:before {
   left: auto;
   right: 0;
 }
 
-.to-right + .switch__label:after {
+.to-right + .checkbox__label:after {
   left: auto;
   right: 18px;
 }
 
 
-.switch:checked + .switch__label:before {
+.checkbox:checked + .switch__label:before {
   background-color: $turquoise600;
   border-color: $turquoise600;
   background-image: linear-gradient(to right, #fff 1px, transparent 0);
@@ -72,49 +72,49 @@
   background-position: 9px 5px;
 }
 
-.switch:checked + .switch__label:after {
+.checkbox:checked + .checkbox__label:after {
   left: 16px;
 }
 
-.switch.to-right:checked + .switch__label:after {
+.checkbox.to-right:checked + .checkbox__label:after {
   left: auto;
   right: 2px;
 }
 
-.switch[disabled] + .switch__label:before {
+.checkbox[disabled] + .checkbox__label:before {
   border-color: $gray300;
   background-image: radial-gradient(circle 5px, transparent 0, transparent 2px, $gray300 3px, transparent 4px);
 }
 
-.switch[disabled]:checked + .switch__label:before {
+.checkbox[disabled]:checked + .checkbox__label:before {
   border-color: $gray300;
   background-image: linear-gradient(to right, $gray300 1px, transparent 0);
 }
 
-.switch[disabled] + .switch__label:after {
+.checkbox[disabled] + .checkbox__label:after {
   background-color: transparent;
   border: 1px solid $gray300;
 }
 
-.switch[disabled]:checked + .switch__label:before {
+.checkbox[disabled]:checked + .checkbox__label:before {
   background-color: transparent;
 }
 
-.switch[disabled] + .switch__label {
+.checkbox[disabled] + .checkbox__label {
   color: $gray300;
   cursor: default;
 }
 
-.switch:focus:not(:active) + .switch__label:before {
+.checkbox:focus:not(:active) + .checkbox__label:before {
   box-shadow: 0 0 0 1px $turquoise400;
   border-color: $turquoise400;
 }
 
-.switch__label:focus {
+.checkbox__label:focus {
   outline: none;
 }
 
-.switch__caption {
+.checkbox__caption {
   font-family: $mainfont;
   font-size: 14px;
 }
