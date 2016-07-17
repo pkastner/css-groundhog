@@ -112,47 +112,47 @@
 */
 
 
-.btn--primary--darktheme {
-  background-color: $buttoncolor;
+.btn--primary.theme--dark,
+.theme--dark > .btn {
   border-color: #fff;
 }
-/*
-.btn--primary--darktheme,
-.btn--primary--darktheme:hover,
-.btn--primary--darktheme:visited {
-  border-color: #fff;
-}*/
 
-.btn--primary--darktheme:hover {
+.theme--dark .btn--primary,
+.btn--primary.theme--dark,
+.btn--primary.theme--dark:hover,
+.btn--primary.theme--dark:visited {
+  border-color: #fff;
+}
+
+.btn--primary.theme--dark:hover {
   background-color: $buttonhovercolor;
   border-color: #fff;
 }
 
-.btn--primary--darktheme:active {
+.btn--primary.theme--dark:active {
   background-color: $buttonactivecolor;
   border-color: #fff;
 }
 
-.btn--primary--darktheme:focus:active {
+.btn--primary.theme--dark:focus:active {
   border-color: $focuscolor;
   border-color: #fff;
 }
 
-.btn--primary--darktheme[disabled] {
+.btn--primary.theme--dark[disabled] {
   background-color: rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.6);
   border-color: #fff;
 }
 
-.btn--primary--darktheme > .icon,
-.btn--primary--darktheme > .icon * {
-  fill: #fff;
+.btn--primary.theme--dark > .icon,
+.btn--primary.theme--dark > .icon * {
+  /*fill: #fff;*/
   border-color: #fff;
 }
 
-.btn--primary--darktheme[disabled] > .icon,
-.btn--primary--darktheme[disabled] > .icon * {
-  fill: #fff;
+.btn--primary.theme--dark[disabled] > .icon,
+.btn--primary.theme--dark[disabled] > .icon * {
   background-color: rgba(255, 255, 255, 0.2);
   border-color: #fff;
 }

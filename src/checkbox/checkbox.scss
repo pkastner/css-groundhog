@@ -1,0 +1,80 @@
+@import "../common/variables";
+
+.checkbox {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: solid 2px $turquoise600;
+
+}
+
+.checkbox__label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.to-right + .checkbox__label {
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.to-right + .checkbox__label:before {
+  left: auto;
+  right: 0;
+}
+
+.to-right + .checkbox__label:after {
+  left: auto;
+  right: 18px;
+}
+
+.checkbox:checked + .checkbox__label:before {
+  /*background-color: $turquoise600;
+  border-color: $turquoise600;*/
+}
+
+.checkbox:checked + .checkbox__label:after {
+  left: 16px;
+}
+
+.checkbox.to-right:checked + .checkbox__label:after {
+  /*left: auto;
+  right: 2px;*/
+}
+
+.checkbox[disabled] + .checkbox__label:before {
+  border-color: $gray300;
+}
+
+.checkbox[disabled]:checked + .checkbox__label:before {
+  border-color: $gray300;
+}
+
+.checkbox[disabled] + .checkbox__label:after {
+  background-color: transparent;
+  border: 2px solid $gray300;
+}
+
+.checkbox[disabled]:checked + .checkbox__label:before {
+  background-color: transparent;
+}
+
+.checkbox[disabled] + .checkbox__label {
+  color: $gray300;
+  cursor: default;
+}
+
+.checkbox:focus:not(:active) + .checkbox__label:before {
+  border-color: $turquoise400;
+}
+
+.checkbox__label:focus {
+  outline: none;
+}
+
+.checkbox__caption {
+  font-family: $mainfont;
+  font-size: 14px;
+}
