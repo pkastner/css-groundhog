@@ -149,12 +149,14 @@
 
 .btn--primary.theme--dark > .icon,
 .btn--primary.theme--dark > .icon * {
-  border-color: #fff;
+  //border-color: #fff;
+  fill: #fff;
 }
 
 .btn--primary.theme--dark[disabled] > .icon,
 .btn--primary.theme--dark[disabled] > .icon * {
-  border-color: rgba(255, 255, 255, 0);
+  //border-color: rgba(255, 255, 255, 0);
+  fill: rgba(255, 255, 255, 0.6);
 }
 
 
@@ -187,11 +189,11 @@
   color: $buttoncolor;
 }
 
-.btn--secondary:not([disabled]):hover {
+.btn--secondary:hover {
   box-shadow: 0 0 0 1px $buttonhovercolor;
 }
 
-.btn--secondary:not([disabled]):focus {
+.btn--secondary:focus {
   border-color: $buttonactivecolor;
   box-shadow: 0 0 0 2px $focuscolor;
 }
@@ -229,19 +231,19 @@
 }
 
 .theme--dark .btn--secondary:hover,
-.btn--secondary.theme--dark:not([disabled]):hover {
+.btn--secondary.theme--dark:hover {
   box-shadow: 0 0 0 1px $buttonhovercolor;
   border-color: $turquoise700;
 }
 
 .theme--dark .btn--secondary:active,
-.btn--secondary.theme--dark:not([disabled]):active {
+.btn--secondary.theme--dark:active {
   border-color: $buttonactivecolor;
   box-shadow: 0 0 0 1px $buttonactivecolor;
 }
 
 .theme--dark .btn--secondary:focus,
-.btn--secondary.theme--dark:not([disabled]):focus {
+.btn--secondary.theme--dark:focus {
   border-color: #fff;
   box-shadow: 0 0 0 2px $focuscolor;
 
@@ -263,7 +265,7 @@
 .theme--dark .btn--secondary > .icon *,
 .btn--secondary.theme--dark > .icon,
 .btn--secondary.theme--dark > .icon * {
-  border-color: #fff;
+  //border-color: #fff;
   fill: #fff;
 }
 
@@ -272,6 +274,6 @@
 .btn--secondary.theme--dark[disabled] > .icon,
 .btn--secondary.theme--dark[disabled] > .icon * {
   fill: rgba(255, 255, 255, 0.6);
-  color: rgba(255, 255, 255, 0.6);
-  border-color: rgba(255, 255, 255, 0.2);
+  //color: rgba(255, 255, 255, 0.6);
+  //border-color: rgba(255, 255, 255, 0.2);
 }
