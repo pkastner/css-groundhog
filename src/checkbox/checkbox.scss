@@ -45,12 +45,7 @@
   display: block;
 }
 
-
 .checkbox[disabled] + .checkbox__label:before {
-  border-color: $disabledcolor;
-}
-
-.checkbox[disabled]:checked + .checkbox__label:before {
   border-color: $disabledcolor;
 }
 
@@ -59,7 +54,11 @@
 }
 
 .checkbox[disabled]:checked + .checkbox__label:before {
-  background-color: transparent;
+  border-color: $disabledcolor;
+}
+
+.checkbox[disabled]:checked + .checkbox__label:after {
+  background-color: $disabledcolor;
 }
 
 .checkbox[disabled] + .checkbox__label {
@@ -79,4 +78,12 @@
 .checkbox__caption {
   font-family: $mainfont;
   font-size: 14px;
+}
+
+.checkbox__label > icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  margin-top: 6px;
+  vertical-align: top;
 }
