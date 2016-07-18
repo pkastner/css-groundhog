@@ -149,13 +149,11 @@
 
 .btn--primary.theme--dark > .icon,
 .btn--primary.theme--dark > .icon * {
-  //border-color: #fff;
   fill: #fff;
 }
 
 .btn--primary.theme--dark[disabled] > .icon,
 .btn--primary.theme--dark[disabled] > .icon * {
-  //border-color: rgba(255, 255, 255, 0);
   fill: rgba(255, 255, 255, 0.6);
 }
 
@@ -265,7 +263,6 @@
 .theme--dark .btn--secondary > .icon *,
 .btn--secondary.theme--dark > .icon,
 .btn--secondary.theme--dark > .icon * {
-  //border-color: #fff;
   fill: #fff;
 }
 
@@ -274,6 +271,4 @@
 .btn--secondary.theme--dark[disabled] > .icon,
 .btn--secondary.theme--dark[disabled] > .icon * {
   fill: rgba(255, 255, 255, 0.6);
-  //color: rgba(255, 255, 255, 0.6);
-  //border-color: rgba(255, 255, 255, 0.2);
 }
