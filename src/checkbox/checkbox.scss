@@ -7,61 +7,45 @@
 
 .checkbox__label {
   position: relative;
-  padding-left: 46px;
+  padding-left: 28px;
   cursor: pointer;
   user-select: none;
-}
-
-.to-right + .checkbox__label {
-  padding-left: 0;
-  padding-right: 46px;
 }
 
 .checkbox__label:before {
   content: " ";
   display: inline-block;
-  width: 36px;
+  width: 20px;
   height: 20px;
   border: solid 1px $gray500;
-  border-radius: 10px;
+  //border-radius: 10px;
   position: absolute;
   left: 0;
   box-sizing: border-box;
   background-color: transparent;
-  background-image: radial-gradient(circle 5px, transparent 0, transparent 2px, $gray700 3px, transparent 4px);
-  background-size: 10px 10px;
-  background-repeat: no-repeat;
-  background-position: 22px 4px;
-  transition: background-color 100ms ease-in;
-  top: -1px;
+  //background-image: radial-gradient(circle 5px, transparent 0, transparent 2px, $gray700 3px, transparent 4px);
+  //background-size: 10px 10px;
+  //background-repeat: no-repeat;
+  //background-position: 22px 4px;
+  //transition: background-color 100ms ease-in;
+  //top: -1px;
 }
 
 .checkbox__label:after {
   content: " ";
-  height: 16px;
-  width: 16px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
-  background-color: $gray700;
-  transition: left 100ms ease-out, right 100ms ease-out;
-  margin-top: 2px;
-  margin-left: 2px;
+  background-color: $turquoise600;
+  //transition: left 100ms ease-out, right 100ms ease-out;
+  margin-top: 4px;
+  margin-left: 4px;
   box-sizing: border-box;
   position: absolute;
   display: block;
-  top: -1px;
-  left: 0;
+  //top: -1px;
+  //left: 0;
 }
-
-.to-right + .checkbox__label:before {
-  left: auto;
-  right: 0;
-}
-
-.to-right + .checkbox__label:after {
-  left: auto;
-  right: 18px;
-}
-
 
 .checkbox:checked + .switch__label:before {
   background-color: $turquoise600;
@@ -76,19 +60,15 @@
   left: 16px;
 }
 
-.checkbox.to-right:checked + .checkbox__label:after {
-  left: auto;
-  right: 2px;
-}
 
 .checkbox[disabled] + .checkbox__label:before {
   border-color: $gray300;
-  background-image: radial-gradient(circle 5px, transparent 0, transparent 2px, $gray300 3px, transparent 4px);
+  //background-image: radial-gradient(circle 5px, transparent 0, transparent 2px, $gray300 3px, transparent 4px);
 }
 
 .checkbox[disabled]:checked + .checkbox__label:before {
   border-color: $gray300;
-  background-image: linear-gradient(to right, $gray300 1px, transparent 0);
+  //background-image: linear-gradient(to right, $gray300 1px, transparent 0);
 }
 
 .checkbox[disabled] + .checkbox__label:after {
