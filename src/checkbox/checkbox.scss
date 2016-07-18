@@ -17,63 +17,45 @@
   display: inline-block;
   width: 20px;
   height: 20px;
-  border: solid 1px $gray500;
-  //border-radius: 10px;
+  border: solid 2px $turquoise600;
   position: absolute;
   left: 0;
   box-sizing: border-box;
-  background-color: transparent;
-  //background-image: radial-gradient(circle 5px, transparent 0, transparent 2px, $gray700 3px, transparent 4px);
-  //background-size: 10px 10px;
-  //background-repeat: no-repeat;
-  //background-position: 22px 4px;
-  //transition: background-color 100ms ease-in;
-  //top: -1px;
 }
 
 .checkbox__label:after {
   content: " ";
   height: 12px;
   width: 12px;
-  border-radius: 50%;
   background-color: $turquoise600;
-  //transition: left 100ms ease-out, right 100ms ease-out;
   margin-top: 4px;
   margin-left: 4px;
   box-sizing: border-box;
   position: absolute;
-  display: block;
-  //top: -1px;
-  //left: 0;
+  display: none;
+  top: 0;
+  left: 0;
 }
 
-.checkbox:checked + .switch__label:before {
-  background-color: $turquoise600;
-  border-color: $turquoise600;
-  background-image: linear-gradient(to right, #fff 1px, transparent 0);
-  background-size: 8px 8px;
-  background-repeat: no-repeat;
-  background-position: 9px 5px;
+.checkbox__label:hover:before {
+  border-color: $turquoise700;
 }
 
 .checkbox:checked + .checkbox__label:after {
-  left: 16px;
+  display: block;
 }
 
 
 .checkbox[disabled] + .checkbox__label:before {
-  border-color: $gray300;
-  //background-image: radial-gradient(circle 5px, transparent 0, transparent 2px, $gray300 3px, transparent 4px);
+  border-color: $disabledcolor;
 }
 
 .checkbox[disabled]:checked + .checkbox__label:before {
-  border-color: $gray300;
-  //background-image: linear-gradient(to right, $gray300 1px, transparent 0);
+  border-color: $disabledcolor;
 }
 
 .checkbox[disabled] + .checkbox__label:after {
-  background-color: transparent;
-  border: 1px solid $gray300;
+  fill: $disabledcolor;
 }
 
 .checkbox[disabled]:checked + .checkbox__label:before {
@@ -81,16 +63,16 @@
 }
 
 .checkbox[disabled] + .checkbox__label {
-  color: $gray300;
+  color: $disabledcolor;
   cursor: default;
 }
 
 .checkbox:focus:not(:active) + .checkbox__label:before {
-  box-shadow: 0 0 0 1px $turquoise400;
-  border-color: $turquoise400;
+  box-shadow: 0 0 0 2px $focuscolor;
 }
 
 .checkbox__label:focus {
+  box-shadow: 0 0 0 2px $focuscolor;
   outline: none;
 }
 
