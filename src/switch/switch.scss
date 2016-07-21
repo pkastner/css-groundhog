@@ -22,13 +22,13 @@
   display: inline-block;
   width: 36px;
   height: 20px;
-  border: solid 1px $gray500;
+  border: solid 1px $gray-500;
   border-radius: 10px;
   position: absolute;
   left: 0;
   box-sizing: border-box;
   background-color: transparent;
-  background-image: radial-gradient(circle 5px, transparent 0, transparent 2px, $gray700 3px, transparent 4px);
+  background-image: radial-gradient(circle 5px, transparent 0, transparent 2px, $gray-700 3px, transparent 4px);
   background-size: 10px 10px;
   background-repeat: no-repeat;
   background-position: 22px 4px;
@@ -41,7 +41,7 @@
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background-color: $gray700;
+  background-color: $gray-700;
   transition: left 100ms ease-out, right 100ms ease-out;
   margin-top: 2px;
   margin-left: 2px;
@@ -64,8 +64,8 @@
 
 
 .switch:checked + .switch__label:before {
-  background-color: $turquoise600;
-  border-color: $turquoise600;
+  background-color: $turquoise-600;
+  border-color: $turquoise-600;
   background-image: linear-gradient(to right, #fff 1px, transparent 0);
   background-size: 8px 8px;
   background-repeat: no-repeat;
@@ -82,18 +82,18 @@
 }
 
 .switch[disabled] + .switch__label:before {
-  border-color: $gray300;
-  background-image: radial-gradient(circle 5px, transparent 0, transparent 2px, $gray300 3px, transparent 4px);
+  border-color: $gray-300;
+  background-image: radial-gradient(circle 5px, transparent 0, transparent 2px, $gray-300 3px, transparent 4px);
 }
 
 .switch[disabled]:checked + .switch__label:before {
-  border-color: $gray300;
-  background-image: linear-gradient(to right, $gray300 1px, transparent 0);
+  border-color: $gray-300;
+  background-image: linear-gradient(to right, $gray-300 1px, transparent 0);
 }
 
 .switch[disabled] + .switch__label:after {
   background-color: transparent;
-  border: 1px solid $gray300;
+  border: 1px solid $gray-300;
 }
 
 .switch[disabled]:checked + .switch__label:before {
@@ -101,13 +101,13 @@
 }
 
 .switch[disabled] + .switch__label {
-  color: $gray300;
+  color: $gray-300;
   cursor: default;
 }
 
 .switch:focus:not(:active) + .switch__label:before {
-  box-shadow: 0 0 0 1px $turquoise400;
-  border-color: $turquoise400;
+  box-shadow: 0 0 0 1px $turquoise-400;
+  border-color: $turquoise-400;
 }
 
 .switch__label:focus {

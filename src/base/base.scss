@@ -17,11 +17,11 @@ body {
 
 a {
   text-decoration: none;
-  color: $blue500;
+  color: $blue-500;
   transition: color 100ms ease-out;
 }
 
 a:hover {
-  color: $blue600;
+  color: $blue-600;
   text-decoration: underline;
 }
