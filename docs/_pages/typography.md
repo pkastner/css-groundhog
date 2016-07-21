@@ -320,7 +320,7 @@ title: "Typography check"
 
 <article id="tables">
 
-  <table>
+  <table class="table">
       <thead>
           <tr>
               <th>Name</th>
