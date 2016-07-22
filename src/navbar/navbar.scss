@@ -1,7 +1,7 @@
 @import "../common/variables";
 
-$nav-link-color: $gray100;
-$nav-primary-background: $gray900;
+$nav-link-color: $gray-100;
+$nav-primary-background: $gray-900;
 $nav-height: 44px;
 
 .site-nav {
@@ -38,7 +38,7 @@ $nav-height: 44px;
 }
 
 .site-nav__bar--secondary {
-  background-color: $gray600;
+  background-color: $gray-600;
   font-size: 16px;
 }
 
@@ -80,7 +80,7 @@ $nav-height: 44px;
 }
 
 .site-nav__brand--productscope {
-  background-color: $gray800;
+  background-color: $gray-800;
   padding-right: 0;
 }
 
@@ -97,13 +97,13 @@ $nav-height: 44px;
   right: -48px;
   height: 60px;
   border: 30px solid transparent;
-  border-left: 16px solid $gray300;
+  border-left: 16px solid $gray-300;
   z-index: 2;
 }
 
 .site-nav__brand--productscope:before {
   z-index: 3;
-  border-left-color: $gray800;
+  border-left-color: $gray-800;
   right: -46px;
 }
 
