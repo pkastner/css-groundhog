@@ -1,51 +1,52 @@
 @import "../common/variables";
+$breadcrumb-border-color: $turquoise-500;
+$breadcrumb-link-color: $turquoise-600;
+$breadcrumb-active-color: $turquoise-700;
 
 .breadcrumbs {
-  display: flex;
   list-style-type: none;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  width: 100%;
+  display: flex;
   color: #fff;
-  font-family: $mainfont;
-  font-size: 14px;
-  background-color: $buttoncolor;
+  background-color: $breadcrumb-active-color;
+  line-height: 1em;
   overflow: hidden;
+  margin-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
   z-index: 4;
 }
 
 .breadcrumbs__item {
   display: inline-block;
-  position: relative;
+  margin-top: 0;
+  font-size: 16px;
   max-height: 30px;
-  line-height: 31px;
+  line-height: 30px;
+  position: relative;
 }
 
-.breadcrumbs__link {
+.breadcrumbs__link,
+.breadcrumbs__link:visited, {
+  color: #fff;
   display: block;
-  color: inherit;
-  background-color: $buttonhovercolor;
+  background-color: $breadcrumb-link-color;
   padding: 0 16px;
   margin-right: 4px;
   height: 30px;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-decoration: none;
   white-space: nowrap;
+  padding-left: 20px;
   margin-left: -4px;
 }
 
 .breadcrumbs__last {
   padding: 0 16px;
-  margin-left: -4px;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.breadcrumbs__item:first-child .breadcrumbs__last,
-.breadcrumbs__item:first-child .breadcrumbs__link {
   padding-left: 20px;
+  margin-left: -4px;
 }
 
 .breadcrumbs__link:before,
@@ -57,25 +58,25 @@
   position: absolute;
   right: -19px;
   margin-top: -3px;
-  border-left-color: $buttonhovercolor;
+  border-left-color: $breadcrumb-link-color;
   border-left-width: 8px;
   z-index: 3;
 }
 
 .breadcrumbs__link:before {
   right: -21px;
-  border-left-color: #fff;
+  border-left-color: $breadcrumb-border-color;
   z-index: 2;
 }
 
-.breadcrumbs__link:hover,
-.breadcrumbs__link:focus {
-  background-color: $buttoncolor;
+.breadcrumbs__link:focus,
+.breadcrumbs__link:hover {
   color: #fff;
   text-decoration: none;
+  background-color: $breadcrumb-active-color;
 }
 
-.breadcrumbs__link:hover:after,
-.breadcrumbs__link:focus:after {
-  border-left-color: $buttoncolor;
+.breadcrumbs__link:focus:after,
+.breadcrumbs__link:hover:after {
+  border-left-color: $breadcrumb-active-color;
 }
