@@ -80,3 +80,54 @@ $breadcrumb-active-color: $turquoise-700;
 .breadcrumbs__link:hover:after {
   border-left-color: $breadcrumb-active-color;
 }
+
+@mixin breadcrumb-theme($link-color, $border-color, $active-color) {
+
+  .breadcrumbs {
+    background-color: $active-color;
+  }
+
+  .breadcrumbs__link,
+  .breadcrumbs__link:visited {
+    background-color: $link-color;
+  }
+
+  .breadcrumbs__link:before,
+  .breadcrumbs__link:after {
+    border-left-color: $link-color;
+  }
+
+  .breadcrumbs__link:before {
+    border-left-color: $border-color;
+  }
+
+  .breadcrumbs__link:focus,
+  .breadcrumbs__link:hover {
+    background-color: $active-color;
+  }
+
+  .breadcrumbs__link:focus:after,
+  .breadcrumbs__link:hover:after {
+    border-left-color: $active-color;
+  }
+}
+
+.theme--blue {
+
+  @include breadcrumb-theme($blue-700, $blue-600, $blue-800);
+}
+
+.theme--purple {
+
+  @include breadcrumb-theme($purple-700, $purple-600, $purple-800);
+}
+
+.theme--royalblue {
+
+  @include breadcrumb-theme($royalblue-600, $royalblue-500, $royalblue-700);
+}
+
+.theme--green {
+
+  @include breadcrumb-theme($green-600, $green-500, $green-700);
+}
