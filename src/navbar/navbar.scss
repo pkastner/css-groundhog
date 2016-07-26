@@ -167,10 +167,12 @@ $nav-breakpoint: 760px;
 * Toggle for mobile nav
 */
 
-.nav__btn {
+.nav__btn,
+.nav__btn:visited {
   color: #fff;
   font-size: 1em;
   font-family: inherit;
+  font-weight: 300;
   appearance: none;
   background-color: transparent;
   border: 0;
