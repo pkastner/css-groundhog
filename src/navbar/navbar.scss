@@ -167,29 +167,42 @@ $nav-breakpoint: 760px;
 * Toggle for mobile nav
 */
 
-.nav__menutoggle {
+.nav__btn {
   color: #fff;
   font-size: 1em;
+  font-family: inherit;
   appearance: none;
   background-color: transparent;
   border: 0;
   outline: 0;
   cursor: pointer;
+  line-height: $nav-height;
   height: $nav-height;
   padding-left: 1rem;
   padding-right: 1rem;
   vertical-align: middle;
+  display: inline-block;
 }
 
-.nav__menutoggle:hover,
-.nav__menutoggle:focus {
+.nav__btn:hover,
+.nav__btn:focus {
+  color: #fff;
   background-color: $gray-700;
   text-decoration: none;
 }
 
+.nav__btn--cta {
+  background-color: $green-500;
+}
+
+.nav__btn--cta:hover,
+.nav__btn--cta:focus {
+  background-color: $green-600;
+}
+
 @media (min-width: $nav-breakpoint) {
 
-  .nav__menutoggle {
+  .nav__btn--menutoggle {
     display: none;
   }
 }
