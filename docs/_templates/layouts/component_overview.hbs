@@ -2,11 +2,11 @@
   {{#content 'breadcrumbs'}}
   <ul class="breadcrumbs">
     <li class="breadcrumbs__item">
-      <a class="breadcrumbs__link" href="/">Main</a>
+      <a class="breadcrumbs__link" href="{{sitedata.site.baseurl}}/">Main</a>
     </li>
     {{#unless hideComponentBreadcrumb}}
     <li class="breadcrumbs__item">
-      <a class="breadcrumbs__link" href="/doc/components/">Components</a>
+      <a class="breadcrumbs__link" href="{{sitedata.site.baseurl}}/doc/components/">Components</a>
     </li>
     {{/unless}}
     <li class="breadcrumbs__item">
