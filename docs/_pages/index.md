@@ -1,6 +1,8 @@
 ---
 title: CSS Groundhog
 permalink: false
+theme: theme--blue
+firstBreadcrumbEntry: true
 ---
 
 # Welcome to Groundhog! CSS Components for Dynatrace
