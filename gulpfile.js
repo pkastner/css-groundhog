@@ -32,7 +32,6 @@ const components        = require('./build/plugins/components');
 const requiredir        = require('require-dir');
 const flatnav           = require('./build/plugins/flatnav');
 const addmeta           = require('./build/plugins/addmeta');
-
 const capitalizeFirstLetter = require('./build/util/capitalizeFirstLetter');
 
 
@@ -73,6 +72,10 @@ gulp.task('dev', (done) => {
   runSequence('copy-assets', 'icons', 'styles:lint', 'styles', 'doc', 'serve', done);
 });
 
+gulp.task('build', (done) => {
+  runSequence('copy-assets', 'icons', 'styles:lint', 'styles', 'doc', done);
+});
+
 gulp.task('serve', function(done) {
   bSync.init({
     server: {
@@ -111,6 +114,7 @@ gulp.task('doc', function(taskDone) {
     .source('./docs/_pages/')
     .clean(false)
     .destination('dist')
+    .use(addmeta('./docs/_data/site.json', 'site'))
     .use(addmeta('./docs/_data/nav.json', 'nav'))
     .use(components())
     .use(inplace({

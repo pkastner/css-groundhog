@@ -1,6 +1,6 @@
 <div class="nav has-no-secondary">
-  <a class="nav__brand" href="/">
-    <img class="nav__logo" src="/doc/images/brand/dynatrace-logo.svg" alt="dynatrace logo" />
+  <a class="nav__brand" href="{{../sitedata.site.baseurl}}">
+    <img class="nav__logo" src="{{../sitedata.site.baseurl}}/doc/images/brand/dynatrace-logo.svg" alt="dynatrace logo" />
   </a>
   <div class="nav__buttongroup">
     <a class="nav__btn nav__btn--cta" href="/">Find me on GitHub</a>
@@ -10,7 +10,7 @@
     <ul class="nav__list nav__list--primary">
       {{#each sitedata.nav.entries}}
       <li class="nav__item">
-        <a class="nav__link" href="{{url}}">{{title}}</a>
+        <a class="nav__link" href="{{../sitedata.site.baseurl}}{{url}}">{{title}}</a>
       </li>
       {{/each}}
     </ul>
