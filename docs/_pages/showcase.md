@@ -1,7 +1,6 @@
 ---
 title: Showcase
 theme: theme--royalblue
-layout: islands.hbs
 hideCode: true
 ---
 
