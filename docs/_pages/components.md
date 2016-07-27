@@ -4,4 +4,5 @@ hideComponentBreadcrumb: true
 hasSidebar: true
 layout: component_overview.hbs
 ---
- # All the components!
+
+## All the components!

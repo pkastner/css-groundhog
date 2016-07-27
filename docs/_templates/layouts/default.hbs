@@ -27,7 +27,7 @@
 
     </style>
   </head>
-  <body>
+  <body {{#if theme}}class="{{theme}}"{{/if}}>
     {{> navigation}}
     {{#block 'breadcrumbs'}}
     {{/block}}
