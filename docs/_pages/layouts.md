@@ -40,7 +40,7 @@ hideCode: true
       space be available.
     </p>
     <p>
-      <a href="/doc/layouts/nested-islands/" class="btn btn--primary">See it in action</a>
+      <a href="/doc/layouts/standard-islands/" class="btn btn--primary">See it in action</a>
     </p>
   </div>
 

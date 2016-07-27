@@ -30,6 +30,22 @@
   <body {{#if theme}}class="{{theme}}"{{/if}}>
     {{> navigation}}
     {{#block 'breadcrumbs'}}
+      {{#unless firstBreadcrumbEntry}}
+      <ul class="breadcrumbs">
+        <li class="breadcrumbs__item">
+          <a class="breadcrumbs__link" href="/">Main</a>
+        </li>
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__last">{{title}}</span>
+        </li>
+      </ul>
+      {{else}}
+      <ul class="breadcrumbs">
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__last" href="/">Main</span>
+        </li>
+      </ul>
+      {{/unless}}
     {{/block}}
 
     {{#block 'area'}}
