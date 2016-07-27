@@ -27,3 +27,25 @@ If you work in one of our GWT web applications like Ruxit or AppMon, please use 
 [Dynatrace widget library](https://bitbucket.lab.dynatrace.org/projects/LIB/repos/widget-library/browse)
 instead. This project is just there to be a guideline or a precursor to widgets that
 find their way into GWT.
+
+## How to get Groundhog
+
+Right now, we feature a full build with all the components. You'll get a CSS file,
+a JS file and all the images necessary. Please make sure to fit the paths to your
+project.
+
+If you want to have a more advanced build, check us out on GitHub and do a plain build:
+
+```
+npm install
+npm run build
+```
+
+You will then find compiled stylesheets for all the components that we got.
+
+## Font
+
+The font we're using is called Bernina. You can find downloads for this font and
+usage terms in our [asset library](http://assets.ruxitlabs.com/brand/bernina/). If you
+can't use Bernina for some reason, the open source alternative "[Open Sans](https://www.google.com/fonts/specimen/Open+Sans)" works as well.
+Make sure you get the 300 and 400 font styles.
