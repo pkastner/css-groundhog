@@ -49,3 +49,7 @@ The font we're using is called Bernina. You can find downloads for this font and
 usage terms in our [asset library](http://assets.ruxitlabs.com/brand/bernina/). If you
 can't use Bernina for some reason, the open source alternative "[Open Sans](https://www.google.com/fonts/specimen/Open+Sans)" works as well.
 Make sure you get the 300 and 400 font styles.
+
+## One more thing!
+
+Groundhog is also built with Groundhog. Who would have thought?
