@@ -1,9 +1,11 @@
-.layout.is-flex {
-  display: flex;
-  flex-wrap: wrap;
+.layout {
   width: 100%;
 }
 
+.layout.is-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .layout--half {
   flex-basis: 100%;

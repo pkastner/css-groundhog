@@ -3,6 +3,7 @@
 .header {
   text-align: center;
   padding: 2rem;
+  width: 100%;
 }
 
 @mixin header-theming($background-color, $title-color) {
