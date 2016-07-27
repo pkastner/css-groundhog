@@ -1,0 +1,19 @@
+@import "../common/variables";
+
+.header {
+  text-align: center;
+  padding: 2rem;
+}
+
+@mixin header-theming($background-color, $title-color) {
+
+  .header {
+    background-color: $background-color;
+    color: $title-color;
+  }
+}
+
+.theme--blue {
+
+  @include header-theming($blue-600, #fff);
+}

@@ -3,9 +3,12 @@ title: CSS Groundhog
 permalink: false
 theme: theme--blue
 firstBreadcrumbEntry: true
+header:
+  url: /assets/images/header/groundhog.svg
+  title: "Welcome to Groundhog! CSS Components for Dynatrace"
 ---
 
-# Welcome to Groundhog! CSS Components for Dynatrace
+## What is Groundhog
 
 This is Groundhog, a CSS library for all Dynatrace web entities. Think Bootstrap,
 but pretty, modern and fast.
