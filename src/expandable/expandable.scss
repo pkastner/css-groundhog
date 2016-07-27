@@ -8,12 +8,12 @@
   position: relative;
   padding-left: 32px;
   text-decoration: none;
-  color: $turquoise500;
+  color: $turquoise-500;
 }
 
 .expandable__trigger:hover {
   text-decoration: none;
-  color: $turquoise700;
+  color: $turquoise-700;
 }
 
 .expandable__trigger:before {
@@ -48,7 +48,7 @@
 .expandable--active {
   border-top: 2px solid;
   border-bottom: 2px solid;
-  border-color: $turquoise500;
+  border-color: $turquoise-500;
 }
 
 .expandable--expanded .expandable__trigger:before {

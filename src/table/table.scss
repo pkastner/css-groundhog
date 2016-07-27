@@ -34,7 +34,7 @@
   bottom: 5px;
   margin-left: 5px;
   width: 100%;
-  background-color: $gray200;
+  background-color: $gray-200;
 }
 
 .table thead th:before {
@@ -53,5 +53,5 @@
 }
 
 .table tr:nth-child(2n) {
-  background-color: $gray100;
+  background-color: $gray-100;
 }

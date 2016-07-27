@@ -25,11 +25,11 @@
 
 .pagination__link {
   display: inherit;
-  color: $gray620;
+  color: $gray-620;
 }
 
 .pagination__link:hover {
-  color: $gray700;
+  color: $gray-700;
   text-decoration: none;
 }
 
@@ -38,5 +38,5 @@
 }
 
 .pagination__dots {
-  color: $gray300;
+  color: $gray-300;
 }
