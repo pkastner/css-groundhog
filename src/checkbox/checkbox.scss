@@ -17,7 +17,7 @@
   display: inline-block;
   width: 20px;
   height: 20px;
-  border: solid 2px $turquoise600;
+  border: solid 2px $turquoise-600;
   position: absolute;
   left: 0;
   box-sizing: border-box;
@@ -37,7 +37,7 @@
 }
 
 .checkbox__label:hover:before {
-  border-color: $turquoise700;
+  border-color: $turquoise-700;
 }
 
 .checkbox:checked + .checkbox__label:after {
