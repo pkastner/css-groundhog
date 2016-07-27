@@ -1,265 +1,289 @@
 @import "../common/variables";
+@import "../common/mixins";
 
 $nav-link-color: $gray-100;
-$nav-primary-background: $gray-900;
-$nav-height: 44px;
+$nav-primary-background: $gray-860;
+$nav-secondary-background: $gray-900;
 
-.site-nav {
-  display: flex;
-  flex-wrap: wrap;
+$nav-height: 2.75rem;
+$nav-height-secondary: 1.5rem;
+
+$nav-breakpoint: 760px;
+
+.nav {
+  display: block;
   font-weight: 500;
-  min-height: $nav-height;
-}
-
-.site-nav__link,
-.site-nav__link:hover {
-  color: $nav-link-color;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.site-nav__item {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.site-nav__bar {
-  flex: 1 0 100%;
-  min-height: $nav-height;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  flex-wrap: wrap;
-}
-
-.site-nav__bar--primary {
+  height: $nav-height;
   background-color: $nav-primary-background;
-  font-size: 16px;
-}
-
-.site-nav__bar--secondary {
-  background-color: $gray-600;
-  font-size: 16px;
-}
-
-.site-nav__brand {
-  flex-shrink: 0;
-  flex-basis: 120px;
-  padding-top: 9px;
-  padding-bottom: 9px;
-  padding-left: 1rem;
   position: relative;
-  line-height: 0;
-  position: relative;
-  order: -2;
 }
 
-.site-nav__brand--productlogo {
-  flex-basis: 100px;
+@media (min-width: $nav-breakpoint) {
+
+  .nav {
+    height: auto;
+  }
 }
 
-.site-nav__menutoggle {
+/*
+* nav bars
+*/
+
+.nav__bar {
   position: absolute;
+  z-index: 10;
+  width: 0;
+  overflow: hidden;
   top: 0;
   right: 0;
+  padding-top: $nav-height;
+  background-color: $nav-primary-background;
+  transition: width 125ms ease-out;
+}
+
+.nav__bar.is-active {
+  width: 15rem;
+}
+
+@media (min-width: $nav-breakpoint) {
+
+  .nav__bar {
+    position: relative;
+    overflow: visible;
+    width: auto;
+    padding-top: 0;
+    transition: none;
+    height: $nav-height + $nav-height-secondary;
+  }
+
+  .nav__bar.is-active {
+    width: auto;
+  }
+}
+
+/*
+* nav lists
+*/
+
+.nav__list {
+
+  @include list-reset();
+  margin: 0;
+}
+
+.nav__list + .nav__list {
+  border-top: 1px solid $gray-300;
+}
+
+@media (min-width: $nav-breakpoint) {
+
+  .nav__list {
+    display: flex;
+  }
+
+  .nav__list--primary {
+    order: 2;
+    justify-content: flex-start;
+    align-items: center;
+    height: $nav-height;
+    padding-left: 8.5rem;
+    position: absolute;
+    top: $nav-height-secondary;
+  }
+
+  .nav__list--secondary {
+    order: 1;
+    border-top: 0;
+    background-color: $nav-secondary-background;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 100%;
+    min-width: 100%;
+    height: $nav-height-secondary;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    top: 0;
+  }
+
+  .nav__list + .nav__list {
+    border-top: 0;
+  }
+}
+
+/*
+* nav list item
+*/
+
+.nav__item {
+  margin: 0;
+}
+
+@media (min-width: $nav-breakpoint) {
+
+  .nav__item {
+    line-height: 1em;
+  }
+}
+
+/*
+* navigation link item
+*/
+
+.nav__link,
+.nav__link:visited {
+  color: $gray-200;
+  text-decoration: none;
+  outline: 0;
+  display: block;
+  padding: 0.5rem 1rem;
+  font-weight: 300;
+}
+
+.nav__link:hover,
+.nav__link:focus {
+  color: #fff;
+  background-color: $gray-700;
+  text-decoration: none;
+}
+
+.nav__link--secondary {
+  font-size: 0.8rem;
+}
+
+@media (min-width: $nav-breakpoint) {
+
+  .nav__link {
+    padding: 0.85rem 0.5rem;
+  }
+
+  .nav__link--secondary {
+    padding: 0.25rem 0.5rem;
+    display: inline-block;
+  }
+}
+
+/*
+* Toggle for mobile nav
+*/
+
+.nav__btn,
+.nav__btn:visited {
   color: #fff;
   font-size: 1em;
+  font-family: inherit;
+  font-weight: 300;
   appearance: none;
   background-color: transparent;
   border: 0;
   outline: 0;
   cursor: pointer;
+  line-height: $nav-height;
   height: $nav-height;
   padding-left: 1rem;
   padding-right: 1rem;
-  z-index: 10;
+  vertical-align: middle;
+  display: inline-block;
 }
 
-.site-nav__menutoggle:hover {
-  text-decoration: underline;
+.nav__btn:hover,
+.nav__btn:focus {
+  color: #fff;
+  background-color: $gray-700;
+  text-decoration: none;
 }
 
-.site-nav__brand--productscope {
-  background-color: $gray-800;
-  padding-right: 0;
+.nav__btn--cta {
+  background-color: $green-500;
 }
 
-.site-nav__brand--productscope:not(:first-child) {
-  padding-left: 1.7rem;
+.nav__btn--cta:hover,
+.nav__btn--cta:focus {
+  background-color: $green-600;
 }
 
-.site-nav__brand--productscope:after,
-.site-nav__brand--productscope:before {
-  content: " ";
-  position: absolute;
-  display: block;
-  top: -8px;
-  right: -48px;
-  height: 60px;
-  border: 30px solid transparent;
-  border-left: 16px solid $gray-300;
-  z-index: 2;
-}
+@media (min-width: $nav-breakpoint) {
 
-.site-nav__brand--productscope:before {
-  z-index: 3;
-  border-left-color: $gray-800;
-  right: -46px;
-}
-
-
-.site-nav__logo {
-  position: relative;
-  z-index: 4;
-}
-
-
-.site-nav__list {
-  flex: 1 1;
-  display: block;
-  flex-wrap: wrap;
-  flex-basis: 100%;
-  flex-direction: column;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-height: 0;
-  overflow: hidden;
-}
-
-.site-nav__list--productscope {
-  justify-content: flex-start;
-  flex-grow: 2;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 150ms;
-  background-color: $nav-primary-background;
-  position: relative;
-  z-index: 3;
-}
-
-
-.site-nav__list--secondary {
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-
-.site-nav__list--globalinscope {
-  justify-content: flex-end;
-  flex-grow: 1;
-  font-size: 16px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 150ms;
-  background-color: $nav-primary-background;
-  position: relative;
-  z-index: 3;
-}
-
-.site-nav__list--open {
-  max-height: 640px;
-}
-
-.site-nav__item {
-  height: $nav-height;
-  display: flex;
-  position: relative;
-}
-
-.site-nav__item:after {
-  content: " ";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 4px;
-  bottom: -4px;
-  left: 0;
-  background-color: transparent;
-  transition: bottom 125ms ease-out, background-color 125ms ease-out;
-}
-
-.site-nav__item--active:after {
-  bottom: 0;
-}
-
-.site-nav__item:hover:after {
-  bottom: 0;
-}
-
-.site-nav__item--btn:after {
-  bottom: -4px !important;
-}
-
-.site-nav__link {
-  align-self: center;
-  padding-top: 0.6em;
-  padding-bottom: 0.6em;
-}
-
-
-@media(min-width: $screen-sm) {
-
-  .site-nav__brand {
-    flex-basis: 130px;
-  }
-
-  .site-nav__brand--productlogo {
-    flex-basis: 100px;
-  }
-}
-
-@media(min-width: $nav-breakpoint-sm) {
-
-  .site-nav__list--productscope {
-    margin-left: 1rem;
-    background-color: transparent;
-  }
-
-  .site-nav__bar--primary {
-    font-size: 16px;
-  }
-
-  .site-nav__list {
-    justify-content: flex-end;
-  }
-
-  .site-nav__list--productscope {
-    display: flex;
-    flex-basis: auto;
-    flex-direction: row;
-    max-height: 100%;
-    justify-content: flex-start;
-  }
-}
-
-@media(min-width: $nav-breakpoint) {
-
-  .site-nav__menutoggle {
+  .nav__btn--menutoggle {
     display: none;
   }
+}
 
-  .site-nav__list {
-    display: flex;
-    flex-basis: auto;
-    flex-direction: row;
-    justify-content: flex-end;
-    max-height: 100%;
+/*
+* nav right button group
+*/
+
+.nav__buttongroup {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 11;
+}
+
+.nav__cta {
+  height: $nav-height;
+  line-height: $nav-height;
+  padding: 0 1rem;
+  vertical-align: middle;
+  border-radius: 0;
+}
+
+.nav__cta {
+  color: #fff;
+}
+
+@media (min-width: $nav-breakpoint) {
+
+  .nav__buttongroup {
+    margin-top: $nav-height-secondary;
+  }
+}
+
+/*
+* Brand logo
+*/
+
+.nav__brand {
+  position: absolute;
+  z-index: 12;
+  top: 0.7rem;
+  left: 0.75rem;
+  width: 7rem;
+}
+
+.nav__logo {
+  max-width: 100%;
+}
+
+.nav__brand:focus {
+  background-color: $gray-700;
+}
+
+@media (min-width: $nav-breakpoint) {
+
+  .nav__brand {
+    top: #{0.7rem + $nav-height-secondary};
+    padding-right: 0;
+  }
+}
+
+/** no-secondary-fix **/
+
+@media (min-width: $nav-breakpoint) {
+
+  .nav.has-no-secondary {
+    overflow: hidden;
   }
 
-  .site-nav__list--secondary {
-    justify-content: flex-start;
-  }
+  .has-no-secondary > {
 
-  .site-nav__list--globalinscope {
-    max-height: 100%;
-  }
+    .nav__bar,
+    .nav__brand {
+      margin-top: -1.5rem;
+    }
 
-  .site-nav__list--productscope {
-    justify-content: flex-start;
-  }
-
-  .site-nav__bar--primary {
-    font-size: 18px;
+    .nav__buttongroup {
+      margin-top: 0;
+    }
   }
 }

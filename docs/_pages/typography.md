@@ -1,6 +1,11 @@
 ---
 title: "Typography check"
 ---
+
+<h1>Typography overview</h1>
+
+The following page contains all basic HTML elements. Here you can see if Groundhog's typography is sufficient for your case.
+
 <article id="article">
   <header>
       <hgroup>

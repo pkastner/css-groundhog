@@ -1,15 +1,18 @@
-<div class="site-nav">
-  <nav class="site-nav__bar site-nav__bar--primary">
-    <a class="site-nav__brand" href="/">
-      <img class="site-nav__logo" src="/doc/images/brand/dynatrace-logo.svg" alt="dynatrace logo" width="146" height="26"/>
-    </a>
-    <ul class="site-nav__list site-nav__list--productscope js-site-nav__list">
+<div class="nav has-no-secondary">
+  <a class="nav__brand" href="/">
+    <img class="nav__logo" src="/doc/images/brand/dynatrace-logo.svg" alt="dynatrace logo" />
+  </a>
+  <div class="nav__buttongroup">
+    <a class="nav__btn nav__btn--cta" href="/">Find me on GitHub</a>
+    <button data-target="#nav-bar" id="menu-toggle" class="nav__btn--menutoggle nav__btn">Menu</button>
+  </div>
+  <nav id="nav-bar" class="nav__bar js-nav-toggle">
+    <ul class="nav__list nav__list--primary">
       {{#each sitedata.nav.entries}}
-      <li class="site-nav__item site-nav__item--productscope">
-        <a class="site-nav__link site-nav__link--productscope" href="{{url}}">{{title}}</a>
+      <li class="nav__item">
+        <a class="nav__link" href="{{url}}">{{title}}</a>
       </li>
       {{/each}}
     </ul>
-    <button id="menu-toggle" class="site-nav__menutoggle">Menu</button>
   </nav>
 </div>
