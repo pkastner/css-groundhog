@@ -22,7 +22,7 @@
   text-decoration: none;
 }
 
-.sidebar__item--active {
+.sidebar__item.is-active {
   background-color: $gray-160;
 }
 
@@ -49,7 +49,7 @@
   color: $turquoise-600;
 }
 
-.sidebar__item--active .sidebar__headline {
+.sidebar__item.is-active .sidebar__headline {
   color: $turquoise-600;
   font-weight: 600;
 }
@@ -78,6 +78,6 @@
   border-top: none;
 }
 
-.expandable__content .sidebar__item--active {
+.expandable__content .sidebar__item.is-active {
   background-color: $gray-130;
 }

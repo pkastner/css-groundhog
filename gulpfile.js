@@ -15,6 +15,10 @@ const path         = require('path');
 const bSync        = require('browser-sync');
 const fs           = require('fs');
 const merge        = require('merge2');
+const browserify   = require('browserify');
+const watchify     = require('watchify');
+const source       = require('vinyl-source-stream');
+const eslint       = require('gulp-eslint');
 
 /*
 * Metalsmith dependencies
@@ -36,6 +40,8 @@ const capitalizeFirstLetter = require('./build/util/capitalizeFirstLetter');
 
 
 const styleFiles = 'src/**/*.scss';
+const scriptFiles = 'src/**/*.js';
+
 const site = {};
 site.components = globby
   .sync('src/**/README.md')
@@ -65,11 +71,29 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('dist/css'));
 });
 
+gulp.task('scripts:lint', () => {
+  return gulp.src('src/**/*.js')
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+});
+
+const b = browserify({
+  entries: ['src/main.js']
+}).transform('babelify');
+
+const bundle = () => b.bundle()
+  .on('error', (e) => console.log('Browserify Error', e))
+  .pipe(source('main.js'))
+  .pipe(gulp.dest('dist/js/'));
+
+gulp.task('scripts', bundle);
 
 gulp.task('dev', (done) => {
   gulp.watch([styleFiles], ['styles:lint', 'styles']);
+  gulp.watch([scriptFiles], ['scripts:lint', 'scripts']);
   gulp.watch(['src/**/samples/**/*.html','src/**/README.md', 'docs/**/*'], ['doc']);
-  runSequence('copy-assets', 'icons', 'styles:lint', 'styles', 'doc', 'serve', done);
+  runSequence('copy-assets', 'icons', 'styles:lint', 'styles', 'scripts:lint', 'scripts', 'doc', 'serve', done);
 });
 
 gulp.task('build', (done) => {

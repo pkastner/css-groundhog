@@ -7,7 +7,7 @@ module.exports = (context, path, baseclass) => {
     return bc.path === path;
   });
   if(containing.length > 0 ) {
-    return baseclass+'--active';
+    return 'is-active';
   } else {
     return '';
   }

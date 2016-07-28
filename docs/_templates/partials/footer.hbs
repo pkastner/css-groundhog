@@ -37,16 +37,6 @@
       </a>
     </div>
   </footer>
-
-  <script>
-      var expands = document.querySelectorAll('.expandable__trigger');
-      Array.prototype.forEach.call(expands, function(el) {
-        el.addEventListener('click', function(ev) {
-          ev.preventDefault();
-          ev.stopPropagation();
-          el.parentNode.classList.toggle('expandable--expanded');
-        });
-      });
-  </script>
+  <script src="{{../sitedata.site.baseurl}}/js/main.js" type="text/javascript"></script>
 </body>
 </html>
