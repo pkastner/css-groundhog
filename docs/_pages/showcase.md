@@ -6,7 +6,7 @@ hideCode: true
 
 <div class="layout is-flex has-islands">
   <div class="island">
-    <h1>Layouts</h1>
+    <h1>Showcase</h1>
     <p>
       Groundhog is already used on one or more websites. Either built completely by Groundhog,
       or just some selected components. Check them out!
