@@ -57,7 +57,7 @@
       <div class="layout">
         <header class="header">
           <h1>{{header.title}}</h1>
-          <img src="{{header.url}}" alt="Illustration of {{header.title}}">
+          <img src="{{header.url}}" alt="Illustration of {{header.title}}" {{#if header.width}}style="max-width: {{header.width}}"{{/if}}>
         </header>
       {{/if}}
       <main class="island {{#if hasSidebar}} island--connected{{/if}}">
