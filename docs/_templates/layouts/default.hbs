@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Groundhog - {{ title }}</title>
+    <meta name="viewport" content="width=device-width">
     <link rel="icon" href="{{sitedata.site.baseurl}}/assets/images/favicon.ico">
     <link rel="stylesheet" href="{{sitedata.site.baseurl}}/css/main.css" charset="utf-8">
     <link rel="stylesheet" href="{{sitedata.site.baseurl}}/css/base/fonts.css" charset="utf-8">
@@ -52,11 +53,21 @@
     <div class="area">
       {{#block 'sidebar'}}
       {{/block}}
+      {{#if header}}
+      <div class="layout">
+        <header class="header">
+          <h1>{{header.title}}</h1>
+          <img src="{{header.url}}" alt="Illustration of {{header.title}}">
+        </header>
+      {{/if}}
       <main class="island {{#if hasSidebar}} island--connected{{/if}}">
         {{#block 'main'}}
         {{{contents}}}
         {{/block}}
       </main>
+      {{#if header}}
+      </div>
+      {{/if}}
     </div>
     {{/block}}
     {{> footer}}

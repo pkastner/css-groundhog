@@ -45,16 +45,16 @@
   display: none;
 }
 
-.expandable--active {
+.expandable.is-active {
   border-top: 2px solid;
   border-bottom: 2px solid;
   border-color: $turquoise-500;
 }
 
-.expandable--expanded .expandable__trigger:before {
+.expandable.is-expanded .expandable__trigger:before {
   transform: translate(0, -50%) rotate(180deg);
 }
 
-.expandable--expanded .expandable__content {
+.expandable.is-expanded .expandable__content {
   display: block;
 }
