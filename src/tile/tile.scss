@@ -8,17 +8,11 @@
   text-decoration: none;
   border-style: solid;
   border-radius: 3px;
-  padding-top: 0;
-  padding-bottom: 0;
   cursor: pointer;
-  font-size: 14px;
-  line-height: 32px;
   line-height: -moz-block-height;
-  vertical-align: center;
   border-width: 1px;
   border-color: $gray-160;
   white-space: nowrap;
-  text-align: left;
   overflow: hidden;
   height: 300px;
 }
@@ -37,7 +31,7 @@
 .tile--header {
   background-color: $gray-100;
   height: 52px;
-  border-radius: 0px;
+  border-radius: 0;
   border: none;
   width: 100%;
 }
@@ -48,67 +42,8 @@
   top: 0;
   left: 0;
   border: none;
-  border-radius: 0px;
+  border-radius: 0;
   position: absolute;
-}
-
-.tile--infrastructure .tile--iconbox {
-  background-color: $blue-500;
-}
-
-.tile--infrastructure:hover {
-  border-color: $blue-500;
-  box-shadow: 0 0 0 1px $blue-500;
-}
-
-
-.tile--services .tile--iconbox {
-  background-color: $royalblue-500;
-}
-
-.tile--services:hover {
-  border-color: $royalblue-500;
-  box-shadow: 0 0 0 1px $royalblue-500;
-}
-
-.tile--applications .tile--iconbox {
-  background-color: $purple-600;
-}
-
-.tile--applications:hover {
-  border-color: $purple-600;
-  box-shadow: 0 0 0 1px $purple-600;
-}
-
-.tile--open--problems .tile--iconbox {
-  background-color: $red-500;
-}
-
-.tile--open--problems:hover {
-  border-color: $red-500;
-  box-shadow: 0 0 0 1px $red-500;
-}
-
-
-.tile--closed--problems .tile--iconbox {
-  background-color: $gray-700;
-}
-
-.tile--closed--problems:hover {
-  border-color: $gray-700;
-  box-shadow: 0 0 0 1px $gray-700;
-}
-
-
-.tile[disabled] .tile--iconbox {
-  background-color: $gray-300;
-}
-
-
-.tile:focus {
-  outline: 0;
-  border-color: $focuscolor;
-  box-shadow: 0 0 0 1px $focuscolor;
 }
 
 .tile > .icon {
@@ -118,13 +53,79 @@
   margin-top: 10px;
 }
 
+
+/*
+* tile border styling
+*/
+
+.tile--infrastructure .tile--iconbox {
+  background-color: $blue-500;
+}
+
+.tile--services .tile--iconbox {
+  background-color: $royalblue-500;
+}
+
+.tile--applications .tile--iconbox {
+  background-color: $purple-600;
+}
+
+.tile--open--problems .tile--iconbox {
+  background-color: $red-500;
+}
+
+.tile--closed--problems .tile--iconbox {
+  background-color: $gray-700;
+}
+
+
+/*
+* tile hover states
+*/
+
+.tile--infrastructure:hover {
+  border-color: $blue-500;
+  box-shadow: 0 0 0 1px $blue-500;
+}
+
+.tile--services:hover {
+  border-color: $royalblue-500;
+  box-shadow: 0 0 0 1px $royalblue-500;
+}
+
+.tile--applications:hover {
+  border-color: $purple-600;
+  box-shadow: 0 0 0 1px $purple-600;
+}
+
+.tile--open--problems:hover {
+  border-color: $red-500;
+  box-shadow: 0 0 0 1px $red-500;
+}
+
+.tile--closed--problems:hover {
+  border-color: $gray-700;
+  box-shadow: 0 0 0 1px $gray-700;
+}
+
+.tile:focus {
+  outline: 0;
+  border-color: $focuscolor;
+  box-shadow: 0 0 0 1px $focuscolor;
+}
+
+
+/*
+* font styling
+*/
+
 .tile--header h1 {
   font-size: 16px;
   font-weight: 500;
   color: $gray-700;
   margin-left: 63px;
   margin-top: 17px;
-  line-height: 0px;
+  line-height: 0;
 }
 
 .tile--header h2 {
@@ -134,7 +135,7 @@
   position: relative;
   margin-left: 63px;
   margin-top: -3px;
-  line-height: 0px;
+  line-height: 0;
 }
 
 .tile--content {
@@ -144,9 +145,22 @@
   margin: 11px;
 }
 
+
+/*
+* disabled styles
+*/
+
 .tile[disabled] {
   pointer-events: none;
   border-color: $disabledcolor;
   cursor: default;
   box-shadow: none;
+}
+
+.tile[disabled] * {
+  color: $gray-300;
+}
+
+.tile[disabled] .tile--iconbox {
+  background-color: $gray-300;
 }
