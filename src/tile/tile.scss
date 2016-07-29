@@ -51,37 +51,12 @@
   top: 0;
   left: 0;
   position: absolute;
+  border: 1px solid $gray-160;
+  border-top-left-radius: 3px;
+  border-bottom: none;
+  border-right: none;
 }
 
-.tile_blue .tile__iconbox {
-  border: 1px solid $blue-500;
-  border-radius: 3;
-  border-bottom: none;
-}
-
-.tile__royalblue .tile__iconbox {
-  border: 1px solid $royalblue-500;
-  border-radius: 3;
-  border-bottom: none;
-}
-
-.tile__purple .tile__iconbox {
-  border: 1px solid $purple-600;
-  border-radius: 3;
-  border-bottom: none;
-}
-
-.tile__error .tile__iconbox {
-  border: 1px solid $red-500;
-  border-radius: 3;
-  border-bottom: none;
-}
-
-.tile__gray .tile__iconbox {
-  border: 1px solid $gray-700;
-  border-radius: 3;
-  border-bottom: none;
-}
 
 .tile .icon {
   width: 32px;
