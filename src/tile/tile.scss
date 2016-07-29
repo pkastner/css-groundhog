@@ -6,15 +6,19 @@
   position: relative;
   box-sizing: border-box;
   text-decoration: none;
-  border-style: solid;
   border-radius: 3px;
   cursor: pointer;
   line-height: -moz-block-height;
-  border-width: 1px;
-  border-color: $gray-160;
+  border: 1px solid transparent;
   white-space: nowrap;
   overflow: hidden;
-  height: 300px;
+  appearance: none;
+  width: 100%;
+  padding: 0;
+  background: initial;
+  text-align: initial;
+  text-decoration: none;
+  display: block;
 }
 
 .tile:hover {
@@ -28,107 +32,74 @@
   box-sizing: border-box;
 }
 
-.tile--header {
+/*
+* tile header
+*/
+
+.tile__header {
   background-color: $gray-100;
   height: 52px;
-  border-radius: 0;
-  border: none;
+  border: 1px solid $gray-160;
+  border-radius: 3;
+  border-bottom: none;
   width: 100%;
 }
 
-.tile--iconbox {
+.tile__iconbox {
   width: 52px;
   height: 52px;
   top: 0;
   left: 0;
-  border: none;
-  border-radius: 0;
   position: absolute;
 }
 
-.tile > .icon {
+.tile_blue .tile__iconbox {
+  border: 1px solid $blue-500;
+  border-radius: 3;
+  border-bottom: none;
+}
+
+.tile__royalblue .tile__iconbox {
+  border: 1px solid $royalblue-500;
+  border-radius: 3;
+  border-bottom: none;
+}
+
+.tile__purple .tile__iconbox {
+  border: 1px solid $purple-600;
+  border-radius: 3;
+  border-bottom: none;
+}
+
+.tile__error .tile__iconbox {
+  border: 1px solid $red-500;
+  border-radius: 3;
+  border-bottom: none;
+}
+
+.tile__gray .tile__iconbox {
+  border: 1px solid $gray-700;
+  border-radius: 3;
+  border-bottom: none;
+}
+
+.tile .icon {
   width: 32px;
   height: 32px;
   margin-left: 10px;
   margin-top: 10px;
 }
 
-
-/*
-* tile border styling
-*/
-
-.tile--infrastructure .tile--iconbox {
-  background-color: $blue-500;
-}
-
-.tile--services .tile--iconbox {
-  background-color: $royalblue-500;
-}
-
-.tile--applications .tile--iconbox {
-  background-color: $purple-600;
-}
-
-.tile--open--problems .tile--iconbox {
-  background-color: $red-500;
-}
-
-.tile--closed--problems .tile--iconbox {
-  background-color: $gray-700;
-}
-
-
-/*
-* tile hover states
-*/
-
-.tile--infrastructure:hover {
-  border-color: $blue-500;
-  box-shadow: 0 0 0 1px $blue-500;
-}
-
-.tile--services:hover {
-  border-color: $royalblue-500;
-  outline: 50px $royalblue-500;
-}
-
-.tile--applications:hover {
-  border-color: $purple-600;
-  box-shadow: 0 0 0 1px $purple-600;
-}
-
-.tile--open--problems:hover {
-  border-color: $red-500;
-  box-shadow: 0 0 0 1px $red-500;
-}
-
-.tile--closed--problems:hover {
-  border-color: $gray-700;
-  box-shadow: 0 0 0 1px $gray-700;
-}
-
-.tile:focus {
-  outline: 0;
-  border-color: $focuscolor;
-  box-shadow: 0 0 0 1px $focuscolor;
-}
-
-
-/*
-* font styling
-*/
-
-.tile--header h1 {
+.tile__heading {
   font-size: 16px;
   font-weight: 500;
   color: $gray-700;
   margin-left: 63px;
-  margin-top: 17px;
+  padding-top: 17px;
   line-height: 0;
 }
 
-.tile--header h2 {
+.tile__subheading {
   font-size: 12px;
   font-weight: 500;
   color: $gray-500;
@@ -138,11 +109,135 @@
   line-height: 0;
 }
 
-.tile--content {
+
+.tile__content {
   font-size: 14px;
   color: $gray-700;
-  display: block;
-  margin: 11px;
+  margin: 0;
+  padding: 11px;
+  border: 1px solid $gray-160;
+  border-radius: 3;
+  border-top: none;
+}
+
+
+/*
+* tile border styling
+*/
+
+.tile__blue .tile__iconbox {
+  background-color: $blue-500;
+}
+
+.tile__royalblue .tile__iconbox {
+  background-color: $royalblue-500;
+}
+
+.tile__purple .tile__iconbox {
+  background-color: $purple-600;
+}
+
+.tile__error .tile__iconbox {
+  background-color: $red-500;
+}
+
+.tile__gray .tile__iconbox {
+  background-color: $gray-700;
+}
+
+
+/*
+* tile hover states
+*/
+
+.tile__blue:hover {
+  border-color: $blue-500;
+}
+
+.tile__blue:hover .tile__header {
+  border-color: $blue-500;
+}
+
+.tile__blue:hover .tile__iconbox {
+  border-color: $blue-500;
+}
+
+.tile__blue:hover .tile__content {
+  border-color: $blue-500;
+}
+
+//royalblue
+.tile__royalblue:hover {
+  border-color: $royalblue-500;
+}
+
+.tile__royalblue:hover .tile__header {
+  border-color: $royalblue-500;
+}
+
+.tile__royalblue:hover .tile__iconbox {
+  border-color: $royalblue-500;
+}
+
+.tile__royalblue:hover .tile__content {
+  border-color: $royalblue-500;
+}
+
+//purple
+.tile__purple:hover {
+  border-color: $purple-600;
+}
+
+.tile__purple:hover .tile__header {
+  border-color: $purple-600;
+}
+
+.tile__purple:hover .tile__iconbox {
+  border-color: $purple-600;
+}
+
+.tile__purple:hover .tile__content {
+  border-color: $purple-600;
+}
+
+//error
+.tile__error:hover {
+  border-color: $red-500;
+}
+
+.tile__error:hover .tile__header {
+  border-color: $red-500;
+}
+
+.tile__error:hover .tile__iconbox {
+  border-color: $red-500;
+}
+
+.tile__error:hover .tile__content {
+  border-color: $red-500;
+}
+
+//gray
+.tile__gray:hover {
+  border-color: $gray-700;
+}
+
+.tile__gray:hover .tile__header {
+  border-color: $gray-700;
+}
+
+.tile__gray:hover .tile__iconbox {
+  border-color: $gray-700;
+}
+
+.tile__gray:hover .tile__content {
+  border-color: $gray-700;
+}
+
+.tile:focus {
+  outline: 0;
+  border-color: $focuscolor;
+  box-shadow: 0 0 0 1px $focuscolor;
 }
 
 
@@ -161,6 +256,15 @@
   color: $gray-300;
 }
 
-.tile[disabled] .tile--iconbox {
+.tile[disabled] .tile__header {
+  border-color: $gray-300;
+}
+
+.tile[disabled] .tile__iconbox {
   background-color: $gray-300;
+  border-color: $gray-300;
+}
+
+.tile[disabled] .tile__content {
+  border-color: $gray-300;
 }
