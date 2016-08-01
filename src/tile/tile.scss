@@ -100,23 +100,23 @@
 * tile border styling
 */
 
-.tile__blue .tile__iconbox {
+.tile--blue .tile__iconbox {
   background-color: $blue-500;
 }
 
-.tile__royalblue .tile__iconbox {
+.tile--royalblue .tile__iconbox {
   background-color: $royalblue-500;
 }
 
-.tile__purple .tile__iconbox {
+.tile--purple .tile__iconbox {
   background-color: $purple-600;
 }
 
-.tile__error .tile__iconbox {
+.tile--error .tile__iconbox {
   background-color: $red-500;
 }
 
-.tile__gray .tile__iconbox {
+.tile--gray .tile__iconbox {
   background-color: $gray-700;
 }
 
@@ -125,42 +125,42 @@
 * tile hover states
 */
 
-.tile__blue:hover,
-.tile__blue:hover .tile__header,
-.tile__blue:hover .tile__iconbox,
-.tile__blue:hover .tile__content {
+.tile--blue:hover,
+.tile--blue:hover .tile__header,
+.tile--blue:hover .tile__iconbox,
+.tile--blue:hover .tile__content {
   border-color: $blue-500;
 }
 
 
-.tile__royalblue:hover,
-.tile__royalblue:hover .tile__header,
-.tile__royalblue:hover .tile__iconbox,
-.tile__royalblue:hover .tile__content {
+.tile--royalblue:hover,
+.tile--royalblue:hover .tile__header,
+.tile--royalblue:hover .tile__iconbox,
+.tile--royalblue:hover .tile__content {
   border-color: $royalblue-500;
 }
 
 
-.tile__purple:hover,
-.tile__purple:hover .tile__header,
-.tile__purple:hover .tile__iconbox,
-.tile__purple:hover .tile__content {
+.tile--purple:hover,
+.tile--purple:hover .tile__header,
+.tile--purple:hover .tile__iconbox,
+.tile--purple:hover .tile__content {
   border-color: $purple-600;
 }
 
 
-.tile__error:hover,
-.tile__error:hover .tile__header,
-.tile__error:hover .tile__iconbox,
-.tile__error:hover .tile__content {
+.tile--error:hover,
+.tile--error:hover .tile__header,
+.tile--error:hover .tile__iconbox,
+.tile--error:hover .tile__content {
   border-color: $red-500;
 }
 
 
-.tile__gray:hover,
-.tile__gray:hover .tile__header,
-.tile__gray:hover .tile__iconbox,
-.tile__gray:hover .tile__content {
+.tile--gray:hover,
+.tile--gray:hover .tile__header,
+.tile--gray:hover .tile__iconbox,
+.tile--gray:hover .tile__content {
   border-color: $gray-700;
 }
 
