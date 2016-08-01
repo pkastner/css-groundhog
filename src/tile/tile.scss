@@ -9,7 +9,7 @@
   border-radius: 3px;
   cursor: pointer;
   line-height: -moz-block-height;
-  border: 1px solid transparent;
+  border: 1px solid $gray-160;
   white-space: nowrap;
   overflow: hidden;
   appearance: none;
@@ -39,7 +39,7 @@
 .tile__header {
   background-color: $gray-100;
   height: 52px;
-  border: 1px solid $gray-160;
+  border: 1px solid transparent;
   border-radius: 3;
   border-bottom: none;
   width: 100%;
@@ -51,7 +51,7 @@
   top: 0;
   left: 0;
   position: absolute;
-  border: 1px solid $gray-160;
+  border: 1px solid transparent;
   border-top-left-radius: 3px;
   border-bottom: none;
   border-right: none;
@@ -90,7 +90,7 @@
   color: $gray-700;
   margin: 0;
   padding: 11px;
-  border: 1px solid $gray-160;
+  border: 1px solid transparent;
   border-radius: 3;
   border-top: none;
 }
@@ -125,86 +125,41 @@
 * tile hover states
 */
 
-.tile__blue:hover {
-  border-color: $blue-500;
-}
-
-.tile__blue:hover .tile__header {
-  border-color: $blue-500;
-}
-
-.tile__blue:hover .tile__iconbox {
-  border-color: $blue-500;
-}
-
+.tile__blue:hover,
+.tile__blue:hover .tile__header,
+.tile__blue:hover .tile__iconbox,
 .tile__blue:hover .tile__content {
   border-color: $blue-500;
 }
 
-//royalblue
-.tile__royalblue:hover {
-  border-color: $royalblue-500;
-}
 
-.tile__royalblue:hover .tile__header {
-  border-color: $royalblue-500;
-}
-
-.tile__royalblue:hover .tile__iconbox {
-  border-color: $royalblue-500;
-}
-
+.tile__royalblue:hover,
+.tile__royalblue:hover .tile__header,
+.tile__royalblue:hover .tile__iconbox,
 .tile__royalblue:hover .tile__content {
   border-color: $royalblue-500;
 }
 
-//purple
-.tile__purple:hover {
-  border-color: $purple-600;
-}
 
-.tile__purple:hover .tile__header {
-  border-color: $purple-600;
-}
-
-.tile__purple:hover .tile__iconbox {
-  border-color: $purple-600;
-}
-
+.tile__purple:hover,
+.tile__purple:hover .tile__header,
+.tile__purple:hover .tile__iconbox,
 .tile__purple:hover .tile__content {
   border-color: $purple-600;
 }
 
-//error
-.tile__error:hover {
-  border-color: $red-500;
-}
 
-.tile__error:hover .tile__header {
-  border-color: $red-500;
-}
-
-.tile__error:hover .tile__iconbox {
-  border-color: $red-500;
-}
-
+.tile__error:hover,
+.tile__error:hover .tile__header,
+.tile__error:hover .tile__iconbox,
 .tile__error:hover .tile__content {
   border-color: $red-500;
 }
 
-//gray
-.tile__gray:hover {
-  border-color: $gray-700;
-}
 
-.tile__gray:hover .tile__header {
-  border-color: $gray-700;
-}
-
-.tile__gray:hover .tile__iconbox {
-  border-color: $gray-700;
-}
-
+.tile__gray:hover,
+.tile__gray:hover .tile__header,
+.tile__gray:hover .tile__iconbox,
 .tile__gray:hover .tile__content {
   border-color: $gray-700;
 }
@@ -231,15 +186,6 @@
   color: $gray-300;
 }
 
-.tile[disabled] .tile__header {
-  border-color: $gray-300;
-}
-
 .tile[disabled] .tile__iconbox {
   background-color: $gray-300;
-  border-color: $gray-300;
-}
-
-.tile[disabled] .tile__content {
-  border-color: $gray-300;
 }
