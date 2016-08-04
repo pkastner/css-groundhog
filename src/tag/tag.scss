@@ -20,33 +20,27 @@
   padding-right: 8px;
   cursor: pointer;
   font-size: 12px;
-  line-height: 24px;
+  line-height: 23px;
   line-height: -moz-block-height;
   vertical-align: middle;
   white-space: nowrap;
   text-align: center;
   overflow: hidden;
   background-color: $gray-130;
-  display: inline;
+  display: inline-block;
 }
 
-
-.tag .icon {
-  width: 18px;
-  height: 18px;
-}
-
-.tag__button {
-  border: none;
-  background-color: transparent;
+.tag__delete {
   content: " ";
   background-image: url(/assets/icons/Icons_file_001_Abort_turquoise.svg);
   background-size: 16px;
-  top: 0;
+  vertical-align: text-bottom;
   height: 16px;
   width: 16px;
   margin-left: 4px;
   right: 8px;
+  display: inline-block;
+  background-repeat: no-repeat;
 }
 
 .tag__key {
@@ -59,17 +53,8 @@
   border: 1px solid $gray-300;
 }
 
-.tag:hover .tag__button {
-  //background-image: url(/assets/icons/Icons_file_001_Abort_turquoise.svg);
-  cursor: pointer;
-}
-
 .tag:focus {
   outline: none;
   border-color: $focuscolor;
   box-shadow: 0 0 0 1px $focuscolor;
-}
-
-.tag__button:focus {
-  outline: none;
 }
