@@ -1,0 +1,75 @@
+@import "../common/variables";
+
+
+//max width?
+.tag {
+  font-family: $mainfont;
+  color: $gray-700;
+  font-weight: 400;
+  appearance: none;
+  position: absolute;
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
+  height: 24px;
+  border-radius: 12px;
+  border: 1px solid $gray-130;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 24px;
+  line-height: -moz-block-height;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+  background-color: $gray-130;
+}
+
+
+.tag .icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: top;
+}
+
+.tag__button {
+  border: none;
+  background-color: transparent;
+  position: relative;
+  content: " ";
+  background-image: url(/assets/icons/Icons_file_001_Abort_turquoise.svg);
+  background-size: 16px;
+  top: 0;
+  height: 16px;
+  width: 16px;
+  margin-left: 4px;
+}
+
+.tag__key {
+  color: $gray-500;
+}
+
+.tag:hover {
+  text-decoration: none;
+  color: $gray-700;
+  border: 1px solid $gray-300;
+}
+
+/* do we need a hover on the icon?
+.tag:hover .tag__button {
+  background-image: url(/assets/icons/Icons_file_001_Abort_turquoise.svg);
+}*/
+
+.tag:focus {
+  outline: 0;
+  border-color: $focuscolor;
+  box-shadow: 0 0 0 1px $focuscolor;
+}
+
+.tag__button:focus {
+  outline: none;
+}
