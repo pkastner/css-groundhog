@@ -2,7 +2,7 @@
 layout: components_icons.hbs
 ---
 
-## Using Icons with Buttons
+## Using Icons with Tiles
 
-To use buttons and icons together, you need the `icon` module as well as the
+To use tiles and icons together, you need the `icon` module as well as the
 icon definition file.
