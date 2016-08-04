@@ -7,7 +7,7 @@
   color: $gray-700;
   font-weight: 400;
   appearance: none;
-  position: absolute;
+  position: relative;
   display: inline-block;
   box-sizing: border-box;
   text-decoration: none;
@@ -27,19 +27,18 @@
   text-align: center;
   overflow: hidden;
   background-color: $gray-130;
+  display: inline;
 }
 
 
 .tag .icon {
   width: 18px;
   height: 18px;
-  vertical-align: top;
 }
 
 .tag__button {
   border: none;
   background-color: transparent;
-  position: relative;
   content: " ";
   background-image: url(/assets/icons/Icons_file_001_Abort_turquoise.svg);
   background-size: 16px;
@@ -47,6 +46,7 @@
   height: 16px;
   width: 16px;
   margin-left: 4px;
+  right: 8px;
 }
 
 .tag__key {
@@ -59,13 +59,13 @@
   border: 1px solid $gray-300;
 }
 
-/* do we need a hover on the icon?
 .tag:hover .tag__button {
-  background-image: url(/assets/icons/Icons_file_001_Abort_turquoise.svg);
-}*/
+  //background-image: url(/assets/icons/Icons_file_001_Abort_turquoise.svg);
+  cursor: pointer;
+}
 
 .tag:focus {
-  outline: 0;
+  outline: none;
   border-color: $focuscolor;
   box-shadow: 0 0 0 1px $focuscolor;
 }
