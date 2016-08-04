@@ -92,17 +92,4 @@ hideCode: true
     </p>
   </div>
 
-  <div class="island">
-    <h2>Webpage stats tool</h2>
-    <figure>
-      <img src="/assets/images/showcase/statstool.jpg" alt="statstool">
-    </figure>
-    <p>
-      Uses exclusively Groundhog components.
-    </p>
-    <p>
-      <a href="http://assets.ruxitlabs.com:3010" class="btn btn--primary">See it in action</a>
-    </p>
-  </div>
-
 </div>
