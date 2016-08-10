@@ -29,7 +29,7 @@
 }
 
 .tag__delete {
-  content: " ";
+  color: transparent;
   background-color: transparent;
   border: none;
   background-image: url(/assets/icons/Icons_file_001_Abort_turquoise.svg);
@@ -48,6 +48,13 @@
 
 .tag:focus {
   outline: none;
+  box-shadow: 0 0 0 2px $focuscolor;
+}
+
+.tag:hover {
+  text-decoration: none;
+  color: $gray-700;
+  cursor: default;
 }
 
 .tag__delete:hover {
