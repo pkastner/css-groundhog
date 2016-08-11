@@ -26,6 +26,16 @@
         flex-grow: 0;
       }
 
+      [href*='assets.ruxitlabs.com']:before,
+      [href*='lab.dynatrace']:before {
+        background-image: url(/assets/icons/Icons_file_003_Dont_Watch_eye.svg);
+        content: '';
+        width: 16px;
+        height: 13px;
+        display: inline-block;
+        background-size: 100%;
+      }
+
     </style>
   </head>
   <body {{#if theme}}class="{{theme}}"{{/if}}>
