@@ -195,6 +195,8 @@ gulp.task('copy-assets', function() {
       .pipe(gulp.dest('dist/doc')));
 });
 
+gulp.task('test', ['styles:lint', 'scripts:lint'])
+
 gulp.task('icons', function() {
   return gulp.src('assets/icons/**/*.svg')
     .pipe(svgo({
