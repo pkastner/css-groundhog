@@ -18,12 +18,53 @@
         max-width: 100%;
       }
 
-      .component-nav {
-        flex: 0 0 284px;
-      }
-
       .area {
         display: flex;
+      }
+
+      .presentation-tile {
+        flex-grow: 0;
+      }
+
+      [href*='assets.ruxitlabs.com']:before,
+      [href*='lab.dynatrace']:before {
+        background-image: url(/assets/icons/Icons_file_003_Dont_Watch_eye.svg);
+        content: '';
+        width: 16px;
+        height: 13px;
+        display: inline-block;
+        background-size: 100%;
+      }
+
+      .component {
+        display: inline-block;
+        width: 150px;
+        height: 150px;
+        background-color: #00a1b2;
+        color: white;
+        text-align: center;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        position: relative;
+      }
+
+      .component__image {
+        max-width: 110px;
+        margin: 0 auto;
+        padding: 10px;
+        display: block;
+      }
+
+      .component__headline {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 10px;
+      }
+
+      .component:hover .component__headline,
+      .component__headline:hover {
+        color: #fafafa;
       }
 
     </style>
@@ -53,21 +94,14 @@
     <div class="area">
       {{#block 'sidebar'}}
       {{/block}}
-      {{#if header}}
+      {{#block 'main'}}
       <div class="layout">
-        <header class="header">
-          <h1>{{header.title}}</h1>
-          <img src="{{header.url}}" alt="Illustration of {{header.title}}" {{#if header.width}}style="width: 100%; max-width: {{header.width}}"{{/if}}>
-        </header>
-      {{/if}}
-      <main class="island {{#if hasSidebar}} island--connected{{/if}}">
-        {{#block 'main'}}
-        {{{contents}}}
-        {{/block}}
-      </main>
-      {{#if header}}
+        {{> header}}
+        <main class="island {{#if hasSidebar}} island--connected{{/if}}">
+          {{{contents}}}
+        </main>
       </div>
-      {{/if}}
+      {{/block}}
     </div>
     {{/block}}
     {{> footer}}

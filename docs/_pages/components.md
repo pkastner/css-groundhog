@@ -2,7 +2,5 @@
 title: Components
 hideComponentBreadcrumb: true
 hasSidebar: true
-layout: component_overview.hbs
+layout: component_overview_all.hbs
 ---
-
-## All the components!

@@ -2,3 +2,7 @@ node_modules
 tmp
 dist
 npm-debug.log
+assets/fonts
+assets/icons
+groundhog-assets.zip
+.DS_Store

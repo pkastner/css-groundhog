@@ -20,6 +20,8 @@
   {{/content}}
 
   {{#content 'main'}}
-    {{> component_content}}
+    <main class="island {{#if hasSidebar}} island--connected{{/if}}">
+      {{> component_content}}
+    </main>
   {{/content}}
 {{/extend}}
