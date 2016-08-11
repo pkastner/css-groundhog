@@ -48,3 +48,15 @@ package available in the [asset library](http://assets.ruxitlabs.com/brand/groun
 ## One more thing!
 
 Groundhog is also built with Groundhog. Who would have thought?
+
+## Maintainers
+
+This project is maintained by:
+
+- Katrin Freihofner [@katrin-freihofner](https://github.com/katrin-freihofner)
+- Thomas Heller [@tomheller](https://github.com/tomheller)
+- Stefan Baumgartner [@ddprrt](https://github.com/ddprrt)
+
+With contributions by:
+
+- Sascha Zarhuber [@saschazar21](https://github.com/saschazar21)
