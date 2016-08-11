@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "gulp dev",
     "build": "gulp build",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "gulp test",
     "deploy": "surge --domain groundhog.dynalabs.io --project ./dist/"
   },
   "author": "",

@@ -1,5 +1,7 @@
 # Welcome to Groundhog - CSS components for Dynatrace
 
+![Codeship status](https://codeship.com/projects/9556cd40-41e5-0134-3f7c-4aa295a04468/status?branch=master)
+
 ## What is Groundhog
 
 This is Groundhog, a CSS library for all Dynatrace web entities. Think Bootstrap,
