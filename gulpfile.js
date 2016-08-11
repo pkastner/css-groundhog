@@ -97,7 +97,7 @@ gulp.task('dev', (done) => {
 });
 
 gulp.task('build', (done) => {
-  runSequence('copy-assets', 'icons', 'styles:lint', 'styles', 'doc', done);
+  runSequence('copy-assets', 'icons', ['styles:lint', 'scripts:lint'], ['styles', 'scripts'], 'doc', done);
 });
 
 gulp.task('serve', function(done) {
