@@ -36,6 +36,37 @@
         background-size: 100%;
       }
 
+      .component {
+        display: inline-block;
+        width: 150px;
+        height: 150px;
+        background-color: #00a1b2;
+        color: white;
+        text-align: center;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        position: relative;
+      }
+
+      .component__image {
+        max-width: 110px;
+        margin: 0 auto;
+        padding: 10px;
+        display: block;
+      }
+
+      .component__headline {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 10px;
+      }
+
+      .component:hover .component__headline,
+      .component__headline:hover {
+        color: #fafafa;
+      }
+
     </style>
   </head>
   <body {{#if theme}}class="{{theme}}"{{/if}}>
@@ -63,14 +94,14 @@
     <div class="area">
       {{#block 'sidebar'}}
       {{/block}}
+      {{#block 'main'}}
       <div class="layout">
         {{> header}}
         <main class="island {{#if hasSidebar}} island--connected{{/if}}">
-          {{#block 'main'}}
           {{{contents}}}
-          {{/block}}
         </main>
       </div>
+      {{/block}}
     </div>
     {{/block}}
     {{> footer}}

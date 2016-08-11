@@ -1,7 +1,7 @@
-<div class="sidebar component-nav">
+<div class="sidebar hide-sm">
   {{# each nav.componentsNav}}
     <a class="sidebar__item {{isactive ../this file.path 'sidebar__item' }}" href="{{../sitedata.site.baseurl}}/{{file.path}}">
-      <span class=sidebar__headline>{{file.title}}</span>
+      <span class="sidebar__headline">{{file.title}}</span>
     </a>
   {{/each}}
 </div>
