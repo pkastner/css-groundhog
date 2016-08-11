@@ -1,0 +1,68 @@
+@import "../common/variables";
+
+
+//max width?
+.tag {
+  font-family: $mainfont;
+  color: $gray-700;
+  font-weight: normal;
+  appearance: none;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
+  height: 24px;
+  border-radius: 12px;
+  border: 1px solid $gray-130;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 12px;
+  line-height: 23px;
+  line-height: -moz-block-height;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+  background-color: $gray-130;
+}
+
+.tag__delete {
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  background-image: url(/assets/icons/Icons_file_001_Abort_turquoise.svg);
+  background-size: 16px;
+  vertical-align: text-bottom;
+  height: 16px;
+  width: 16px;
+  margin-left: 4px;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+.tag__key {
+  color: $gray-500;
+}
+
+.tag:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px $focuscolor;
+}
+
+.tag:hover {
+  text-decoration: none;
+  color: $gray-700;
+  cursor: default;
+}
+
+.tag__delete:hover {
+  background-image: url(/assets/icons/Icons_file_001_Abort_turquoise_700.svg);
+  cursor: pointer;
+}
+
+.tag__delete:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px $focuscolor;
+}
