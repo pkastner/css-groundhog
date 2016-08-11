@@ -19,7 +19,7 @@ hideCode: true
 
 
 <div class="layout is-flex has-islands">
-  <div class="island">
+  <div class="island presentation-tile">
     <h2>dynatrace.com</h2>
     <figure>
       <img src="/assets/images/showcase/dynatrace.com.jpg" alt="Dynatrace.com">
@@ -33,7 +33,7 @@ hideCode: true
     </p>
   </div>
 
-  <div class="island">
+  <div class="island presentation-tile">
     <h2>help.ruxit.com</h2>
     <figure>
       <img src="/assets/images/showcase/help.ruxit.com.jpg" alt="help.ruxit.com">
@@ -48,7 +48,7 @@ hideCode: true
     </p>
   </div>
 
-  <div class="island">
+  <div class="island presentation-tile">
     <h2>assets.ruxitlabs.com</h2>
     <figure>
       <img src="/assets/images/showcase/assets.ruxitlabs.com.jpg" alt="assets.ruxitlabs.com">
@@ -64,7 +64,7 @@ hideCode: true
   </div>
 
 
-  <div class="island">
+  <div class="island presentation-tile">
     <h2>jobs.dynatrace.at</h2>
     <figure>
       <img src="/assets/images/showcase/jobs.dynatrace.com.jpg" alt="jobs.dynatrace.at">
@@ -79,7 +79,7 @@ hideCode: true
   </div>
 
 
-  <div class="island">
+  <div class="island presentation-tile">
     <h2>blog.ruxit.com</h2>
     <figure>
       <img src="/assets/images/showcase/blog.ruxit.com.jpg" alt="blog.ruxit.com">

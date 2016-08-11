@@ -18,12 +18,12 @@
         max-width: 100%;
       }
 
-      .component-nav {
-        flex: 0 0 284px;
-      }
-
       .area {
         display: flex;
+      }
+
+      .presentation-tile {
+        flex-grow: 0;
       }
 
     </style>
@@ -53,21 +53,14 @@
     <div class="area">
       {{#block 'sidebar'}}
       {{/block}}
-      {{#if header}}
       <div class="layout">
-        <header class="header">
-          <h1>{{header.title}}</h1>
-          <img src="{{header.url}}" alt="Illustration of {{header.title}}" {{#if header.width}}style="width: 100%; max-width: {{header.width}}"{{/if}}>
-        </header>
-      {{/if}}
-      <main class="island {{#if hasSidebar}} island--connected{{/if}}">
-        {{#block 'main'}}
-        {{{contents}}}
-        {{/block}}
-      </main>
-      {{#if header}}
+        {{> header}}
+        <main class="island {{#if hasSidebar}} island--connected{{/if}}">
+          {{#block 'main'}}
+          {{{contents}}}
+          {{/block}}
+        </main>
       </div>
-      {{/if}}
     </div>
     {{/block}}
     {{> footer}}

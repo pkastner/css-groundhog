@@ -7,6 +7,9 @@ header:
   url: /assets/images/header/groundhog.svg
   width: 1000px
   title: "Welcome to Groundhog! CSS Components for Dynatrace"
+  cta:
+    url: https://github.com/Dynatrace/css-groundhog
+    text: "Get v0.1.0"
 ---
 
 ## What is Groundhog
