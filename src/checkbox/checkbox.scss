@@ -26,7 +26,7 @@
 .checkbox__label:after {
   content: " ";
   position: absolute;
-  background-image: url(/assets/icons/Icons_file_003_Checkmark_turquoise.svg);
+  background-image: url(/assets/images/icons/Icons_file_003_Checkmark_turquoise.svg);
   background-size: 16px;
   top: 0;
   height: 16px;
@@ -57,7 +57,7 @@
 
 .checkbox[disabled]:checked + .checkbox__label:after {
   display: block;
-  background-image: url(/assets/icons/Icons_file_003_Checkmark_disabled.svg);
+  background-image: url(/assets/images/icons/Icons_file_003_Checkmark_disabled.svg);
 }
 
 .checkbox[disabled] + .checkbox__label {
