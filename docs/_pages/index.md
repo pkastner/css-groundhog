@@ -54,9 +54,23 @@ usage terms in our [asset library](http://assets.ruxitlabs.com/brand/groundhog/)
 can't use Bernina for some reason, the open source alternative "[Open Sans](https://www.google.com/fonts/specimen/Open+Sans)" works as well.
 Make sure you get the 300 and 400 font styles.
 
+### Icons
+
 Same goes for the iconography used with Groundhog. You can find them in the asset
 package available in the [asset library](http://assets.ruxitlabs.com/brand/groundhog/).
 
 ## One more thing!
 
 Groundhog is also built with Groundhog. Who would have thought?
+
+## Maintainers
+
+This project is maintained by:
+
+- Katrin Freihofner
+- Thomas Heller
+- Stefan Baumgartner
+
+With contributions by:
+
+- Sascha Zarhuber
