@@ -23,6 +23,7 @@
   overflow: hidden;
   width: 300px;
   padding-top: 1px;
+  color: $gray-700;
 }
 
 .inputfield__label {
@@ -32,9 +33,6 @@
   padding-bottom: 6px;
 }
 
-.inputfield--watermark {
-  color: $gray-500;
-}
 
 .inputfield:hover {
 }
