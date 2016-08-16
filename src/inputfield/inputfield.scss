@@ -8,7 +8,7 @@
   box-sizing: border-box;
   text-decoration: none;
   height: 32px;
-  border-style: solid;
+  border: 1px solid $disabledcolor;
   border-radius: 3px;
   padding-top: 0;
   padding-bottom: 0;
@@ -18,27 +18,35 @@
   line-height: 32px;
   line-height: -moz-block-height;
   vertical-align: middle;
-  border-width: 1px;
-  border-color: $buttoncolor;
   white-space: nowrap;
-  text-align: center;
+  text-align: left;
   overflow: hidden;
+  width: 300px;
+  padding-top: 1px;
 }
 
 .inputfield__label {
-  position: relative;
-  padding-left: 28px;
-  cursor: pointer;
-  user-select: none;
+  font-size: 12px;
+  font-weight: normal;
+  display: block;
+  padding-bottom: 6px;
+}
+
+.inputfield--watermark {
+  color: $gray-500;
 }
 
 .inputfield:hover {
 }
 
 .inputfield[disabled] {
+  background-color: $gray-130;
+  color: $disabledcolor;
 }
 
 
 .inputfield:focus {
-
+  outline: none;
+  box-shadow: 0 0 0 1px $focuscolor;
+  border-color: $focuscolor;
 }
