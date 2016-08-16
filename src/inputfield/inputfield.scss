@@ -1,0 +1,44 @@
+@import "../common/variables";
+
+.inputfield {
+  font-family: $mainfont;
+  appearance: none;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
+  height: 32px;
+  border-style: solid;
+  border-radius: 3px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 11px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 32px;
+  line-height: -moz-block-height;
+  vertical-align: middle;
+  border-width: 1px;
+  border-color: $buttoncolor;
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+}
+
+.inputfield__label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.inputfield:hover {
+}
+
+.inputfield[disabled] {
+}
+
+
+.inputfield:focus {
+
+}
