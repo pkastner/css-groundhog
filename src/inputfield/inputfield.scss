@@ -33,6 +33,10 @@
   padding-bottom: 6px;
 }
 
+.inputfield--search {
+  padding-left: 6px;
+  padding-right: 11px;
+}
 
 .inputfield:hover {
   border-color: $gray-460;
@@ -48,4 +52,15 @@
   outline: none;
   box-shadow: 0 0 0 1px $focuscolor;
   border-color: $focuscolor;
+}
+
+input[type="date"]::before {
+  content: attr(placeholder);
+  color: $disabledcolor;
+}
+
+::-webkit-calendar-picker-indicator,
+::-webkit-inner-spin-button,
+::-webkit-datetime-edit {
+  display: none;
 }
