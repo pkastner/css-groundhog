@@ -82,7 +82,7 @@
 
 input[type="date"]:before {
   content: attr(placeholder);
-  color: $disabledcolor;
+  color: $gray-500;
 }
 
 ::-webkit-calendar-picker-indicator,
