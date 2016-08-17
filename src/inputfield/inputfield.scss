@@ -21,7 +21,7 @@
   white-space: nowrap;
   text-align: left;
   overflow: hidden;
-  width: 300px;
+  width: 500px;
   padding-top: 1px;
   color: $gray-700;
 }
@@ -38,8 +38,30 @@
   padding-right: 11px;
 }
 
+.inputfield--search--icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  display: inline-block;
+  margin-top: 6px;
+  margin-left: -31px;
+}
+
+.inputfield__hint {
+  font-size: 10px;
+  color: $gray-500;
+  padding-top: 6px;
+  padding-left: 12px;
+  font-weight: normal;
+}
+
 .inputfield:hover {
   border-color: $gray-460;
+}
+
+.inputfield[disabled]:hover {
+  border-color: $gray-300;
+  cursor: default;
 }
 
 .inputfield[disabled] {
@@ -54,7 +76,11 @@
   border-color: $focuscolor;
 }
 
-input[type="date"]::before {
+.inputfield--search:focus + .inputfield--search--icon {
+  display: none;
+}
+
+input[type="date"]:before {
   content: attr(placeholder);
   color: $disabledcolor;
 }
