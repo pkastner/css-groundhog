@@ -3,10 +3,10 @@
 {{#if samples}}
 <h2>Examples</h2>
 {{#each samples}}
-  <div class="demo">
+  <div class="demo" id="sample-{{this.name}}">
   {{{this.code}}}
   </div>
-  <div class="demo__code">
+  <div class="demo__code" id="code-{{this.name}}">
     <pre><code>
 {{{highlight this.code 'html'}}}</code>
     </pre>
