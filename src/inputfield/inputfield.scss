@@ -38,13 +38,15 @@
   padding-right: 11px;
 }
 
-.inputfield--search--icon {
+.inputfield__icon--search:before {
+  content: " ";
+  background-image: url(/assets/images/icons/Icons_file_002_Search_Magnifying_glass.svg);
+  background-repeat: no-repeat;
+  background-size: 20px;
   width: 20px;
   height: 20px;
   position: absolute;
-  display: inline-block;
-  margin-top: 6px;
-  margin-left: -31px;
+  display: block;
 }
 
 .inputfield__hint {
@@ -80,13 +82,16 @@
   display: none;
 }
 
-input[type="date"]:before {
-  content: attr(placeholder);
+.inputfield::placeholder {
   color: $gray-500;
 }
 
-::-webkit-calendar-picker-indicator,
-::-webkit-inner-spin-button,
 ::-webkit-datetime-edit {
+  color: $gray-500;
+}
+
+
+::-webkit-calendar-picker-indicator,
+::-webkit-inner-spin-button {
   display: none;
 }
