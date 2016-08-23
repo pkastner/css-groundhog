@@ -13,6 +13,9 @@
 }
 
 .radio__label:before {
+  margin: 0;
+  padding: 0;
+  top: 0;
   content: " ";
   display: inline-block;
   width: 20px;
@@ -30,11 +33,11 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: $turquoise-600;
+  background-color: tranparent;
   margin-left: 5px;
-  margin-top: 3px;
+  margin-top: 5px;
   top: 0;
-  display: none;
+  display: block;
 }
 
 .radio__label:hover:before {
@@ -42,7 +45,7 @@
 }
 
 .radio:checked + .radio__label:after {
-  display: block;
+  background-color: $turquoise-600;
 }
 
 .radio[disabled] + .radio__label:before {
