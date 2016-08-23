@@ -22,20 +22,25 @@
   text-align: left;
   overflow: hidden;
   width: 500px;
-  padding-top: 1px;
   color: $gray-700;
 }
 
 .inputfield__label {
+  position: relative;
   font-size: 12px;
   font-weight: normal;
   display: block;
   padding-bottom: 6px;
 }
 
+.inputfield--search,
+.inputfield--date,
+.inputfield--date--placeholder {
+  padding-right: 11px;
+}
+
 .inputfield--search {
   padding-left: 6px;
-  padding-right: 11px;
 }
 
 .inputfield__icon--search:before {
@@ -46,7 +51,17 @@
   width: 20px;
   height: 20px;
   position: absolute;
-  display: block;
+  top: 30px;
+  left: 473px;
+  z-index: 1;
+}
+
+.inputfield::placeholder {
+  color: red;
+}
+
+.inputfield__date--value {
+  color: $gray-700;
 }
 
 .inputfield__hint {
@@ -59,6 +74,7 @@
 
 .inputfield:hover {
   border-color: $gray-460;
+  cursor: text;
 }
 
 .inputfield[disabled]:hover {
@@ -82,14 +98,18 @@
   display: none;
 }
 
-.inputfield::placeholder {
-  color: $gray-500;
+.inputfield--date::-webkit-datetime-edit-year-field,
+.inputfield--date::-webkit-datetime-edit-month-field,
+.inputfield--date::-webkit-datetime-edit-day-field {
+    color: $gray-700;
 }
 
-::-webkit-datetime-edit {
-  color: $gray-500;
+.inputfield::placeholder,
+.inputfield--date--placeholder::-webkit-datetime-edit-year-field,
+.inputfield--date--placeholder::-webkit-datetime-edit-month-field,
+.inputfield--date--placeholder::-webkit-datetime-edit-day-field {
+    color: $gray-500;
 }
-
 
 ::-webkit-calendar-picker-indicator,
 ::-webkit-inner-spin-button {
