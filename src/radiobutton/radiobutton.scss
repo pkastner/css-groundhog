@@ -14,27 +14,30 @@
 
 .radio__label:before {
   content: " ";
-  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
   width: 20px;
   height: 20px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   border-radius: 50%;
   border: solid 2px $turquoise-600;
-  position: absolute;
-  left: 0;
-  box-sizing: border-box;
 }
 
 .radio__label:after {
   content: " ";
   position: absolute;
+  top: 0;
+  display: block;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: $turquoise-600;
+  background-color: tranparent;
   margin-left: 5px;
-  margin-top: 3px;
-  top: 0;
-  display: none;
+  margin-top: 5px;
 }
 
 .radio__label:hover:before {
@@ -42,7 +45,7 @@
 }
 
 .radio:checked + .radio__label:after {
-  display: block;
+  background-color: $turquoise-600;
 }
 
 .radio[disabled] + .radio__label:before {
