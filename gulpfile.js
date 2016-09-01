@@ -181,7 +181,9 @@ gulp.task('doc', function(taskDone) {
     }))
     .use(sitemap({
       hostname: 'http://groundhog.dynalabs.io',
-      urlProperty: 'path',
+      omitIndex: true,
+      priority: 0.5,
+      changefreq: 'monthly',
     }))
     .build((err) => {
       if (err) {
