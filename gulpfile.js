@@ -154,7 +154,7 @@ gulp.task('doc', function(taskDone) {
     })
     .use(permalinks({
       pattern: 'doc/:name',
-
+      relative: false,
       linksets: [{
         match: { type: 'component' },
         pattern: 'doc/components/:name'

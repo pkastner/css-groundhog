@@ -1,6 +1,7 @@
 ---
 layout: null
---- 
+permalink: false
+---
 User-agent: *
 Disallow: /harming/humans
 Disallow: /ignoring/human/orders
