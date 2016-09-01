@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{sitedata.site.baseurl}}/css/base/fonts.css" charset="utf-8">
     <link rel="stylesheet" href="{{sitedata.site.baseurl}}/assets/style/syntax.css" charset="utf-8">
     <link rel="stylesheet" href="{{sitedata.site.baseurl}}/assets/style/site.css" charset="utf-8">
-    <link rel="canonical" href="http://groundhog.dynalabs.io/{{path}}/" />
+    {{> headmeta }}
   </head>
   <body {{#if theme}}class="{{theme}}"{{/if}}>
     {{> navigation}}
