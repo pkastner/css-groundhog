@@ -1,4 +1,5 @@
 @import "../common/variables";
+@import "../common/hint";
 
 .textarea {
   font-family: $mainfont;
@@ -15,11 +16,16 @@
   font-size: 14px;
   line-height: 32px;
   line-height: -moz-block-height;
-  vertical-align: middle;
+  vertical-align: top;
   text-align: left;
   overflow: hidden;
   color: $gray-700;
   resize: none;
+  width: 600px;
+}
+
+.textarea--hint {
+  width: 600px;
 }
 
 .textarea__label {
