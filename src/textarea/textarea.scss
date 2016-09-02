@@ -1,0 +1,64 @@
+@import "../common/variables";
+
+.textarea {
+  font-family: $mainfont;
+  appearance: none;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: 1px solid $disabledcolor;
+  border-radius: 3px;
+  padding-top: 0;
+  padding-left: 11px;
+  padding-right: 11px;
+  font-size: 14px;
+  line-height: 32px;
+  line-height: -moz-block-height;
+  vertical-align: middle;
+  text-align: left;
+  overflow: hidden;
+  color: $gray-700;
+  resize: none;
+}
+
+.textarea__label {
+  position: relative;
+  font-size: 12px;
+  font-weight: normal;
+  display: block;
+  padding-bottom: 6px;
+}
+
+.textarea::placeholder {
+  color: $gray-500;
+}
+
+.textarea__hint {
+  font-size: 10px;
+  color: $gray-500;
+  padding-top: 6px;
+  padding-left: 12px;
+  font-weight: normal;
+}
+
+.textarea:hover {
+  border-color: $gray-460;
+  cursor: text;
+}
+
+.textarea[disabled]:hover {
+  border-color: $gray-300;
+  cursor: default;
+}
+
+.textarea[disabled] {
+  background-color: $gray-130;
+  color: $disabledcolor;
+}
+
+.textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px $focuscolor;
+  border-color: $focuscolor;
+}

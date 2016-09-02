@@ -9,7 +9,7 @@ but pretty, modern and fast.
 
 We created Groundhog to unify all Dynatrace web entities, regardless of the
 underlying technology. Use it to fuel your Blogs, custom dashboards, Wikis, etc.
-If you want to see what's possible with Groundhog, check out our [showcase](/doc/showcase). We used
+If you want to see what's possible with Groundhog, check out our [showcase](http://groundhog.dynalabs.io/doc/showcase/). We used
 some, if not all Groundhog components to make them look like being one and the same.
 
 Groundhog is designed after the contents from our [asset library](http://assets.ruxitlabs.com),
