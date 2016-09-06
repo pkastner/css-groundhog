@@ -1,6 +1,7 @@
 @import "../common/variables";
 
-.slider {
+.slider,
+.slider--js {
   font-family: $mainfont;
   appearance: none;
   position: relative;
@@ -11,8 +12,8 @@
   background-color: transparent;
 }
 
-.slider::-webkit-slider-thumb {
-  margin-top: -6px;
+.slider::-webkit-slider-thumb,
+.slider--js::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 14px;
   width: 14px;
@@ -41,11 +42,13 @@
   cursor: pointer;
 }
 
-.slider::-webkit-slider-runnable-track {
+.slider,
+.slider--js {
   width: 100%;
+  max-width: 320px;
   height: 2px;
   cursor: pointer;
-  background: $disabledcolor;
+  background: linear-gradient(to right, $turquoise-600 0%, $turquoise-600 50%, $disabledcolor 50%, $disabledcolor 100%);
   border-radius: 1px;
 }
 
@@ -72,31 +75,33 @@
 }
 
 .slider::-ms-tooltip {
-    display: none;
+  display: none;
 }
 
-.slider:hover {
+.slider:hover,
+.slider--js:hover {
   text-decoration: none;
 }
 
-.slider:focus {
+.slider:focus,
+.slider--js:focus {
   outline: none;
 }
 
 .slider:focus::-webkit-slider-thumb {
-  outline: 0;
+  outline: none;
   border-color: $focuscolor;
   box-shadow: 0 0 0 1px $focuscolor;
 }
 
 .slider:focus::-moz-range-thumb {
-  outline: 0;
+  outline: none;
   border-color: $focuscolor;
   box-shadow: 0 0 0 1px $focuscolor;
 }
 
 .slider:focus::-ms-thumb {
-  outline: 0;
+  outline: none;
   border-color: $focuscolor;
   box-shadow: 0 0 0 1px $focuscolor;
 }
@@ -113,7 +118,7 @@
   background: $turquoise-700;
 }
 
-.slider:active::-webkit-slider-thumb  {
+.slider:active::-webkit-slider-thumb {
   background: $turquoise-800;
 }
 
