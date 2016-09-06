@@ -1,0 +1,17 @@
+@import "../common/variables";
+
+$includeLabel: false !default;
+
+@if ($includeLabel == false) {
+
+  .label {
+    position: relative;
+    font-size: 12px;
+    font-weight: normal;
+    display: block;
+    padding-bottom: 6px;
+  }
+
+  $includeLabel: true;
+
+}
