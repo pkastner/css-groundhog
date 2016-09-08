@@ -40,3 +40,14 @@ You can find the code to use an [icon within a button here][sample-icon-with-but
 
 [icon]: /doc/components/icons/
 [sample-icon-with-button]: #sample-02-button-primary-icon-only.html
+
+
+## Available classes for button
+
+| state name | effect |
+|------------|--------|
+| `.btn` | Base class for the button element |
+| `.btn--primary` | Sets the button as a primary button |
+| `.btn--secondary` | Sets the button as a secondary button |
+| `.btn--icon` | Sets the button to an icon only state |
+| `.theme--dark` | Sets the theme of the button to dark |
