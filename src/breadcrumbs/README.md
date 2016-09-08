@@ -12,7 +12,7 @@ The Groundhog **breadcrumbs bar** component is a visual way to display the hiera
 
 
 ## Including the breadcrumbs bar
-Breadcrumbs extend the basic html `<ul>` (unordered list) elements to introduce semantic structure into the markup of the breadcrumbs.
+Breadcrumbs visually enhances the basic html `<ul>` (unordered list) element to introduce semantic structure into the markup of the breadcrumbs.
 1. To include a Groundhog breadcrumbs bar first create a `<ul>` (unordered list) element and include the hierarchy into individual `li` (list items). List items can either contain `<a>` (anchors) or `<span>` (inline span element). Usually the last entry in the breadcrumbs is not represented by an anchor element, since it should represent the currently viewed page.
 ```html
 <ul>
