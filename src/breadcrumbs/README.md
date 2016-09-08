@@ -35,7 +35,7 @@ Breadcrumbs extend the basic html `<ul>` (unordered list) elements to introduce 
   </li>
 </ul>
 ```
-3. Add a wrapping div with a [theme class][themeClass] to set the theme (optional):
+3. Add a wrapping `<div>` with a [theme class][themeClass] to set the theme (optional):
 ```html
 <div class="theme--purple">
   <ul class="breadcrumbs">
