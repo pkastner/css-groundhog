@@ -59,8 +59,46 @@ The Groundhog **icon** component is based on simple SVGs. This ensures resolutio
 
 ## Prerequisites
 
+For the icons to render correctly via the `<use>` reference, the icons in question need to be defined somewhere on the page. These so called definitions should be defined before the first reference of the icon.
 
+### Creating a definition
+1. To create an icon definition, first create an svg element `<svg>` in your markup:
+```html
+<svg>
+</svg>
+```
+2. Add the necessary `xmlns` attribute to the svg element. This tells the browser that the element uses the svg namespace:
+```html
+<svg xmlns="http://www.w3.org/2000/svg">
+</svg>
+```
+3. This element will usually render on the viewport. To keep the definition element from interfering with the page layout, you should set `width`, `height` and `visiblilty`. Additionally `aria-hidden` can be set as well
+```html
+<svg xmlns="..." style="width:0; height:0; visibility: none;" aria-hidden="true">
+</svg>
+```
+4. Add a `<symbol>` element for every icon you will need on the page and set the `id` attribute of the `<symbol>` element
+```html
+<svg xmlns="..." style="...">
+  <symbol id="ruxit"></symbol>
+</svg>
+```
+5. Dynatrace styled icons are typically positioned inside a 512 x 512 unit viewbox. The viewbox should be set on the symbol element:
+```html
+<svg xmlns="..." style="...">
+  <symbol id="ruxit" viewbox="0 0 512 512"></symbol>
+</svg>
+```
+6. Input the actual svg data of the icon itself. Make sure that there are no fill attibutes set on the svg elements in order to ensure that [themecolor classes][iconcolors] will work.
+```html
+<svg xmlns="..." style="...">
+  <symbol id="ruxit" viewbox="0 0 512 512">
+    <rect x="10" y="10" width="100" height="100"/>
+  </symbol>
+</svg>
+```
 
-
+**Beware!** Only include icons you will actually need on this page into the definition to keep the page-weight to a minimum.
 
 [prerequisites]: #prerequisites
+[iconcolors]: #icon-colors
