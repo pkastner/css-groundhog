@@ -1,0 +1,72 @@
+@import "../common/variables";
+$expandable-table-background-color: $purple-100;
+$expandable-table-border-color: $purple-500;
+
+.table--expandable tbody:nth-child(2n) tr:first-child {
+  background-color: $gray-100;
+}
+
+.table--expandable tbody.is-expanded tr:first-child {
+  background-color: $expandable-table-background-color;
+}
+
+.table--expandable tr.expandable__content {
+  background-color: $white;
+}
+
+.table--expandable .expandable__content > div {
+  display: block;
+  max-height: 0;
+  transition: max-height 2s;
+}
+
+.table--expandable .expandable__content td {
+  padding: 32px 10px 28px;
+}
+
+.table--expandable .is-expanded tr:first-child td {
+  border-top: 2px solid $expandable-table-border-color;
+}
+
+.table--expandable .is-expanded tr:last-child td {
+  border-bottom: 2px solid $expandable-table-border-color;
+}
+
+.table--expandable .is-expanded .expandable__content {
+  display: table-row;
+}
+
+.table--expandable .is-expanded .expandable__content > div {
+  max-height: 100%;
+}
+
+
+@mixin expandable-table-theme($table-background-color, $table-border-color) {
+
+  .table--expandable .is-expanded tr:first-child {
+    background-color: $table-background-color;
+  }
+
+  .table--expandable .is-expanded tr:first-child td {
+    border-top: 2px solid $table-border-color;
+  }
+
+  .table--expandable .is-expanded tr:last-child td {
+    border-bottom: 2px solid $table-border-color;
+  }
+}
+
+.theme--blue {
+
+  @include expandable-table-theme($blue-100, $blue-500);
+}
+
+.theme--royalblue {
+
+  @include expandable-table-theme($royalblue-100, $royalblue-500);
+}
+
+.theme--green {
+
+  @include expandable-table-theme($green-100, $green-500);
+}
