@@ -8,7 +8,7 @@ const init = () => {
       el.addEventListener('click', (ev) => {
         ev.preventDefault();
         ev.stopPropagation();
-        el.parentNode.classList.toggle(toggleClass);
+        el.closest('.expandable').classList.toggle(toggleClass);
       });
       el.setAttribute('data-initialized', true);
     }
