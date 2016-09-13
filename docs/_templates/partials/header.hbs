@@ -1,6 +1,9 @@
 {{#if header}}
   <header class="header theme--dark">
     <h1>{{header.title}}</h1>
+    {{#if header.subtitle }}
+    <p>{{header.subtitle}}</p>
+    {{/if}}
     <img src="{{header.url}}" alt="Illustration of {{header.title}}" {{#if header.width}}style="width: 100%; max-width: {{header.width}}"{{/if}}>
     {{#if header.cta }}
     <div class="cta">
