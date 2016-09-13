@@ -1,0 +1,31 @@
+@import "../common/variables";
+
+.media {
+  background-color: $gray-100;
+  display: flex;
+  padding: 1.5rem;
+}
+
+.media__item {
+  margin-bottom: 1.5rem;
+}
+
+.media__item > * {
+  max-width: 100%;
+}
+
+.media__text {
+
+}
+
+.media--horizontal {
+  flex-direction: row;
+}
+
+.media--horizontal .media__text {
+  flex-grow: 2;
+}
+
+.media--vertical {
+  flex-direction: column;
+}
