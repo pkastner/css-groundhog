@@ -16,7 +16,7 @@ const handleClick = (ev) => {
 };
 
 const init = () => {
-  $('.table--expandable .expandable__trigger').forEach(el => {
+  $('[data-behavior*=accordion] .expandable__trigger').forEach(el => {
     el.addEventListener('click', handleClick);
   });
 };

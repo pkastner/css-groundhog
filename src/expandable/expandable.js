@@ -1,4 +1,5 @@
 import $ from '../js-common-components/dollar';
+require('../js-common-components/accordion');
 
 const toggleClass = 'is-expanded';
 
