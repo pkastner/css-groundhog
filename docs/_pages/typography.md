@@ -109,7 +109,7 @@ The following page contains all basic HTML elements. Here you can see if Groundh
       The <u>u element</u> example
   </p>
 
-  <h2>Blockquote</h2>         
+  <h2>Blockquote</h2>
   <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
 
   <h2>pre</h2>
@@ -132,7 +132,7 @@ The following page contains all basic HTML elements. Here you can see if Groundh
 
 <article id="lists">
 
-  <h2>Ordered List</h2>                       
+  <h2>Ordered List</h2>
   <ol>
      <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
      <li><a href="#" title="#">Aliquam tincidunt mauris eu risus.</a></li>

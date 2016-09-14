@@ -1,60 +1,69 @@
 @import "../common/variables";
 
-.expandable {
+$includedExpandable: false !default;
 
-}
+@if ($includedExpandable == false) {
 
-.expandable__trigger {
-  position: relative;
-  padding-left: 32px;
-  text-decoration: none;
-  color: $turquoise-500;
-}
+  .expandable {
 
-.expandable__trigger:hover {
-  text-decoration: none;
-  color: $turquoise-700;
-}
+  }
 
-.expandable__trigger:before {
-  content: " ";
-  position: absolute;
-  background-image: url(/assets/images/icons/dropdown_open.svg);
-  background-size: 1em;
-  width: 40px;
-  height: 40px;
-  background-repeat: no-repeat;
-  background-position: center;
-  left: 0;
-  top: 50%;
-  transform: translate(0, -50%) rotate(0);
-  transition: transform 0.3s ease;
-}
+  .expandable__trigger {
+    display: inline-block;
+    position: relative;
+    padding-left: 32px;
+    text-decoration: none;
+    color: $turquoise-500;
+  }
 
-.expandable__trigger--right {
-  padding-left: 0;
-  padding-right: 32px;
-}
+  .expandable__trigger:hover {
+    text-decoration: none;
+    color: $turquoise-700;
+  }
 
-.expandable__trigger--right:before {
-  left: auto;
-  right: 0;
-}
+  .expandable__trigger:before {
+    content: " ";
+    position: absolute;
+    background-image: url(/assets/images/icons/dropdown_open.svg);
+    background-size: 1em;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%) rotate(0);
+    transition: transform 0.3s ease;
+  }
 
-.expandable__content {
-  display: none;
-}
+  .expandable__trigger--right {
+    padding-left: 0;
+    padding-right: 32px;
+  }
 
-.expandable.is-active {
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  border-color: $turquoise-500;
-}
+  .expandable__trigger--right:before {
+    left: auto;
+    right: 0;
+  }
 
-.expandable.is-expanded .expandable__trigger:before {
-  transform: translate(0, -50%) rotate(180deg);
-}
+  .expandable__content {
+    display: none;
+  }
 
-.expandable.is-expanded .expandable__content {
-  display: block;
+  .expandable.is-active {
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-color: $turquoise-500;
+  }
+
+  .expandable.is-expanded .expandable__trigger:before {
+    transform: translate(0, -50%) rotate(180deg);
+  }
+
+  .expandable.is-expanded .expandable__content {
+    display: block;
+  }
+
+  $includedExpandable: true;
+
 }
