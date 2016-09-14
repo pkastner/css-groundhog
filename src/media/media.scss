@@ -3,29 +3,37 @@
 .media {
   background-color: $gray-100;
   display: flex;
+  flex-direction: column;
   padding: 1.5rem;
 }
 
 .media__item {
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem;
 }
 
 .media__item > * {
   max-width: 100%;
 }
 
-.media__text {
-
-}
-
-.media--horizontal {
-  flex-direction: row;
-}
-
-.media--horizontal .media__text {
+.media--horizontal .media__content {
   flex-grow: 2;
 }
 
-.media--vertical {
-  flex-direction: column;
+@media (min-width: $screen-sm) {
+
+  .media--horizontal {
+    flex-direction: row;
+  }
+
+  .media--horizontal .media__item {
+    margin: 0 1.5rem 0 0;
+  }
+
+  .media__item--right {
+    flex-direction: row-reverse;
+  }
+
+  .media__item--right .media__item {
+    margin: 0 0 0 1.5rem;
+  }
 }
