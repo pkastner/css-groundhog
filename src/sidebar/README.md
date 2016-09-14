@@ -50,7 +50,27 @@ The Groundhog **sidebar** component component introduces a possibility of creati
 
 ## Create an expandable sidebar
 
-## A note to expandable sidebars
+To use `expandable` in the sidebar, wrap the `sidebar__item` in an expandable module like this:
+```html
+<div class="expandable expandable--expanded is-active">
+  <a href="#" class="sidebar__item expandable__trigger expandable__trigger--right">
+    <span class="sidebar__headline">Monitoring</span>
+    <span class="sidebar__info">Setup and overview</span>
+  </a>
+  <div class="expandable__content">
+    <a href="#" class="sidebar__item is-active">
+      <span class="sidebar__headline">General</span>
+    </a>
+    <a href="#" class="sidebar__item">
+      <span class="sidebar__headline">User actions</span>
+    </a>
+  </div>
+</div>
+```
+
+For more details about the expandable component, go the the [expandable section][expandable] of the Groundhog documentation 
+
+### A note to expandable sidebars
 
 The `expandable` sidebars need the [expandable module][expandable] to be included. To make sure the cascade doesn't overwrite properties, the `expandable` module has to be first.
 
