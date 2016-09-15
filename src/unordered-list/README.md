@@ -1,5 +1,5 @@
 ---
-layout: components_icons.hbs
+layout: components.hbs
   meta:
     title: "Unordered list"
     description: "An unordered list component for Dynatrace styled web entities with css and markup examples."
@@ -8,13 +8,13 @@ layout: components_icons.hbs
 
 ## Introduction
 
-The Groundhog **unordered list** visually enhances the default `<ul>` list styling and nested versions. Keep in mind that the Groundhog unordered list component does not apply to default `<ul>` elements. The `.ul` class has to be specifically set on the root `<ul>` element.
+The Groundhog **unordered list** visually enhances the default `<ul>` list styling and nested versions. Keep in mind that the Groundhog unordered list component does not apply to default `<ul>` elements. The `.list` class has to be specifically set on the root `<ul>` element.
 
 ## Including the unordered list component
 
-1. To include a Groundhog unordered list add a `.ul` class to the `<ul>` tag. That's it.
+1. To include a Groundhog unordered list add a `.list` class to the `<ul>` tag. That's it.
 ```html
-<ul class="ul">
+<ul class="list">
   <li>first list item</li>
   <li>second list item</li>
   <li>third list item</li>
@@ -23,7 +23,7 @@ The Groundhog **unordered list** visually enhances the default `<ul>` list styli
 2. Add a wrapping `<div>` with a [theme class][themeClass] to set the theme (optional):
 ```html
 <div class="theme--blue">
-  <ul class="ul">
+  <ul class="list">
     <li>first list item</li>
     <li>second list item</li>
     <li>third list item</li>
@@ -35,7 +35,7 @@ The Groundhog **unordered list** visually enhances the default `<ul>` list styli
 
 It is possible to nest unordered lists.
 ```html
-<ul class="ul">
+<ul class="list">
   <li>first list item</li>
   <li>
     second list item
