@@ -11,13 +11,13 @@ The Groundhog **media component** is a combination of any type of media (img, vi
 
 ## Including a media component
 
-1. To include a media component create a wrapping `div` with a `.media` class and the desired alignment-class (horiontal or vertical, [see below][mediaClass]).
+1. To include a media component create a wrapping `div` with a `.media` class and the desired alignment-class (horizontal or vertical, [see below][mediaClass]).
 ```html
 <div class="media media--vertical">
   ...
 </div>
 ```
-2. The media element is put in a `div` with a `.media__item` class, the content in a `div` with a `.media__content` class.
+2. The media element itself is put into a `div` with a `.media__item` class, the content in a `div` with a `.media__content` class.
 ```html
 <div class="media media--vertical">
   <div class="media__item">
@@ -28,7 +28,7 @@ The Groundhog **media component** is a combination of any type of media (img, vi
   </div>
 </div>
 ```
-3. The order of the inner `div` elements can be reversed.
+3. The order of the inner `div` elements can be reversed, if the media item should be on the right or below the text.
 ```html
 <div class="media media--vertical">
   <div class="media__content">
@@ -41,7 +41,7 @@ The Groundhog **media component** is a combination of any type of media (img, vi
 ```
 4. Media components can be nested.
 ```html
-<div class="media media--vertical">
+<div class="media media--horizontal">
   <div class="media__item">
     ...
   </div>
