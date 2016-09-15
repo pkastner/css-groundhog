@@ -1,6 +1,8 @@
 import $ from '../js-common-components/dollar';
 require('../js-common-components/closest');
 
+// TOOD: Flag for refactoring
+
 const clickTab = (ev) => {
   const target = ev.target;
   const tabContainer = target.closest('.tabs');
