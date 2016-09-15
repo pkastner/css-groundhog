@@ -81,7 +81,6 @@ The Groundhog **tabs** component visually enhances the standard html `<input typ
 | `theme--turquoise` | Tabs in turquoise (default) |
 | `theme--blue` | Tabs in blue |
 | `theme--purple` | Tabs in purple |
-| `theme--green` | Tabs in green |
 | `theme--royalblue` | Tabs in royalblue |
 
 
