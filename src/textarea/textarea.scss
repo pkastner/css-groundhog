@@ -1,4 +1,6 @@
 @import "../common/variables";
+@import "../common/hint";
+@import "../common/label";
 
 .textarea {
   font-family: $mainfont;
@@ -15,31 +17,17 @@
   font-size: 14px;
   line-height: 32px;
   line-height: -moz-block-height;
-  vertical-align: middle;
+  vertical-align: top;
   text-align: left;
   overflow: hidden;
   color: $gray-700;
   resize: none;
-}
-
-.textarea__label {
-  position: relative;
-  font-size: 12px;
-  font-weight: normal;
-  display: block;
-  padding-bottom: 6px;
+  width: 100%;
+  max-width: 600px;
 }
 
 .textarea::placeholder {
   color: $gray-500;
-}
-
-.textarea__hint {
-  font-size: 10px;
-  color: $gray-500;
-  padding-top: 6px;
-  padding-left: 12px;
-  font-weight: normal;
 }
 
 .textarea:hover {
