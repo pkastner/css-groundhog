@@ -86,6 +86,7 @@
 
 .tab.is-active,
 .tab__input:checked + .tab {
+  pointer-events: none;
   color: #fff;
   background-color: $turquoise-500;
 }
@@ -117,9 +118,36 @@
   }
 }
 
-.tabs--error {
+
+/*
+* increase specificity to ensure error overrides general themecolor
+*/
+.tabs.tabs--error {
 
   @include tabtheme($red-500);
+}
+
+/*
+* themes
+*/
+.theme--blue {
+
+  @include tabtheme($blue-500);
+}
+
+.theme--turquoise {
+
+  @include tabtheme($turquoise-500);
+}
+
+.theme--purple {
+
+  @include tabtheme($purple-500);
+}
+
+.theme--royalblue {
+
+  @include tabtheme($royalblue-500);
 }
 
 /*
@@ -129,6 +157,7 @@
 .tab.is-disabled,
 .tab__input:disabled + .tab {
   color: $gray-300;
+  pointer-events: none;
 
   &:after,
   &:hover:after {
