@@ -31,12 +31,13 @@ const handlebarsLayout  = require('handlebars-layouts');
 const markdownms        = require('metalsmith-markdown');
 const permalinks        = require('metalsmith-permalinks');
 const navigation        = require('metalsmith-navigation');
-const sitemap        = require('metalsmith-sitemap');
+const sitemap           = require('metalsmith-sitemap');
 const codehighlight     = require('metalsmith-code-highlight');
 const components        = require('./build/plugins/components');
 const requiredir        = require('require-dir');
 const flatnav           = require('./build/plugins/flatnav');
 const addmeta           = require('./build/plugins/addmeta');
+const highlight         = require('./build/plugins/highlight');
 const capitalizeFirstLetter = require('./build/util/capitalizeFirstLetter');
 
 
@@ -147,7 +148,7 @@ gulp.task('doc', function(taskDone) {
       partials: './docs/_templates/partials/',
     }))
     .use(markdownms())
-    .use(codehighlight({ languages: [] }))
+    .use(highlight())
     .use((files, metalsmith, done) => {
       Object.keys(files).forEach((key) => files[key].name = path.basename(key, '.html'));
       done();
