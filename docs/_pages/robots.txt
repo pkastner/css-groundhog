@@ -1,0 +1,9 @@
+---
+layout: null
+permalink: false
+---
+User-agent: *
+Disallow: /harming/humans
+Disallow: /ignoring/human/orders
+Disallow: /harm/to/self
+Sitemap: http://groundhog.dynalabs.io/sitemap.xml

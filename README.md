@@ -62,3 +62,4 @@ This project is maintained by:
 With contributions by:
 
 - Sascha Zarhuber [@saschazar21](https://github.com/saschazar21)
+- Lara Aigmüller [@lara-aigmueller](https://github.com/lara-aigmueller)

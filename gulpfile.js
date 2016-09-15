@@ -31,6 +31,7 @@ const handlebarsLayout  = require('handlebars-layouts');
 const markdownms        = require('metalsmith-markdown');
 const permalinks        = require('metalsmith-permalinks');
 const navigation        = require('metalsmith-navigation');
+const sitemap        = require('metalsmith-sitemap');
 const codehighlight     = require('metalsmith-code-highlight');
 const components        = require('./build/plugins/components');
 const requiredir        = require('require-dir');
@@ -153,7 +154,7 @@ gulp.task('doc', function(taskDone) {
     })
     .use(permalinks({
       pattern: 'doc/:name',
-
+      relative: false,
       linksets: [{
         match: { type: 'component' },
         pattern: 'doc/components/:name'
@@ -177,6 +178,12 @@ gulp.task('doc', function(taskDone) {
       engine: 'handlebars',
       directory: './docs/_templates/layouts',
       default: 'default.hbs'
+    }))
+    .use(sitemap({
+      hostname: 'http://groundhog.dynalabs.io',
+      omitIndex: true,
+      priority: 0.5,
+      changefreq: 'monthly',
     }))
     .build((err) => {
       if (err) {

@@ -1,0 +1,22 @@
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="http://groundhog.dynalabs.io/{{path}}/" />
+{{#if data.meta.keywords}}
+<meta name="keywords" content="{{data.meta.keywords}}" />
+{{/if }}
+{{#if data.meta.description}}
+<meta name="description" content="{{data.meta.description}}" />
+<meta property="og:description" content="{{data.meta.description}}"/>
+<meta name="twitter:description" content="{{data.meta.description}}">
+{{/if }}
+<meta property="og:url" content="http://groundhog.dynalabs.io/{{path}}"/>
+<meta property="og:title" content="{{#if title}}{{ title }} | {{/if}}Groundhog"/>
+<meta property="og:site_name" content="Dynatrace Groundhog CSS"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="http://groundhog.dynalabs.io/assets/images/meta/groundhog-opengraph.png"/>
+<meta property="og:image:width" content="800"/>
+<meta property="og:image:height" content="420"/>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@dynatrace">
+<meta name="twitter:title" content="{{#if title}}{{ title }} | {{/if}}Groundhog">
+<meta name="twitter:image" content="http://groundhog.dynalabs.io/assets/images/meta/groundhog-opengraph.png">
