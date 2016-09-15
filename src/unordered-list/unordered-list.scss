@@ -1,0 +1,90 @@
+@import "../common/variables";
+$unordered-list-theme-color: $turquoise-500;
+
+.ul {
+  list-style: none;
+  padding-left: 0.25rem;
+
+  li {
+    position: relative;
+  }
+
+  li + li {
+    margin-top: 1.25rem;
+  }
+
+  li:before {
+    content: " ";
+    display: inline-block;
+    background-color: $unordered-list-theme-color;
+    width: 0.5rem;
+    height: 0.5rem;
+    position: relative;
+    margin-left: -1.25rem;
+    margin-right: 0.5rem;
+    margin-top: 0.4em;
+    vertical-align: top;
+    float: left;
+  }
+}
+
+
+.ul ul {
+  list-style: none;
+
+  li {
+    margin-top: 0.75rem;
+  }
+
+  li:before {
+    height: 2px;
+    margin-top: 0.65em;
+  }
+}
+
+
+.ul ul ul {
+  list-style: none;
+
+  li {
+    margin-top: 0;
+  }
+
+  li:before {
+    height: 1px;
+    margin-top: 0.65em;
+  }
+}
+
+@mixin unorderdlisttheme($color) {
+
+  li:before {
+    background-color: $color;
+  }
+}
+
+
+.theme--blue {
+
+  @include unorderdlisttheme($blue-600);
+}
+
+.theme--turquoise {
+
+  @include unorderdlisttheme($turquoise-500);
+}
+
+.theme--purple {
+
+  @include unorderdlisttheme($purple-600);
+}
+
+.theme--royalblue {
+
+  @include unorderdlisttheme($royalblue-500);
+}
+
+.theme--green {
+
+  @include unorderdlisttheme($green-500);
+}
