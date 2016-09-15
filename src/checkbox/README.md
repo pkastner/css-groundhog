@@ -14,21 +14,21 @@ The Groundhog **checkbox** component visually enhances the standard html `<input
 ```html
 <input type="checkbox">
 <label>
-  <span>Label text</span>
+    <span>Label text</span>
 </label>
 ```
 2. To add the visual enhancements of Groundhog, add the necessary classes to the elements class attributes:
 ```html
 <input class="checkbox" type="checkbox">
 <label class="checkbox__label">
-  <span class="checkbox__caption">Label text</span>
+    <span class="checkbox__caption">Label text</span>
 </label>
 ```
 3. To link the label with the checkbox, connect them via the `id` and the `for` attributes. This will add the ability to change the value of the checkbox by clicking on the label. This enhances usability especially in mobile, where click areas are a key.
 ```html
 <input class="checkbox" type="checkbox" id="checkbox-id-01">
 <label class="checkbox__label" for="checkbox-id-01">
-  <span class="checkbox__caption">Label text</span>
+    <span class="checkbox__caption">Label text</span>
 </label>
 ```
 

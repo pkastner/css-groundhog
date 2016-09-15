@@ -1,7 +1,7 @@
 {{#extend 'component_overview'}}
   {{#content 'main'}}
     <main class="island {{#if hasSidebar}} island--connected{{/if}}">
-      {{> component_content}}
+{{> component_content}}
       {{#each nav.componentsNav}}
         <a class="component" href="{{../sitedata.site.baseurl}}/{{file.path}}">
           <img class="component__image" src="/doc/images/brand/navicons/{{tolowercase file.title}}.svg" alt="{{file.title}} component preview" />
