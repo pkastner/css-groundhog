@@ -9,10 +9,9 @@ header:
   title: "Groundhog CSS Components"
   subtitle: "Dynatrace look and feel for web entities"
   cta:
-    url: https://github.com/Dynatrace/css-groundhog
-    text: "Get v0.1.0"
+    url: /doc/download/
+    text: "Get Groundhog"
 ---
-
 ## What is Groundhog
 
 This is Groundhog, a CSS library for all Dynatrace web entities. Think Bootstrap,

@@ -4,11 +4,13 @@
     {{#if header.subtitle }}
     <p>{{header.subtitle}}</p>
     {{/if}}
+    {{#if header.url}}
     <img src="{{header.url}}" alt="Illustration of {{header.title}}" {{#if header.width}}style="width: 100%; max-width: {{header.width}}"{{/if}}>
+    {{/if}}
     {{#if header.cta }}
     <div class="cta">
       <a class="btn btn--secondary" href="{{header.cta.url}}">{{header.cta.text}}</a>
+    </div>
     {{/if}}
-  </div>
   </header>
 {{/if}}
