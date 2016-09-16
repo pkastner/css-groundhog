@@ -8,17 +8,16 @@ $includedExpandable: false !default;
 
   }
 
+  .expandable__content {
+    display: none;
+  }
+
   .expandable__trigger {
     display: inline-block;
     position: relative;
     padding-left: 32px;
     text-decoration: none;
     color: $turquoise-500;
-  }
-
-  .expandable__trigger:hover {
-    text-decoration: none;
-    color: $turquoise-700;
   }
 
   .expandable__trigger:before {
@@ -36,6 +35,11 @@ $includedExpandable: false !default;
     transition: transform 0.3s ease;
   }
 
+  .expandable__trigger:hover {
+    text-decoration: none;
+    color: $turquoise-700;
+  }
+
   .expandable__trigger--right {
     padding-left: 0;
     padding-right: 32px;
@@ -44,10 +48,6 @@ $includedExpandable: false !default;
   .expandable__trigger--right:before {
     left: auto;
     right: 0;
-  }
-
-  .expandable__content {
-    display: none;
   }
 
   .expandable.is-active {

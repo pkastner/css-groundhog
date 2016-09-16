@@ -2,11 +2,6 @@
   width: 100%;
 }
 
-.layout.is-flex {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .layout--half {
   flex-basis: 100%;
 }
@@ -21,4 +16,9 @@
 .layout__container {
   display: flex;
   flex-direction: column;
+}
+
+.layout.is-flex {
+  display: flex;
+  flex-wrap: wrap;
 }

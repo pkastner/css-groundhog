@@ -9,7 +9,6 @@
   font-family: $mainfont;
 }
 
-
 /*
 * Tab stylings
 */
@@ -74,9 +73,8 @@
   clip: rect(0, 0, 0, 0);
 }
 
-
 /*
-* Tab hover and active states states
+* Tab hover and active states
 */
 
 .tab:hover:after {
@@ -90,7 +88,6 @@
   color: #fff;
   background-color: $turquoise-500;
 }
-
 
 /*
 * Themes
@@ -106,25 +103,11 @@
     color: $color;
   }
 
-  .tab.is-active .tabhighlight,
-  .tab__input:checked + .tab .tabhighlight {
-    color: #fff;
-  }
-
   .tab.is-active,
   .tab__input:checked + .tab {
     background-color: $color;
     color: #fff;
   }
-}
-
-
-/*
-* increase specificity to ensure error overrides general themecolor
-*/
-.tabs.tabs--error {
-
-  @include tabtheme($red-500);
 }
 
 /*
@@ -168,4 +151,17 @@
   .tabhighlight {
     color: $gray-300;
   }
+}
+
+/*
+* increase specificity to ensure error overrides general themecolor
+*/
+.tabs.tabs--error {
+
+  @include tabtheme($red-500);
+}
+
+.tab.is-active .tabhighlight,
+.tab__input:checked + .tab .tabhighlight {
+  color: #fff;
 }

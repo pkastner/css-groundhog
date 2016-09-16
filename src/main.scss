@@ -1,32 +1,32 @@
 @import "base/base";
 @import "base/typography";
+@import "base/inputs"; // TODO: only include with inputfields@custombild
 
 /** Structural -- Layouts **/
 @import "layout/layout";
 @import "layout/islands";
 
+/** Trumps **/
+@import "trumps/hide-mq";
+
 /** Components **/
+@import "icons/icons";
+@import "pagination/pagination";
+@import "unordered-list/unordered-list";
 @import "navbar/navbar";
 @import "header/header";
+@import "footer/footer";
+@import "inputfield/inputfield";
+@import "textarea/textarea";
 @import "expandable/expandable";
 @import "sidebar/sidebar";
 @import "breadcrumbs/breadcrumbs";
+@import "tile/tile";
 @import "button/button";
-@import "pagination/pagination";
-@import "icons/icons";
-@import "footer/footer";
-@import "switch/switch";
-@import "checkbox/checkbox";
 @import "table/table";
 @import "table-expandable/table-expandable";
-@import "tabs/tabs";
-@import "tile/tile";
 @import "tag/tag";
+@import "checkbox/checkbox";
 @import "radiobutton/radiobutton";
-@import "inputfield/inputfield";
-@import "textarea/textarea";
-@import "unordered-list/unordered-list";
-
-
-/** Trumps **/
-@import "trumps/hide-mq";
+@import "switch/switch";
+@import "tabs/tabs";
