@@ -8,7 +8,7 @@ header:
 
 ## Get Groundhog
 
-You can simply [download Groundhog CSS and JS files](/download/groundhog-v{{sitedata.package.version}}.zip) and include them into your pages.
+You can simply <a href="/download/groundhog-v{{sitedata.package.version}}.zip" id="download-link" download >download Groundhog CSS and JS files</a> and include them into your pages.
 
 To use the files put the CSS into the `<head>` of your page like this:
 ```html
@@ -25,10 +25,26 @@ And include the JS at the end of the `<body>` tag of your page:
 </body>
 ```
 
+
+
 ## CDN usage
 
 Coming soon
 
+
+
 ## Custom component builds
 
 Coming soon
+
+
+<script>
+var dl = document.getElementById('download-link');
+if(dl) {
+  dl.addEventListener('click', function(e) {
+    try{
+      window.ga('send', 'event', 'conversion', 'download', 'v{{sitedata.package.version}}');
+    } catch(er) {}
+  });
+}
+</script>
