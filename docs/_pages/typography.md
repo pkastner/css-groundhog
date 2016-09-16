@@ -36,7 +36,6 @@ The following page contains all basic HTML elements. Here you can see if Groundh
     <p>All pages and graphics on this web site are <s>Copyright</s> implemented by Gareth Rees 2011</p>
     </details>
   </footer>
-
 </article>
 
 <article id="headings">
@@ -117,7 +116,7 @@ The following page contains all basic HTML elements. Here you can see if Groundh
   <pre>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et me.</pre>
 
   <pre>
-      <code>
+    <code>
 &lt;html>
 &lt;head>
 &lt;/head>
@@ -125,7 +124,7 @@ The following page contains all basic HTML elements. Here you can see if Groundh
   &lt;div class="main"> &lt;div>
 &lt;/body>
 &lt;/html>
-      </code>
+    </code>
   </pre>
 
 </article>
@@ -175,7 +174,6 @@ The following page contains all basic HTML elements. Here you can see if Groundh
     <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
     <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
   </ul>
-
 </article>
 
 <article id="media">
@@ -197,7 +195,6 @@ The following page contains all basic HTML elements. Here you can see if Groundh
     <img src="http://placekitten.com/400/200" alt="">
     <figcaption>Figcaption content</figcaption>
   </figure>
-
 
   <h3>svg</h3>
 
@@ -237,7 +234,7 @@ The following page contains all basic HTML elements. Here you can see if Groundh
       <input type="url" class="inputfield" placeholder="http://" id="i4"/>
 
       <label for="i5" class="label">Password input</label>
-      <input type="password" class="inputfield" value="password" id="i5"/>
+      <input type="password" class="inputfield" placeholder="password" id="i5"/>
 
       <label for="i6" class="label">File input</label>
       <input type="file" class="inputfield" id="i6"/>
@@ -259,18 +256,18 @@ The following page contains all basic HTML elements. Here you can see if Groundh
           <option>Option 02</option>
         </select>
       </label>
-      <label>
-        <b>Textarea</b>
-        <textarea cols="30" rows="5" >Textarea text</textarea>
-      </label>
+
+      <label for="i7" class="label">Textarea</label>
+      <textarea cols="30" rows="5" class="textarea" placeholder="Textarea text" id="i7"></textarea>
+
     </fieldset>
 
     <fieldset>
       <legend>Clickable inputs and buttons</legend>
-      <input type="image" src="http://placekitten.com/90/24" alt="Image (input)">
-      <input type="reset" value="Reset (input)">
-      <input type="button" value="Button (input)">
-      <input type="submit" value="Submit (input)">
+      <input type="image" class="btn" src="http://placekitten.com/90/24" alt="Image (input)">
+      <input type="reset" class="btn btn--primary" value="Reset (input)">
+      <input type="button" class="btn btn--primary" value="Button (input)">
+      <input type="submit" class="btn btn--primary" value="Submit (input)">
       <button type="reset" class="btn btn--primary">Reset (button)</button>
       <button type="button" class="btn btn--primary">Button (button)</button>
       <button type="submit" class="btn btn--primary">Submit (button)</button>
@@ -278,16 +275,16 @@ The following page contains all basic HTML elements. Here you can see if Groundh
 
     <fieldset id="boxsize">
       <legend>box-sizing tests</legend>
-      <div><input type="text" value="text" class="inputfield"/></div>
-      <div><input type="email" value="email" class="inputfield"/></div>
-      <div><input type="search" value="search" class="inputfield inputfield--search"/></div>
-      <div><input type="url" value="http://example.com" class="inputfield"/></div>
-      <div><input type="password" value="password" class="inputfield"/></div>
+      <div><input type="text" placeholder="text" class="inputfield"/></div>
+      <div><input type="email" placeholder="email" class="inputfield"/></div>
+      <div><input type="search" placeholder="search" class="inputfield inputfield--search"/></div>
+      <div><input type="url" placeholder="http://example.com" class="inputfield"/></div>
+      <div><input type="password" placeholder="password" class="inputfield"/></div>
 
-      <div><input type="color" value="#000000"></div>
-      <div><input type="number" value="5"></div>
-      <div><input type="range" value="10"></div>
-      <div><input type="date" value="1970-01-01"></div>
+      <div><input type="color" placeholder="#000000"></div>
+      <div><input type="number" placeholder="5" class="inputfield"></div>
+      <div><input type="range" placeholder="10"></div>
+      <div><input type="date" placeholder="01/01/1970" class="inputfield inputfield--date--placeholder"></div>
       <div><input type="month" value="1970-01"></div>
       <div><input type="week" value="1970-W01"></div>
       <div><input type="time" value="18:23"></div>
@@ -298,12 +295,12 @@ The following page contains all basic HTML elements. Here you can see if Groundh
       <div><input type="checkbox"></div>
 
       <div><select><option>Option 01</option><option>Option 02</option></select></div>
-      <div><textarea cols="30" rows="5" >Textarea text</textarea></div>
+      <div><textarea cols="30" rows="5" class="textarea" placeholder="Textarea text" id="i7"></textarea></div>
 
-      <div><input type="image" src="http://placekitten.com/90/24" alt="Image (input)"></div>
-      <div><input type="reset" value="Reset (input)"></div>
-      <div><input type="button" value="Button (input)"></div>
-      <div><input type="submit" value="Submit (input)"></div>
+      <div><input type="image" class="btn" src="http://placekitten.com/90/24" alt="Image (input)"></div>
+      <div><input type="reset" class="btn btn--primary" value="Reset (input)"></div>
+      <div><input type="button" class="btn btn--primary" value="Button (input)"></div>
+      <div><input type="submit" class="btn btn--primary" value="Submit (input)"></div>
 
       <div><button type="reset" class="btn btn--primary">Reset (button)</button></div>
       <div><button type="button" class="btn btn--primary">Button (button)</button></div>
@@ -313,51 +310,50 @@ The following page contains all basic HTML elements. Here you can see if Groundh
 </article>
 
 <article id="tables">
-
   <h2>Table</h2>
 
   <table class="table">
-      <thead>
-          <tr>
-              <th>Name</th>
-              <th>Phone Number</th>
-              <th>Gender</th>
-          </tr>
-      </thead>
-      <tfoot>
-          <tr>
-              <th>Name</th>
-              <th>Phone Number</th>
-              <th>Gender</th>
-          </tr>
-      </tfoot>
-      <tbody>
-          <tr>
-              <td>John Smith</td>
-              <td>555 - 3246591</td>
-              <td>Male</td>
-          </tr>
-          <tr>
-              <td>Lucy Carter</td>
-              <td>555 - 6327445</td>
-              <td>Female</td>
-          </tr>
-          <tr>
-              <td>Simon Fletcher</td>
-              <td>555 - 2335213</td>
-              <td>Male</td>
-          </tr>
-          <tr>
-              <td>Jeremy Edwards</td>
-              <td>555 - 4297642</td>
-              <td>Male</td>
-          </tr>
-          <tr>
-              <td>Sarah Jones</td>
-              <td>555 - 6678903</td>
-              <td>Female</td>
-          </tr>
-      </tbody>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Gender</th>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <td>John Smith</td>
+        <td>555 - 3246591</td>
+        <td>Male</td>
+      </tr>
+      <tr>
+        <td>Lucy Carter</td>
+        <td>555 - 6327445</td>
+        <td>Female</td>
+      </tr>
+      <tr>
+        <td>Simon Fletcher</td>
+        <td>555 - 2335213</td>
+        <td>Male</td>
+      </tr>
+      <tr>
+        <td>Jeremy Edwards</td>
+        <td>555 - 4297642</td>
+        <td>Male</td>
+      </tr>
+      <tr>
+        <td>Sarah Jones</td>
+        <td>555 - 6678903</td>
+        <td>Female</td>
+      </tr>
+    </tbody>
   </table>
 
 </article>
