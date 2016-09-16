@@ -31,11 +31,13 @@ const handlebarsLayout  = require('handlebars-layouts');
 const markdownms        = require('metalsmith-markdown');
 const permalinks        = require('metalsmith-permalinks');
 const navigation        = require('metalsmith-navigation');
+const sitemap           = require('metalsmith-sitemap');
 const codehighlight     = require('metalsmith-code-highlight');
 const components        = require('./build/plugins/components');
 const requiredir        = require('require-dir');
 const flatnav           = require('./build/plugins/flatnav');
 const addmeta           = require('./build/plugins/addmeta');
+const highlight         = require('./build/plugins/highlight');
 const capitalizeFirstLetter = require('./build/util/capitalizeFirstLetter');
 
 
@@ -146,14 +148,14 @@ gulp.task('doc', function(taskDone) {
       partials: './docs/_templates/partials/',
     }))
     .use(markdownms())
-    .use(codehighlight({ languages: [] }))
+    .use(highlight())
     .use((files, metalsmith, done) => {
       Object.keys(files).forEach((key) => files[key].name = path.basename(key, '.html'));
       done();
     })
     .use(permalinks({
       pattern: 'doc/:name',
-
+      relative: false,
       linksets: [{
         match: { type: 'component' },
         pattern: 'doc/components/:name'
@@ -177,6 +179,12 @@ gulp.task('doc', function(taskDone) {
       engine: 'handlebars',
       directory: './docs/_templates/layouts',
       default: 'default.hbs'
+    }))
+    .use(sitemap({
+      hostname: 'http://groundhog.dynalabs.io',
+      omitIndex: true,
+      priority: 0.5,
+      changefreq: 'monthly',
     }))
     .build((err) => {
       if (err) {
