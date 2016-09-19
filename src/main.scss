@@ -6,9 +6,6 @@
 @import "layout/layout";
 @import "layout/islands";
 
-/** Trumps **/
-@import "trumps/hide-mq";
-
 /** Components **/
 @import "icons/icons";
 @import "pagination/pagination";
@@ -16,6 +13,7 @@
 @import "navbar/navbar";
 @import "header/header";
 @import "footer/footer";
+@import "media/media";
 @import "inputfield/inputfield";
 @import "textarea/textarea";
 @import "expandable/expandable";
@@ -30,3 +28,6 @@
 @import "radiobutton/radiobutton";
 @import "switch/switch";
 @import "tabs/tabs";
+
+/** Trumps **/
+@import "trumps/hide-mq";
