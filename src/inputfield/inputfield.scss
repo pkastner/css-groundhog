@@ -47,32 +47,6 @@
   color: $gray-700;
 }
 
-.inputfield:hover {
-  border-color: $gray-460;
-  cursor: text;
-}
-
-.inputfield[disabled]:hover {
-  border-color: $gray-300;
-  cursor: default;
-}
-
-.inputfield[disabled] {
-  background-color: $gray-130;
-  color: $disabledcolor;
-}
-
-
-.inputfield:focus {
-  outline: none;
-  box-shadow: 0 0 0 1px $focuscolor;
-  border-color: $focuscolor;
-}
-
-.inputfield--search:focus {
-  background-position: center right -31px;
-}
-
 .inputfield--date::-webkit-datetime-edit-year-field,
 .inputfield--date::-webkit-datetime-edit-month-field,
 .inputfield--date::-webkit-datetime-edit-day-field {
@@ -86,7 +60,27 @@
   color: $gray-500;
 }
 
-::-webkit-calendar-picker-indicator,
-::-webkit-inner-spin-button {
-  display: none;
+.inputfield:hover {
+  border-color: $gray-460;
+  cursor: text;
+}
+
+.inputfield[disabled] {
+  background-color: $gray-130;
+  color: $disabledcolor;
+}
+
+.inputfield:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px $focuscolor;
+  border-color: $focuscolor;
+}
+
+.inputfield--search:focus {
+  background-position: center right -31px;
+}
+
+.inputfield[disabled]:hover {
+  border-color: $gray-300;
+  cursor: default;
 }

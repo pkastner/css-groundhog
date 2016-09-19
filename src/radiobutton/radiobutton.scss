@@ -12,6 +12,11 @@
   user-select: none;
 }
 
+.radio__caption {
+  font-family: $mainfont;
+  font-size: 14px;
+}
+
 .radio__label:before {
   content: " ";
   position: absolute;
@@ -41,12 +46,34 @@
   margin-top: 5px;
 }
 
+.radio__label > icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  margin-top: 6px;
+  vertical-align: top;
+}
+
+.radio__label:focus {
+  box-shadow: 0 0 0 2px $focuscolor;
+  outline: none;
+}
+
 .radio__label:hover:before {
   border-color: $turquoise-700;
 }
 
 .radio:checked + .radio__label:after {
   background-color: $turquoise-600;
+}
+
+.radio:focus + .radio__label:before {
+  box-shadow: 0 0 0 2px $focuscolor;
+}
+
+.radio[disabled] + .radio__label {
+  color: $disabledcolor;
+  cursor: default;
 }
 
 .radio[disabled] + .radio__label:before {
@@ -64,31 +91,4 @@
 .radio[disabled]:checked + .radio__label:after {
   display: block;
   background-color: $disabledcolor;
-}
-
-.radio[disabled] + .radio__label {
-  color: $disabledcolor;
-  cursor: default;
-}
-
-.radio:focus + .radio__label:before {
-  box-shadow: 0 0 0 2px $focuscolor;
-}
-
-.radio__label:focus {
-  box-shadow: 0 0 0 2px $focuscolor;
-  outline: none;
-}
-
-.radio__caption {
-  font-family: $mainfont;
-  font-size: 14px;
-}
-
-.radio__label > icon {
-  width: 18px;
-  height: 18px;
-  margin-right: 8px;
-  margin-top: 6px;
-  vertical-align: top;
 }

@@ -12,6 +12,11 @@
   user-select: none;
 }
 
+.checkbox__caption {
+  font-family: $mainfont;
+  font-size: 14px;
+}
+
 .checkbox__label:before {
   content: " ";
   display: inline-block;
@@ -36,12 +41,34 @@
   display: none;
 }
 
+.checkbox__label > icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  margin-top: 6px;
+  vertical-align: top;
+}
+
+.checkbox__label:focus {
+  box-shadow: 0 0 0 2px $focuscolor;
+  outline: none;
+}
+
 .checkbox__label:hover:before {
   border-color: $turquoise-700;
 }
 
 .checkbox:checked + .checkbox__label:after {
   display: block;
+}
+
+.checkbox:focus + .checkbox__label:before {
+  box-shadow: 0 0 0 2px $focuscolor;
+}
+
+.checkbox[disabled] + .checkbox__label {
+  color: $disabledcolor;
+  cursor: default;
 }
 
 .checkbox[disabled] + .checkbox__label:before {
@@ -59,31 +86,4 @@
 .checkbox[disabled]:checked + .checkbox__label:after {
   display: block;
   background-image: url(/assets/images/icons/Icons_file_003_Checkmark_disabled.svg);
-}
-
-.checkbox[disabled] + .checkbox__label {
-  color: $disabledcolor;
-  cursor: default;
-}
-
-.checkbox:focus + .checkbox__label:before {
-  box-shadow: 0 0 0 2px $focuscolor;
-}
-
-.checkbox__label:focus {
-  box-shadow: 0 0 0 2px $focuscolor;
-  outline: none;
-}
-
-.checkbox__caption {
-  font-family: $mainfont;
-  font-size: 14px;
-}
-
-.checkbox__label > icon {
-  width: 18px;
-  height: 18px;
-  margin-right: 8px;
-  margin-top: 6px;
-  vertical-align: top;
 }
