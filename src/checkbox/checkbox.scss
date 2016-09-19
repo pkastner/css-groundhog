@@ -49,12 +49,21 @@
   vertical-align: top;
 }
 
+.checkbox__label:focus {
+  box-shadow: 0 0 0 2px $focuscolor;
+  outline: none;
+}
+
 .checkbox__label:hover:before {
   border-color: $turquoise-700;
 }
 
 .checkbox:checked + .checkbox__label:after {
   display: block;
+}
+
+.checkbox:focus + .checkbox__label:before {
+  box-shadow: 0 0 0 2px $focuscolor;
 }
 
 .checkbox[disabled] + .checkbox__label {
@@ -77,13 +86,4 @@
 .checkbox[disabled]:checked + .checkbox__label:after {
   display: block;
   background-image: url(/assets/images/icons/Icons_file_003_Checkmark_disabled.svg);
-}
-
-.checkbox:focus + .checkbox__label:before {
-  box-shadow: 0 0 0 2px $focuscolor;
-}
-
-.checkbox__label:focus {
-  box-shadow: 0 0 0 2px $focuscolor;
-  outline: none;
 }

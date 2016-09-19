@@ -18,6 +18,14 @@
   background-color: $gray-130;
 }
 
+.sidebar__item--expandable {
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-color: $turquoise-600;
+  overflow: hidden;
+  background-color: $gray-160;
+}
+
 .sidebar__info {
   display: block;
   font-size: 13px;
@@ -40,14 +48,6 @@
 }
 
 .sidebar__item.is-active {
-  background-color: $gray-160;
-}
-
-.sidebar__item--expandable {
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  border-color: $turquoise-600;
-  overflow: hidden;
   background-color: $gray-160;
 }
 

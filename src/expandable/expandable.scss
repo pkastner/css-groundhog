@@ -20,6 +20,16 @@ $includedExpandable: false !default;
     color: $turquoise-500;
   }
 
+  .expandable__trigger--right {
+    padding-left: 0;
+    padding-right: 32px;
+  }
+
+  .expandable__trigger--right:before {
+    left: auto;
+    right: 0;
+  }
+
   .expandable__trigger:before {
     content: " ";
     position: absolute;
@@ -38,16 +48,6 @@ $includedExpandable: false !default;
   .expandable__trigger:hover {
     text-decoration: none;
     color: $turquoise-700;
-  }
-
-  .expandable__trigger--right {
-    padding-left: 0;
-    padding-right: 32px;
-  }
-
-  .expandable__trigger--right:before {
-    left: auto;
-    right: 0;
   }
 
   .expandable.is-active {
