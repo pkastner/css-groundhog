@@ -85,7 +85,9 @@
 
 .btn--primary:focus:active {
   //border-color: $focuscolor;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  //box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(204, 204, 204, 0.8);
+
 }
 
 .btn--primary[disabled] {
@@ -129,12 +131,15 @@
 .btn--primary.theme--dark:focus {
   //box-shadow: 0 0 0 2px $focuscolor;
   border-color: rgba(255, 255, 255, 1.0);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5)
+  //box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5)
+  box-shadow: 0 0 0 2px rgba(204, 204, 204, 0.8);
+
 }
 
 .theme--dark .btn--primary:focus:active,
 .btn--primary.theme--dark:focus:active {
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  //box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(204, 204, 204, 0.8);
   border-color: #fff;
 }
 
@@ -241,13 +246,17 @@
 .theme--dark .btn--secondary:focus,
 .btn--secondary.theme--dark:focus {
   border-color: rgba(255, 255, 255, 1.0);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  //box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(204, 204, 204, 0.8);
+
 }
 
 .theme--dark .btn--secondary:focus:active,
 .btn--secondary.theme--dark:focus:active {
   border-color: #fff;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+//  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(204, 204, 204, 0.8);
+
 }
 
 .theme--dark .btn--secondary[disabled],
