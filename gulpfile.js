@@ -19,6 +19,9 @@ const browserify   = require('browserify');
 const watchify     = require('watchify');
 const source       = require('vinyl-source-stream');
 const eslint       = require('gulp-eslint');
+const packageData  = require('./package.json');
+const zip          = require('gulp-zip');
+
 
 /*
 * Metalsmith dependencies
@@ -99,7 +102,7 @@ gulp.task('dev', (done) => {
 });
 
 gulp.task('build', (done) => {
-  runSequence('copy-assets', 'icons', ['styles:lint', 'scripts:lint'], ['styles', 'scripts'], 'doc', done);
+  runSequence('copy-assets', 'icons', ['styles:lint', 'scripts:lint'], ['styles', 'scripts'], 'package', 'doc', done);
 });
 
 gulp.task('serve', function(done) {
@@ -140,6 +143,7 @@ gulp.task('doc', function(taskDone) {
     .source('./docs/_pages/')
     .clean(false)
     .destination('dist')
+    .use(addmeta('./package.json', 'package'))
     .use(addmeta('./docs/_data/site.json', 'site'))
     .use(addmeta('./docs/_data/nav.json', 'nav'))
     .use(components())
@@ -221,4 +225,12 @@ gulp.task('icons', function() {
     .pipe(gulp.dest('dist/assets/images/icons'))
     .pipe(sprites({ templates: ['default-svg']}))
     .pipe(gulp.dest('dist/assets/images'));
-})
+});
+
+
+gulp.task('package', () => {
+  const version = packageData.version;
+  gulp.src(['./dist/js/main.js', './dist/css/main.css'])
+    .pipe(zip(`groundhog-v${version}.zip`))
+    .pipe(gulp.dest('./dist/download/'));
+});
