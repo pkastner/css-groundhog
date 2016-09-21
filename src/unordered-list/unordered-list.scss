@@ -56,6 +56,13 @@ $unordered-list-theme-color: $turquoise-500;
   }
 }
 
+.list ol {
+
+  li:before {
+    content: none;
+  }
+}
+
 @mixin unorderdlisttheme($color) {
 
   li:before {
