@@ -216,7 +216,7 @@ The following page contains all basic HTML elements. Here you can see if Groundh
   -->
   <form>
     <fieldset>
-      <legend>Inputs as descendents of labels (form legend)</legend>
+      <legend>Inputs and labels</legend>
 
       <label for="i0" class="label">Text input</label>
       <input type="text" class="inputfield" value="default value" id="i0"/>
@@ -228,7 +228,7 @@ The following page contains all basic HTML elements. Here you can see if Groundh
       <input type="search" class="inputfield inputfield--search" id="i2"/>
 
       <label for="i3" class="label">Tel input</label>
-      <input type="tel" class="inputfield" id="i3"/>
+      <input type="tel" id="i3"/>
 
       <label for="i4" class="label">URL input</label>
       <input type="url" class="inputfield" placeholder="http://" id="i4"/>
@@ -237,7 +237,7 @@ The following page contains all basic HTML elements. Here you can see if Groundh
       <input type="password" class="inputfield" placeholder="password" id="i5"/>
 
       <label for="i6" class="label">File input</label>
-      <input type="file" class="inputfield" id="i6"/>
+      <input type="file" id="i6"/>
 
       <input type="radio" class="radio" name="rad" id="r1">
       <label class="radio__label" for="r1">
