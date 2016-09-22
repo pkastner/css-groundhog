@@ -9,7 +9,7 @@ function colorRangeInput() {
 #ccc ${currentValue}%, #ccc 100%)`;
 }
 
-const colorRange = () => {
+const init = () => {
   $('input[type=range]').forEach(el => {
     if (!el.getAttribute('data-initialized')) {
       el.addEventListener('change', colorRangeInput);
@@ -18,4 +18,4 @@ const colorRange = () => {
   });
 };
 
-colorRange();
+init();
