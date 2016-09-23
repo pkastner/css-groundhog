@@ -25,11 +25,6 @@ $includedExpandable: false !default;
     padding-right: 32px;
   }
 
-  .expandable__trigger--right:before {
-    left: auto;
-    right: 0;
-  }
-
   .expandable__trigger:before {
     content: " ";
     position: absolute;
@@ -43,6 +38,11 @@ $includedExpandable: false !default;
     top: 50%;
     transform: translate(0, -50%) rotate(0);
     transition: transform 0.3s ease;
+  }
+
+  .expandable__trigger--right:before {
+    left: auto;
+    right: 0;
   }
 
   .expandable__trigger:hover {
