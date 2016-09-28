@@ -71,7 +71,6 @@
   right: 18px;
 }
 
-
 .switch:checked + .switch__label:before {
   background-color: $turquoise-600;
   border-color: $turquoise-600;
@@ -115,6 +114,5 @@
 }
 
 .switch:focus:not(:active) + .switch__label:before {
-  box-shadow: 0 0 0 1px $turquoise-400;
-  border-color: $turquoise-400;
+  box-shadow: 0 0 0 2px $focuscolor;
 }

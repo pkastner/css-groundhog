@@ -72,8 +72,7 @@
 
 .inputfield:focus {
   outline: none;
-  box-shadow: 0 0 0 1px $focuscolor;
-  border-color: $focuscolor;
+  box-shadow: 0 0 0 2px $focuscolor;
 }
 
 .inputfield--search:focus {

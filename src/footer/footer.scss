@@ -36,3 +36,8 @@
   background-color: #fff;
   fill: $gray-800;
 }
+
+.footer__sociallink:focus {
+  box-shadow: 0 0 0 2px $focuscolor;
+  outline: none;
+}
