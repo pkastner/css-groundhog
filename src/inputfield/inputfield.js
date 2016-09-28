@@ -23,7 +23,6 @@ const validateDate = () => {
 
 
 function searchFieldChangeHandler() {
-  console.log(this.value);
   if (this.value !== '') {
     this.style.backgroundImage = 'none';
   } else {
