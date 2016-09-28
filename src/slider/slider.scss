@@ -1,19 +1,20 @@
 @import "../common/variables";
 
-.slider,
-.slider--js {
-  font-family: $mainfont;
+.slider {
   appearance: none;
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  height: 32px;
+  height: 2px;
   cursor: pointer;
-  background-color: transparent;
+  width: 100%;
+  max-width: 320px;
+  height: 2px;
+  background: linear-gradient(to right, $turquoise-600 0%, $turquoise-600 50%, $disabledcolor 50%, $disabledcolor 100%);
+  border-radius: 1px;
 }
 
-.slider::-webkit-slider-thumb,
-.slider--js::-webkit-slider-thumb {
+.slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 14px;
   width: 14px;
@@ -32,36 +33,9 @@
   cursor: pointer;
 }
 
-.slider::-ms-thumb {
-  margin-top: -1px;
-  height: 14px;
-  width: 14px;
-  border-radius: 10px;
-  background: $turquoise-600;
-  border: 1px solid #fff;
-  cursor: pointer;
-}
-
-.slider,
-.slider--js {
-  width: 100%;
-  max-width: 320px;
-  height: 2px;
-  cursor: pointer;
-  background: linear-gradient(to right, $turquoise-600 0%, $turquoise-600 50%, $disabledcolor 50%, $disabledcolor 100%);
-  border-radius: 1px;
-}
-
 .slider::-moz-range-track {
   width: 100%;
   height: 2px;
-  cursor: pointer;
-  background: $disabledcolor;
-}
-
-.slider::-ms-track {
-  width: 100%;
-  height: 1px;
   cursor: pointer;
   background: $disabledcolor;
 }
@@ -70,21 +44,35 @@
   background-color: $turquoise-600;
 }
 
-.slider::-ms-fill-lower {
+.slider::-ms-track {
+  background: -ms-linear-gradient(to left, $turquoise-600 0%, $turquoise-600 50%, $disabledcolor 50%, $disabledcolor 100%);
+  border-radius: 1px;
+  height: 12px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+  cursor: pointer;
+}
+
+.slider::-ms-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 10px;
+  overflow: visible;
   background: $turquoise-600;
+  border: 1px solid #fff;
+  cursor: pointer;
 }
 
 .slider::-ms-tooltip {
   display: none;
 }
 
-.slider:hover,
-.slider--js:hover {
+.slider:hover {
   text-decoration: none;
 }
 
-.slider:focus,
-.slider--js:focus {
+.slider:focus {
   outline: none;
 }
 
@@ -135,9 +123,11 @@
   background: $disabledcolor;
   cursor: default;
   box-shadow: none;
+  height: 2px;
 }
 
-.slider[disabled]::-moz-range-track {
+.slider[disabled]::-moz-range-track,
+.slider[disabled]::-moz-range-progress {
   pointer-events: none;
   background: $disabledcolor;
   cursor: default;
@@ -151,8 +141,14 @@
   box-shadow: none;
 }
 
+.slider[disabled]::-ms-fill-lower,
+.slider[disabled]::-ms-fill-upper {
+  background: $disabledcolor;
+}
+
 .slider[disabled]::-webkit-slider-thumb {
   background: $disabledcolor;
+  margin-top: -6px;
 }
 
 .slider[disabled]::-moz-range-thumb {
