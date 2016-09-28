@@ -2,7 +2,7 @@ import $ from '../js-common-components/dollar';
 
 function colorRangeInput() {
   const currentValue = ((this.value - this.min) / (this.max - this.min)) * 100;
-  this.style.background =
+  this.style.backgroundImage =
  `linear-gradient(to right, #00a1b2 0%, #00a1b2 ${currentValue}%,
 #ccc ${currentValue}%, #ccc 100%)`;
 }
