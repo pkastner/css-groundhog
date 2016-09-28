@@ -22,4 +22,23 @@ const validateDate = () => {
 };
 
 
+function searchFieldChangeHandler() {
+  if (this.value !== '') {
+    this.style.backgroundImage = 'none';
+  } else {
+    this.style.backgroundImage =
+'url(/assets/images/icons/Icons_file_002_Search_Magnifying_glass.svg)';
+  }
+}
+
+const initSearch = () => {
+  $('input[type=search]').forEach(el => {
+    if (!el.getAttribute('search-initialized')) {
+      el.addEventListener('keyup', searchFieldChangeHandler);
+      el.setAttribute('search-initialized', true);
+    }
+  });
+};
+
 validateDate();
+initSearch();

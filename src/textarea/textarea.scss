@@ -35,9 +35,9 @@
   cursor: text;
 }
 
-.textarea[disabled]:hover {
-  border-color: $gray-300;
-  cursor: default;
+.textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px $focuscolor;
 }
 
 .textarea[disabled] {
@@ -45,8 +45,7 @@
   color: $disabledcolor;
 }
 
-.textarea:focus {
-  outline: none;
-  box-shadow: 0 0 0 1px $focuscolor;
-  border-color: $focuscolor;
+.textarea[disabled]:hover {
+  border-color: $gray-300;
+  cursor: default;
 }

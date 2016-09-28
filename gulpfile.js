@@ -19,6 +19,9 @@ const browserify   = require('browserify');
 const watchify     = require('watchify');
 const source       = require('vinyl-source-stream');
 const eslint       = require('gulp-eslint');
+const packageData  = require('./package.json');
+const zip          = require('gulp-zip');
+
 
 /*
 * Metalsmith dependencies
@@ -31,11 +34,13 @@ const handlebarsLayout  = require('handlebars-layouts');
 const markdownms        = require('metalsmith-markdown');
 const permalinks        = require('metalsmith-permalinks');
 const navigation        = require('metalsmith-navigation');
+const sitemap           = require('metalsmith-sitemap');
 const codehighlight     = require('metalsmith-code-highlight');
 const components        = require('./build/plugins/components');
 const requiredir        = require('require-dir');
 const flatnav           = require('./build/plugins/flatnav');
 const addmeta           = require('./build/plugins/addmeta');
+const highlight         = require('./build/plugins/highlight');
 const capitalizeFirstLetter = require('./build/util/capitalizeFirstLetter');
 
 
@@ -97,7 +102,7 @@ gulp.task('dev', (done) => {
 });
 
 gulp.task('build', (done) => {
-  runSequence('copy-assets', 'icons', ['styles:lint', 'scripts:lint'], ['styles', 'scripts'], 'doc', done);
+  runSequence('copy-assets', 'icons', ['styles:lint', 'scripts:lint'], ['styles', 'scripts'], 'package', 'doc', done);
 });
 
 gulp.task('serve', function(done) {
@@ -138,6 +143,7 @@ gulp.task('doc', function(taskDone) {
     .source('./docs/_pages/')
     .clean(false)
     .destination('dist')
+    .use(addmeta('./package.json', 'package'))
     .use(addmeta('./docs/_data/site.json', 'site'))
     .use(addmeta('./docs/_data/nav.json', 'nav'))
     .use(components())
@@ -146,14 +152,14 @@ gulp.task('doc', function(taskDone) {
       partials: './docs/_templates/partials/',
     }))
     .use(markdownms())
-    .use(codehighlight({ languages: [] }))
+    .use(highlight())
     .use((files, metalsmith, done) => {
       Object.keys(files).forEach((key) => files[key].name = path.basename(key, '.html'));
       done();
     })
     .use(permalinks({
       pattern: 'doc/:name',
-
+      relative: false,
       linksets: [{
         match: { type: 'component' },
         pattern: 'doc/components/:name'
@@ -177,6 +183,12 @@ gulp.task('doc', function(taskDone) {
       engine: 'handlebars',
       directory: './docs/_templates/layouts',
       default: 'default.hbs'
+    }))
+    .use(sitemap({
+      hostname: 'http://groundhog.dynalabs.io',
+      omitIndex: true,
+      priority: 0.5,
+      changefreq: 'monthly',
     }))
     .build((err) => {
       if (err) {
@@ -213,4 +225,12 @@ gulp.task('icons', function() {
     .pipe(gulp.dest('dist/assets/images/icons'))
     .pipe(sprites({ templates: ['default-svg']}))
     .pipe(gulp.dest('dist/assets/images'));
-})
+});
+
+
+gulp.task('package', () => {
+  const version = packageData.version;
+  gulp.src(['./dist/js/main.js', './dist/css/main.css'])
+    .pipe(zip(`groundhog-v${version}.zip`))
+    .pipe(gulp.dest('./dist/download/'));
+});

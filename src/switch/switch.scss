@@ -5,16 +5,16 @@
   position: absolute;
 }
 
+.switch__caption {
+  font-family: $mainfont;
+  font-size: 14px;
+}
+
 .switch__label {
   position: relative;
   padding-left: 46px;
   cursor: pointer;
   user-select: none;
-}
-
-.to-right + .switch__label {
-  padding-left: 0;
-  padding-right: 46px;
 }
 
 .switch__label:before {
@@ -52,6 +52,15 @@
   left: 0;
 }
 
+.switch__label:focus {
+  outline: none;
+}
+
+.to-right + .switch__label {
+  padding-left: 0;
+  padding-right: 46px;
+}
+
 .to-right + .switch__label:before {
   left: auto;
   right: 0;
@@ -61,7 +70,6 @@
   left: auto;
   right: 18px;
 }
-
 
 .switch:checked + .switch__label:before {
   background-color: $turquoise-600;
@@ -106,15 +114,5 @@
 }
 
 .switch:focus:not(:active) + .switch__label:before {
-  box-shadow: 0 0 0 1px $turquoise-400;
-  border-color: $turquoise-400;
-}
-
-.switch__label:focus {
-  outline: none;
-}
-
-.switch__caption {
-  font-family: $mainfont;
-  font-size: 14px;
+  box-shadow: 0 0 0 2px $focuscolor;
 }

@@ -1,4 +1,5 @@
 import $ from '../js-common-components/dollar';
+require('../js-common-components/accordion');
 
 const toggleClass = 'is-expanded';
 
@@ -8,7 +9,7 @@ const init = () => {
       el.addEventListener('click', (ev) => {
         ev.preventDefault();
         ev.stopPropagation();
-        el.parentNode.classList.toggle(toggleClass);
+        el.closest('.expandable').classList.toggle(toggleClass);
       });
       el.setAttribute('data-initialized', true);
     }

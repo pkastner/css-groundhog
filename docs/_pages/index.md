@@ -5,13 +5,13 @@ theme: theme--blue
 firstBreadcrumbEntry: true
 header:
   url: /assets/images/header/groundhog.svg
-  width: 1000px
-  title: "Welcome to Groundhog! CSS Components for Dynatrace"
+  width: 700px
+  title: "Groundhog CSS Components"
+  subtitle: "Dynatrace look and feel for web entities"
   cta:
-    url: https://github.com/Dynatrace/css-groundhog
-    text: "Get v0.1.0"
+    url: /doc/download/
+    text: "Get Groundhog"
 ---
-
 ## What is Groundhog
 
 This is Groundhog, a CSS library for all Dynatrace web entities. Think Bootstrap,
@@ -74,3 +74,4 @@ This project is maintained by:
 With contributions by:
 
 - Sascha Zarhuber [@saschazar21](https://github.com/saschazar21)
+- Lara Aigmueller [@lara-aigmueller](https://github.com/lara-aigmueller)

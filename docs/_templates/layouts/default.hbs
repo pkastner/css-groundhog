@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Groundhog - {{ title }}</title>
+    <title>{{ title }}{{#if title}} | {{/if}}Groundhog</title>
     <meta name="viewport" content="width=device-width">
     <link rel="icon" href="{{sitedata.site.baseurl}}/assets/images/favicon.ico">
     <link rel="stylesheet" href="{{sitedata.site.baseurl}}/css/main.css" charset="utf-8">
     <link rel="stylesheet" href="{{sitedata.site.baseurl}}/css/base/fonts.css" charset="utf-8">
     <link rel="stylesheet" href="{{sitedata.site.baseurl}}/assets/style/syntax.css" charset="utf-8">
     <link rel="stylesheet" href="{{sitedata.site.baseurl}}/assets/style/site.css" charset="utf-8">
+    {{> headmeta }}
   </head>
   <body {{#if theme}}class="{{theme}}"{{/if}}>
     {{> navigation}}
@@ -39,7 +40,7 @@
       <div class="layout">
         {{> header}}
         <main class="island {{#if hasSidebar}} island--connected{{/if}}">
-          {{{contents}}}
+  {{{contents}}}
         </main>
       </div>
       {{/block}}
@@ -47,6 +48,7 @@
     {{/block}}
     {{> footer}}
     {{> ga}}
+    {{> structureddata}}
   </body>
 
 </html>

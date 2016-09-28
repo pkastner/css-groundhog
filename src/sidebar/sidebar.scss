@@ -18,14 +18,6 @@
   background-color: $gray-130;
 }
 
-.sidebar__item:hover {
-  text-decoration: none;
-}
-
-.sidebar__item.is-active {
-  background-color: $gray-160;
-}
-
 .sidebar__item--expandable {
   border-top: 2px solid;
   border-bottom: 2px solid;
@@ -34,8 +26,10 @@
   background-color: $gray-160;
 }
 
-.sidebar__item + .sidebar__item {
-  border-top: 1px solid $gray-200;
+.sidebar__info {
+  display: block;
+  font-size: 13px;
+  color: $gray-500;
 }
 
 .sidebar__headline {
@@ -49,15 +43,21 @@
   color: $turquoise-600;
 }
 
+.sidebar__item:hover {
+  text-decoration: none;
+}
+
+.sidebar__item.is-active {
+  background-color: $gray-160;
+}
+
+.sidebar__item + .sidebar__item {
+  border-top: 1px solid $gray-200;
+}
+
 .sidebar__item.is-active .sidebar__headline {
   color: $turquoise-600;
   font-weight: 600;
-}
-
-.sidebar__info {
-  display: block;
-  font-size: 13px;
-  color: $gray-500;
 }
 
 /* Expandable addons */

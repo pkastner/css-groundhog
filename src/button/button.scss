@@ -36,8 +36,7 @@
 
 .btn:focus {
   outline: 0;
-  border-color: $focuscolor;
-  box-shadow: 0 0 0 1px $focuscolor;
+  box-shadow: 0 0 0 2px $focuscolor;
 }
 
 .btn:active {
@@ -82,7 +81,7 @@
 }
 
 .btn--primary:focus:active {
-  border-color: $focuscolor;
+  box-shadow: 0 0 0 2px $focuscolor;
 }
 
 .btn--primary[disabled] {

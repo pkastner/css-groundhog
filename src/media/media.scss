@@ -1,0 +1,39 @@
+@import "../common/variables";
+
+.media {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.media > div:first-child {
+  margin: 0 0 1.5rem;
+}
+
+.media__item > * {
+  max-width: 100%;
+}
+
+.media--horizontal .media__content {
+  flex-grow: 2;
+}
+
+.media .media {
+  padding: 0;
+}
+
+@media (min-width: $screen-sm) {
+
+  .media--horizontal {
+    flex-direction: row;
+  }
+
+  .media--horizontal > div:first-child {
+    margin: 0 1.5rem 0 0;
+  }
+
+  .media__item--right {
+    flex-direction: row-reverse;
+  }
+
+}
