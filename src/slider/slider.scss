@@ -1,0 +1,157 @@
+@import "../common/variables";
+
+.slider {
+  appearance: none;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  height: 18px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 320px;
+  background: tranparent;
+  background-image: linear-gradient(to right, $turquoise-600 0%, $turquoise-600 50%, $disabledcolor 50%, $disabledcolor 100%);
+  background-size: 100% 2px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  border-radius: 1px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 10px;
+  background: $turquoise-600;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 10px;
+  background: $turquoise-600;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.slider::-moz-range-track {
+  cursor: pointer;
+  background: $disabledcolor;
+}
+
+.slider::-moz-range-progress {
+  background-color: $turquoise-600;
+}
+
+.slider::-ms-track {
+  border-color: transparent;
+  color: transparent;
+  cursor: pointer;
+}
+
+.slider::-ms-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 10px;
+  overflow: visible;
+  background: $turquoise-600;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.slider::-ms-tooltip {
+  display: none;
+}
+
+.slider:focus {
+  outline: none;
+}
+
+.slider:focus::-webkit-slider-thumb {
+  outline: none;
+  box-shadow: 0 0 0 2px $focuscolor;
+}
+
+.slider:focus::-moz-range-thumb {
+  outline: none;
+  box-shadow: 0 0 0 2px $focuscolor;
+}
+
+.slider:focus::-ms-thumb {
+  outline: none;
+  box-shadow: 0 0 0 2px $focuscolor;
+}
+
+.slider:hover {
+  text-decoration: none;
+}
+
+.slider:hover::-webkit-slider-thumb {
+  background: $turquoise-700;
+}
+
+.slider:hover::-moz-range-thumb {
+  background: $turquoise-700;
+}
+
+.slider:hover::-ms-thumb {
+  background: $turquoise-700;
+}
+
+.slider:active::-webkit-slider-thumb {
+  background: $turquoise-800;
+}
+
+.slider:active::-moz-range-thumb {
+  background: $turquoise-800;
+}
+
+.slider:active::-ms-thumb {
+  background: $turquoise-800;
+}
+
+.slider[disabled]::-webkit-slider-runnable-track {
+  pointer-events: none;
+  background-image: linear-gradient(to right, $disabledcolor 0%, $disabledcolor 50%, $disabledcolor 50%, $disabledcolor 100%);
+  background-size: 100% 2px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  box-shadow: none;
+}
+
+.slider[disabled]::-moz-range-track,
+.slider[disabled]::-moz-range-progress {
+  pointer-events: none;
+  background-image: linear-gradient(to right, $disabledcolor 0%, $disabledcolor 50%, $disabledcolor 50%, $disabledcolor 100%);
+  background-size: 100% 2px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  cursor: default;
+  box-shadow: none;
+}
+
+.slider[disabled]::-ms-track,
+.slider[disabled]::-ms-fill-lower,
+.slider[disabled]::-ms-fill-upper {
+  pointer-events: none;
+  background-image: linear-gradient(to right, $disabledcolor 0%, $disabledcolor 50%, $disabledcolor 50%, $disabledcolor 100%);
+  background-size: 100% 2px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  cursor: default;
+  box-shadow: none;
+}
+
+.slider[disabled]::-webkit-slider-thumb {
+  background: $disabledcolor;
+}
+
+.slider[disabled]::-moz-range-thumb {
+  background: $disabledcolor;
+}
+
+.slider[disabled]::-ms-thumb {
+  background: $disabledcolor;
+}
