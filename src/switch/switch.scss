@@ -28,10 +28,11 @@
   left: 0;
   box-sizing: border-box;
   background-color: transparent;
-  background-image: radial-gradient(circle 5px, transparent 0, transparent 2px, $gray-700 3px, transparent 4px);
-  background-size: 50% 100%;
+  //background-image: radial-gradient(circle 5px, transparent 0, transparent 2px, $gray-700 3px, transparent 4px);
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 10 10" width="10" height="10" xmlns="http://www.w3.org/2000/svg"><ellipse fill="transparent" cx="5" cy="5" rx="2.5" ry="4" stroke="#{$gray-700}" stroke-width="1" /></svg>');
+  background-size: 10px 10px;
   background-repeat: no-repeat;
-  background-position: 22px 4px;
+  background-position: 20px 4px;
   transition: background-color 100ms ease-in;
   top: -1px;
 }
