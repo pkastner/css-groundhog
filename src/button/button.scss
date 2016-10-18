@@ -36,9 +36,6 @@
 
 .btn:focus {
   outline: 0;
-  //border-color: $focuscolor;
-  //box-shadow: 0 0 0 1px $focuscolor;
-  //border-color: rgba(255, 255, 255, 1.0);
   box-shadow: 0 0 0 2px rgba(204, 204, 204, 0.8);
 }
 
@@ -112,6 +109,7 @@
 .btn--primary.theme--dark,
 .theme--dark .btn--primary {
   border-color: #fff;
+  border-width: 1px;
   background-color: $buttoncolor;
 }
 
@@ -129,16 +127,13 @@
 
 .theme--dark .btn--primary:focus,
 .btn--primary.theme--dark:focus {
-  //box-shadow: 0 0 0 2px $focuscolor;
   border-color: rgba(255, 255, 255, 1.0);
-  //box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5)
   box-shadow: 0 0 0 2px rgba(204, 204, 204, 0.8);
 
 }
 
 .theme--dark .btn--primary:focus:active,
 .btn--primary.theme--dark:focus:active {
-  //box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 0 2px rgba(204, 204, 204, 0.8);
   border-color: #fff;
 }
@@ -191,7 +186,9 @@
 }
 
 .btn--secondary:hover {
-  box-shadow: 0 0 0 1px $buttonhovercolor;
+  border-color: $turquoise-700;
+  box-shadow: 0 0 0 1px $turquoise-700;
+  color: $turquoise-800;
 }
 
 .btn--secondary:focus {
@@ -233,8 +230,7 @@
 
 .theme--dark .btn--secondary:hover,
 .btn--secondary.theme--dark:hover {
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);
-  border-color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.9);
 }
 
 .theme--dark .btn--secondary:active,
