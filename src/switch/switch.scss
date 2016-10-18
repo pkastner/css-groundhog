@@ -12,7 +12,7 @@
 
 .switch__label {
   position: relative;
-  padding-left: 46px;
+  padding-left: 44px;
   cursor: pointer;
   user-select: none;
 }
@@ -31,25 +31,36 @@
   background-image: radial-gradient(circle 5px, transparent 0, transparent 2px, $gray-700 3px, transparent 4px);
   background-size: 10px 10px;
   background-repeat: no-repeat;
-  background-position: 22px 4px;
+  background-position: 21px 4px;
   transition: background-color 100ms ease-in;
   top: -1px;
 }
 
 .switch__label:after {
   content: " ";
-  height: 16px;
-  width: 16px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
   background-color: $gray-700;
   transition: left 100ms ease-out, right 100ms ease-out;
-  margin-top: 2px;
-  margin-left: 2px;
+  margin-top: 3px;
+  margin-left: 4px;
   box-sizing: border-box;
   position: absolute;
   display: block;
-  top: -1px;
+  top: 0;
   left: 0;
+}
+
+.switch__label:hover:before {
+  border: solid 1px $turquoise-700;
+  box-shadow: 0 0 0 1px $turquoise-700;
+}
+
+.switch:checked:hover + .switch__label:hover:before {
+  background-color: $turquoise-700;
+  border-color: $turquoise-600;
+  box-shadow: none;
 }
 
 .switch__label:focus {
@@ -58,7 +69,7 @@
 
 .to-right + .switch__label {
   padding-left: 0;
-  padding-right: 46px;
+  padding-right: 44px;
 }
 
 .to-right + .switch__label:before {
@@ -68,7 +79,7 @@
 
 .to-right + .switch__label:after {
   left: auto;
-  right: 18px;
+  right: 20px;
 }
 
 .switch:checked + .switch__label:before {
@@ -86,7 +97,7 @@
 
 .switch.to-right:checked + .switch__label:after {
   left: auto;
-  right: 2px;
+  right: 4px;
 }
 
 .switch[disabled] + .switch__label:before {
@@ -100,17 +111,30 @@
 }
 
 .switch[disabled] + .switch__label:after {
-  background-color: transparent;
+  background-color: $gray-300;
   border: 1px solid $gray-300;
 }
 
 .switch[disabled]:checked + .switch__label:before {
   background-color: transparent;
+  outline: none;
 }
 
 .switch[disabled] + .switch__label {
   color: $gray-300;
   cursor: default;
+}
+
+.switch[disabled]:checked:hover + .switch__label:hover:before {
+  background-color: transparent;
+  border-color: $gray-300;
+  box-shadow: none;
+}
+
+.switch[disabled]:not(checked):hover + .switch__label:hover:before {
+  background-color: transparent;
+  border-color: $gray-300;
+  box-shadow: none;
 }
 
 .switch:focus:not(:active) + .switch__label:before {
