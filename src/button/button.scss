@@ -180,7 +180,8 @@
 }
 
 .btn--secondary:hover {
-  box-shadow: 0 0 0 1px $buttonhovercolor;
+  border-color: $turquoise-800;
+  background-color: $gray-130;
 }
 
 .btn--secondary:focus {
@@ -222,8 +223,9 @@
 
 .theme--dark .btn--secondary:hover,
 .btn--secondary.theme--dark:hover {
-  box-shadow: 0 0 0 1px $buttonhovercolor;
-  border-color: $turquoise-700;
+  border-color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .theme--dark .btn--secondary:active,
