@@ -136,7 +136,7 @@
 .btn--primary.theme--dark[disabled] {
   background-color: rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.6);
-  border-color: rgba(255, 255, 255, 0);
+  border-color: transparent;
 }
 
 .btn--primary.theme--dark > .icon,
@@ -180,7 +180,8 @@
 }
 
 .btn--secondary:hover {
-  box-shadow: 0 0 0 1px $buttonhovercolor;
+  border-color: $turquoise-700;
+  background-color: $gray-130;
 }
 
 .btn--secondary:focus {
@@ -189,7 +190,9 @@
 }
 
 .btn--secondary:active {
-  box-shadow: 0 0 0 1px $buttonactivecolor;
+  border-color: $buttonactivecolor;
+  color: $buttonactivecolor;
+  background-color: $gray-130;
 }
 
 .btn--secondary:focus:active {
@@ -217,19 +220,21 @@
 .theme--dark .btn--secondary,
 .btn--secondary.theme--dark {
   border-color: #fff;
-  color: #fff;
+  color: $gray-130;
 }
 
 .theme--dark .btn--secondary:hover,
 .btn--secondary.theme--dark:hover {
-  box-shadow: 0 0 0 1px $buttonhovercolor;
-  border-color: $turquoise-700;
+  border-color: #fff;
+  color: $gray-130;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .theme--dark .btn--secondary:active,
 .btn--secondary.theme--dark:active {
-  border-color: $buttonactivecolor;
-  box-shadow: 0 0 0 1px $buttonactivecolor;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: #fff;
+  color: #fff;
 }
 
 .theme--dark .btn--secondary:focus,
