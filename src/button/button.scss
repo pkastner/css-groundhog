@@ -180,7 +180,7 @@
 }
 
 .btn--secondary:hover {
-  border-color: $turquoise-800;
+  border-color: $turquoise-700;
   background-color: $gray-130;
 }
 
@@ -190,7 +190,8 @@
 }
 
 .btn--secondary:active {
-  box-shadow: 0 0 0 1px $buttonactivecolor;
+  border-color: $buttonactivecolor;
+  background-color: $gray-160;
 }
 
 .btn--secondary:focus:active {
@@ -230,8 +231,8 @@
 
 .theme--dark .btn--secondary:active,
 .btn--secondary.theme--dark:active {
+  background-color: rgba(255, 255, 255, 0.3);
   border-color: $buttonactivecolor;
-  box-shadow: 0 0 0 1px $buttonactivecolor;
 }
 
 .theme--dark .btn--secondary:focus,
