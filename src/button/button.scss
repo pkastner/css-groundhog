@@ -136,7 +136,7 @@
 .btn--primary.theme--dark[disabled] {
   background-color: rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.6);
-  border-color: rgba(255, 255, 255, 0);
+  border-color: transparent;
 }
 
 .btn--primary.theme--dark > .icon,
@@ -224,7 +224,7 @@
 .theme--dark .btn--secondary:hover,
 .btn--secondary.theme--dark:hover {
   border-color: rgba(255, 255, 255, 0.9);
-  color: rgba(255, 255, 255, 1);
+  color: #fff;
   background-color: rgba(255, 255, 255, 0.2);
 }
 
