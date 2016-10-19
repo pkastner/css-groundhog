@@ -191,7 +191,7 @@
 
 .btn--secondary:active {
   border-color: $buttonactivecolor;
-  color: $turquoise-800;
+  color: $buttonactivecolor;
   background-color: $gray-130;
 }
 
@@ -225,7 +225,7 @@
 
 .theme--dark .btn--secondary:hover,
 .btn--secondary.theme--dark:hover {
-  border-color: rgba(255, 255, 255, 0.9);
+  border-color: #fff;
   color: $gray-130;
   background-color: rgba(255, 255, 255, 0.2);
 }
@@ -233,8 +233,8 @@
 .theme--dark .btn--secondary:active,
 .btn--secondary.theme--dark:active {
   background-color: rgba(255, 255, 255, 0.3);
-  border-color: $buttonactivecolor;
-  color: rgba(255, 255, 255, 1);
+  border-color: #fff;
+  color: #fff;
 }
 
 .theme--dark .btn--secondary:focus,
