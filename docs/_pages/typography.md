@@ -214,8 +214,8 @@ The following page contains all basic HTML elements. Here you can see if Groundh
       Minimal semantic form markup, based on the work of Sam Croft
       http://samcroft.co.uk/2011/minimal-form-markup-simple-slender-and-semantic/
   -->
-  <form>
-    <fieldset>
+  <form class="form">
+    <fieldset class="fieldset">
       <legend>Inputs and labels</legend>
 
       <label for="i0" class="label">Text input</label>
@@ -228,7 +228,7 @@ The following page contains all basic HTML elements. Here you can see if Groundh
       <input type="search" class="inputfield inputfield--search" id="i2"/>
 
       <label for="i3" class="label">Tel input</label>
-      <input type="tel" id="i3"/>
+      <input type="tel" class="inputfield" id="i3"/>
 
       <label for="i4" class="label">URL input</label>
       <input type="url" class="inputfield" placeholder="http://" id="i4"/>
@@ -249,9 +249,9 @@ The following page contains all basic HTML elements. Here you can see if Groundh
         <span class="checkbox__caption">Checkbox input</span>
       </label>
 
-      <label>
+      <label for="o1">
         <b>Select field</b>
-        <select>
+        <select id="o1">
           <option>Option 01</option>
           <option>Option 02</option>
         </select>
@@ -262,7 +262,7 @@ The following page contains all basic HTML elements. Here you can see if Groundh
 
     </fieldset>
 
-    <fieldset>
+    <fieldset class="fieldset">
       <legend>Clickable inputs and buttons</legend>
       <input type="image" class="btn" src="http://placekitten.com/90/24" alt="Image (input)">
       <input type="reset" class="btn btn--primary" value="Reset (input)">
@@ -273,7 +273,7 @@ The following page contains all basic HTML elements. Here you can see if Groundh
       <button type="submit" class="btn btn--primary">Submit (button)</button>
     </fieldset>
 
-    <fieldset id="boxsize">
+    <fieldset class="fieldset" id="boxsize">
       <legend>box-sizing tests</legend>
       <div><input type="text" placeholder="text" class="inputfield"/></div>
       <div><input type="email" placeholder="email" class="inputfield"/></div>
@@ -283,16 +283,23 @@ The following page contains all basic HTML elements. Here you can see if Groundh
 
       <div><input type="color" placeholder="#000000"></div>
       <div><input type="number" placeholder="5" class="inputfield"></div>
-      <div><input type="range" placeholder="10"></div>
+      <div><input class="slider" type="range" placeholder="10"></div>
       <div><input type="date" placeholder="01/01/1970" class="inputfield inputfield--date--placeholder"></div>
-      <div><input type="month" value="1970-01"></div>
-      <div><input type="week" value="1970-W01"></div>
-      <div><input type="time" value="18:23"></div>
-      <div><input type="datetime" value="1970-01-01T00:00:00Z"></div>
-      <div><input type="datetime-local" value="1970-01-01T00:00"></div>
+      <div><input type="month" value="1970-01" class="inputfield"></div>
+      <div><input type="week" value="1970-W01" class="inputfield"></div>
+      <div><input type="time" value="18:23" class="inputfield"></div>
+      <div><input type="datetime" value="1970-01-01T00:00:00Z" class="inputfield"></div>
+      <div><input type="datetime-local" value="1970-01-01T00:00" class="inputfield"></div>
 
-      <div><input type="radio"></div>
-      <div><input type="checkbox"></div>
+      <input type="radio" class="radio" name="rad" id="r2">
+      <label class="radio__label" for="r2">
+        <span class="radio__caption">Radio input</span>
+      </label>
+
+      <input type="checkbox" class="checkbox" id="cb2">
+      <label class="checkbox__label" for="cb2">
+        <span class="checkbox__caption">Checkbox input</span>
+      </label>
 
       <div><select><option>Option 01</option><option>Option 02</option></select></div>
       <div><textarea cols="30" rows="5" class="textarea" placeholder="Textarea text" id="i7"></textarea></div>
