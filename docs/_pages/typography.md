@@ -218,41 +218,65 @@ The following page contains all basic HTML elements. Here you can see if Groundh
     <fieldset class="fieldset">
       <legend>Inputs and labels</legend>
 
-      <label for="i0" class="label">Text input</label>
-      <input type="text" class="inputfield" value="default value" id="i0"/>
+      <fieldset class="fieldset">
+        <label for="i0" class="label">Text input</label>
+        <input type="text" class="inputfield" value="default value" id="i0"/>
+      </fieldset>
 
-      <label for="i1" class="label">Email input</label>
-      <input type="email" class="inputfield" id="i1"/>
+      <fieldset class="fieldset">
+        <label for="i1" class="label">Inputfield with hint text</label>
+        <input type="text" class="inputfield" id="i1" aria-describedby="i1"/>
+        <p class="hint" id="i1">Hint text</p>
+      </fieldset>
 
-      <label for="i2" class="label">Search input</label>
-      <input type="search" class="inputfield inputfield--search" id="i2"/>
+      <fieldset class="fieldset">
+        <label for="i2" class="label">Email input</label>
+        <input type="email" class="inputfield" id="i2"/>
+      </fieldset>
 
-      <label for="i3" class="label">Tel input</label>
-      <input type="tel" class="inputfield" id="i3"/>
+      <fieldset class="fieldset">
+        <label for="i3" class="label">Search input</label>
+        <input type="search" class="inputfield inputfield--search" id="i3"/>
+      </fieldset>
 
-      <label for="i4" class="label">URL input</label>
-      <input type="url" class="inputfield" placeholder="http://" id="i4"/>
+      <fieldset class="fieldset">
+        <label for="i4" class="label">Tel input</label>
+        <input type="tel" class="inputfield" id="i4"/>
+      </fieldset>
 
-      <label for="i5" class="label">Password input</label>
-      <input type="password" class="inputfield" placeholder="password" id="i5"/>
 
-      <label for="i6" class="label">File input</label>
-      <input type="file" id="i6"/>
+      <fieldset class="fieldset">
+        <label for="i5" class="label">URL input</label>
+        <input type="url" class="inputfield" placeholder="http://" id="i5"/>
+      </fieldset>
 
-      <input type="radio" class="radio" name="rad" id="r1">
-      <label class="radio__label" for="r1">
-        <span class="radio__caption">Radio input</span>
-      </label>
+      <fieldset class="fieldset">
+        <label for="i6" class="label">Password input</label>
+        <input type="password" class="inputfield" placeholder="password" id="i6"/>
+      </fieldset>
 
-      <input type="radio" class="radio" name="rad" id="r2">
-      <label class="radio__label" for="r2">
-        <span class="radio__caption">Radio input</span>
-      </label>
 
-      <input type="radio" class="radio" name="rad" id="r3">
-      <label class="radio__label" for="r3">
-        <span class="radio__caption">Radio input</span>
-      </label>
+      <fieldset class="fieldset">
+        <label for="i7" class="label">File input</label>
+        <input type="file" id="i7"/>
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <input type="radio" class="radio" name="rad" id="r1">
+        <label class="radio__label" for="r1">
+          <span class="radio__caption">Radio input</span>
+        </label>
+
+        <input type="radio" class="radio" name="rad" id="r2">
+        <label class="radio__label" for="r2">
+          <span class="radio__caption">Radio input</span>
+        </label>
+
+        <input type="radio" class="radio" name="rad" id="r3">
+        <label class="radio__label" for="r3">
+          <span class="radio__caption">Radio input</span>
+        </label>
+      </fieldset>
 
       <input type="checkbox" class="checkbox" id="cb1">
       <label class="checkbox__label" for="cb1">
@@ -267,8 +291,8 @@ The following page contains all basic HTML elements. Here you can see if Groundh
         </select>
       </label>
 
-      <label for="i7" class="label">Textarea</label>
-      <textarea cols="30" rows="5" class="textarea" placeholder="Textarea text" id="i7"></textarea>
+      <label for="i8" class="label">Textarea</label>
+      <textarea cols="30" rows="5" class="textarea" placeholder="Textarea text" id="i8"></textarea>
 
     </fieldset>
 
@@ -301,40 +325,42 @@ The following page contains all basic HTML elements. Here you can see if Groundh
       <div><input type="datetime" value="1970-01-01T00:00:00Z" class="inputfield"></div>
       <div><input type="datetime-local" value="1970-01-01T00:00" class="inputfield"></div>
 
-      <input type="radio" class="radio" name="rad" id="r4">
-      <label class="radio__label" for="r4">
-        <span class="radio__caption">Radio input</span>
-      </label>
+      <fieldset class="fieldset">
+        <input type="radio" class="radio" name="rad" id="r4">
+        <label class="radio__label" for="r4">
+          <span class="radio__caption">Radio input</span>
+        </label>
 
-      <input type="radio" class="radio" name="rad" id="r5">
-      <label class="radio__label" for="r5">
-        <span class="radio__caption">Radio input</span>
-      </label>
+        <input type="radio" class="radio" name="rad" id="r5">
+        <label class="radio__label" for="r5">
+          <span class="radio__caption">Radio input</span>
+        </label>
 
-      <input type="radio" class="radio" name="rad" id="r6">
-      <label class="radio__label" for="r6">
-        <span class="radio__caption">Radio input</span>
-      </label>
+        <input type="radio" class="radio" name="rad" id="r6">
+        <label class="radio__label" for="r6">
+          <span class="radio__caption">Radio input</span>
+        </label>
 
-      <input type="radio" class="radio" name="rad" id="r7">
-      <label class="radio__label" for="r7">
-        <span class="radio__caption">Radio input</span>
-      </label>
+        <input type="radio" class="radio" name="rad" id="r7">
+        <label class="radio__label" for="r7">
+          <span class="radio__caption">Radio input</span>
+        </label>
+      </fieldset>
 
-      <br>
+      <fieldset class="fieldset">
+        <input type="checkbox" class="checkbox" id="cb2">
+        <label class="checkbox__label" for="cb2">
+          <span class="checkbox__caption">Checkbox input</span>
+        </label>
 
-      <input type="checkbox" class="checkbox" id="cb2">
-      <label class="checkbox__label" for="cb2">
-        <span class="checkbox__caption">Checkbox input</span>
-      </label>
-
-      <input type="checkbox" class="checkbox" id="cb3">
-      <label class="checkbox__label" for="cb3">
-        <span class="checkbox__caption">Checkbox input</span>
-      </label>
+        <input type="checkbox" class="checkbox" id="cb3">
+        <label class="checkbox__label" for="cb3">
+          <span class="checkbox__caption">Checkbox input</span>
+        </label>
+      </fieldset>
 
       <div><select><option>Option 01</option><option>Option 02</option></select></div>
-      <div><textarea cols="30" rows="5" class="textarea" placeholder="Textarea text" id="i7"></textarea></div>
+      <div><textarea cols="30" rows="5" class="textarea" placeholder="Textarea text" id="i9"></textarea></div>
 
       <div><input type="image" class="btn" src="http://placekitten.com/90/24" alt="Image (input)"></div>
       <div><input type="reset" class="btn btn--primary" value="Reset (input)"></div>
@@ -347,6 +373,13 @@ The following page contains all basic HTML elements. Here you can see if Groundh
     </fieldset>
   </form>
 </article>
+
+<div class="expandable">
+  <a href="#" class="expandable__trigger">Click me</a>
+  <div class="expandable__content">
+    <p>Peekaboo</p>
+  </div>
+</div>
 
 <article id="tables">
   <h2>Table</h2>
