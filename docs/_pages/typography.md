@@ -244,6 +244,16 @@ The following page contains all basic HTML elements. Here you can see if Groundh
         <span class="radio__caption">Radio input</span>
       </label>
 
+      <input type="radio" class="radio" name="rad" id="r2">
+      <label class="radio__label" for="r2">
+        <span class="radio__caption">Radio input</span>
+      </label>
+
+      <input type="radio" class="radio" name="rad" id="r3">
+      <label class="radio__label" for="r3">
+        <span class="radio__caption">Radio input</span>
+      </label>
+
       <input type="checkbox" class="checkbox" id="cb1">
       <label class="checkbox__label" for="cb1">
         <span class="checkbox__caption">Checkbox input</span>
@@ -291,13 +301,35 @@ The following page contains all basic HTML elements. Here you can see if Groundh
       <div><input type="datetime" value="1970-01-01T00:00:00Z" class="inputfield"></div>
       <div><input type="datetime-local" value="1970-01-01T00:00" class="inputfield"></div>
 
-      <input type="radio" class="radio" name="rad" id="r2">
-      <label class="radio__label" for="r2">
+      <input type="radio" class="radio" name="rad" id="r4">
+      <label class="radio__label" for="r4">
         <span class="radio__caption">Radio input</span>
       </label>
 
+      <input type="radio" class="radio" name="rad" id="r5">
+      <label class="radio__label" for="r5">
+        <span class="radio__caption">Radio input</span>
+      </label>
+
+      <input type="radio" class="radio" name="rad" id="r6">
+      <label class="radio__label" for="r6">
+        <span class="radio__caption">Radio input</span>
+      </label>
+
+      <input type="radio" class="radio" name="rad" id="r7">
+      <label class="radio__label" for="r7">
+        <span class="radio__caption">Radio input</span>
+      </label>
+
+      <br>
+
       <input type="checkbox" class="checkbox" id="cb2">
       <label class="checkbox__label" for="cb2">
+        <span class="checkbox__caption">Checkbox input</span>
+      </label>
+
+      <input type="checkbox" class="checkbox" id="cb3">
+      <label class="checkbox__label" for="cb3">
         <span class="checkbox__caption">Checkbox input</span>
       </label>
 
