@@ -38,6 +38,7 @@
     "highlight.js": "^9.3.0",
     "merge2": "^1.0.2",
     "metalsmith": "^2.1.0",
+    "metalsmith-code-highlight": "0.0.3",
     "metalsmith-in-place": "^1.4.4",
     "metalsmith-layouts": "^1.6.5",
     "metalsmith-markdown": "^0.2.1",
