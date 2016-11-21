@@ -5,16 +5,14 @@
   border: none;
   padding: 0;
   margin: 0;
+  margin-bottom: 12px;
 }
 
 .fieldset legend {
   padding: 0;
   width: 100%;
-  margin-bottom: 20px;
-}
-
-.fieldset *:last-child {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
+  margin-top: 16px;
 }
 
 .fieldset .btn {
