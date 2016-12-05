@@ -306,7 +306,9 @@ The following page contains all basic HTML elements. Here you can see if Groundh
         <textarea cols="30" rows="5" class="textarea" placeholder="Textarea text" id="i8"></textarea>
       </field>
     </fieldset>
+  </form>
 
+  <form class="form">
     <fieldset class="fieldset">
       <legend>Clickable inputs and buttons</legend>
       <input type="reset" class="btn btn--primary" value="Reset (input)">
@@ -431,7 +433,7 @@ The following page contains all basic HTML elements. Here you can see if Groundh
         <field class="field">
           <div><textarea cols="30" rows="5" class="textarea" placeholder="Textarea text" id="i9"></textarea></div>
         </field>
-      <fieldset>
+      </fieldset>
 
       <fieldset class="fieldset">
         <div><input type="reset" class="btn btn--primary" value="Reset (input)"></div>
@@ -441,7 +443,7 @@ The following page contains all basic HTML elements. Here you can see if Groundh
         <div><button type="reset" class="btn btn--primary">Reset (button)</button></div>
         <div><button type="button" class="btn btn--primary">Button (button)</button></div>
         <div><button type="submit" class="btn btn--primary">Submit (button)</button></div>
-    </fieldset>
+      </fieldset>
   </form>
 </article>
 
