@@ -13,6 +13,11 @@
   display: inline-block;
 }
 
+.radio__label.theme--dark,
+.theme--dark .radio__label {
+  color: #fff;
+}
+
 .radio__caption {
   font-family: $mainfont;
   font-size: 14px;
@@ -34,7 +39,14 @@
   border: solid 2px $turquoise-600;
 }
 
-.radio__label:after {
+.radio__label.theme--dark:before,
+.theme--dark .radio__label:before {
+  border: solid 2px #fff;
+}
+
+.radio__label:after,
+.radio__label.theme--dark:after,
+.theme--dark .radio__label:after {
   content: " ";
   position: absolute;
   top: 0;
@@ -43,7 +55,6 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: tranparent;
   margin-left: 5px;
   margin-top: 5px;
 }
@@ -65,24 +76,40 @@
   border-color: $turquoise-700;
 }
 
+.radio__label.theme--dark:hover:before,
+.theme--dark .radio__label:hover:before {
+  border-color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .radio:checked + .radio__label:after {
   background-color: $turquoise-600;
+}
+
+.radio:checked + .radio__label.theme--dark:after,
+.theme--dark .radio:checked + .radio__label:after {
+  background-color: #fff;
 }
 
 .radio:focus + .radio__label:before {
   box-shadow: 0 0 0 2px $focuscolor;
 }
 
-.radio[disabled] + .radio__label {
+.radio[disabled] + .radio__label,
+.radio[disabled] + .radio__label.theme--dark,
+.theme--dark .radio[disabled] + .radio__label {
   color: $disabledcolor;
   cursor: default;
 }
 
 .radio[disabled] + .radio__label:before {
   border-color: $disabledcolor;
+  background-color: transparent;
 }
 
-.radio[disabled] + .radio__label:after {
+.radio[disabled] + .radio__label:after,
+.radio[disabled] + .radio__label.theme--dark:after,
+.theme--dark .radio[disabled] + .radio__label:after {
   display: none;
 }
 
