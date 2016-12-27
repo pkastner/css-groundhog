@@ -1,4 +1,5 @@
 import $ from '../js-common-components/dollar';
+require('../js-common-components/accordion');
 
 function fetchData(select) {
   const rq = { url: '/assets/data/select_data.json',
@@ -20,10 +21,21 @@ function fetchData(select) {
   xhr.send();
 }
 
+
 const initData = () => {
   $('select').forEach(el => {
     if (!el.getAttribute('data-initialized')) {
-      el.addEventListener('keyup', fetchData(el));
+      el.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        el.classList.add('is-expanded');
+      });
+      el.addEventListener('blur', (ev) => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        el.classList.remove('is-expanded');
+      });
+      fetchData(el);
       el.setAttribute('data-initialized', true);
     }
   });
