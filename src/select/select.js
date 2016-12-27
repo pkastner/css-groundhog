@@ -1,30 +1,32 @@
-/*
 import $ from '../js-common-components/dollar';
-function initData() {
-  $.get('select_data.json', function(data => {
-    $('body').append(data);
-  });
+
+function fetchData(select) {
+  const rq = { url: '/assets/data/select_data.json',
+    onLoad: (e) => {
+      const options = (JSON.parse(e.target.responseText)).options;
+      for (let i = 0; i < options.length; i++) {
+        const opt = document.createElement('option');
+        opt.value = options[i].value;
+        opt.innerHTML = options[i].value;
+        select.add(opt);
+      }
+    },
+  };
+
+  const xhr = new XMLHttpRequest();
+  xhr.addEventListener('load', rq.onLoad.bind(this));
+
+  xhr.open('GET', rq.url);
+  xhr.send();
 }
-const init = () => {
+
+const initData = () => {
   $('select').forEach(el => {
     if (!el.getAttribute('data-initialized')) {
-      initData();
+      el.addEventListener('keyup', fetchData(el));
       el.setAttribute('data-initialized', true);
     }
   });
 };
-initData();
-*/
 
-var request = new XMLHttpRequest();
-request.onreadystatechange = function() {
-    if(request.readyState == XMLHttpRequest.DONE) {
-       if(request.status == 200) {
-           document.getElementById("body").innerHTML = request.responseText;
-       } else {
-           alert(request.status);
-       }
-    }
-};
-request.open("GET", "select_data.json", true);
-request.send();
+initData();
