@@ -1,49 +1,49 @@
 /* eslint no-param-reassign: 0 */
 /* eslint arrow-body-style: 0 */
 
-const stylelint    = require('stylelint');
-const sass         = require('gulp-sass');
-const prefix       = require('gulp-autoprefixer');
-const gulp         = require('gulp');
-const runSequence  = require('run-sequence');
-const markdown     = require('gulp-markdown');
-const rename       = require('gulp-rename');
-const sprites      = require('gulp-svg-symbols');
-const svgo         = require('gulp-svgo');
-const globby       = require('globby');
-const through2     = require('through2');
-const path         = require('path');
-const bSync        = require('browser-sync');
-const fs           = require('fs');
-const merge        = require('merge2');
-const browserify   = require('browserify');
-const watchify     = require('watchify');
-const source       = require('vinyl-source-stream');
-const eslint       = require('gulp-eslint');
-const packageData  = require('./package.json');
-const zip          = require('gulp-zip');
-
+const stylelint = require('stylelint');
+const sass = require('gulp-sass');
+const prefix = require('gulp-autoprefixer');
+const gulp = require('gulp');
+const runSequence = require('run-sequence');
+const markdown = require('gulp-markdown');
+const rename = require('gulp-rename');
+const sprites = require('gulp-svg-symbols');
+const svgo = require('gulp-svgo');
+const globby = require('globby');
+const path = require('path');
+const bSync = require('browser-sync');
+const fs = require('fs');
+const merge = require('merge2');
+const browserify = require('browserify');
+const watchify = require('watchify');
+const source = require('vinyl-source-stream');
+const eslint = require('gulp-eslint');
+const packageData = require('./package.json');
+const zip = require('gulp-zip');
+const s3 = require('gulp-s3');
+const replace = require('gulp-replace');
 
 /*
 * Metalsmith dependencies
 */
-const metalsmith        = require('metalsmith');
-const inplace           = require('metalsmith-in-place');
-const layouts           = require('metalsmith-layouts');
-const handlebars        = require('handlebars');
-const handlebarsLayout  = require('handlebars-layouts');
-const markdownms        = require('metalsmith-markdown');
-const permalinks        = require('metalsmith-permalinks');
-const navigation        = require('metalsmith-navigation');
-const sitemap           = require('metalsmith-sitemap');
-const codehighlight     = require('metalsmith-code-highlight');
-const components        = require('./build/plugins/components');
-const requiredir        = require('require-dir');
-const flatnav           = require('./build/plugins/flatnav');
-const addmeta           = require('./build/plugins/addmeta');
-const highlight         = require('./build/plugins/highlight');
+const metalsmith = require('metalsmith');
+const inplace = require('metalsmith-in-place');
+const layouts = require('metalsmith-layouts');
+const handlebars = require('handlebars');
+const handlebarsLayout = require('handlebars-layouts');
+const markdownms = require('metalsmith-markdown');
+const permalinks = require('metalsmith-permalinks');
+const navigation = require('metalsmith-navigation');
+const sitemap = require('metalsmith-sitemap');
+const components = require('./build/plugins/components');
+const requiredir = require('require-dir');
+const flatnav = require('./build/plugins/flatnav');
+const addmeta = require('./build/plugins/addmeta');
+const highlight = require('./build/plugins/highlight');
 const capitalizeFirstLetter = require('./build/util/capitalizeFirstLetter');
 
+const version = packageData.version;
 
 const styleFiles = 'src/**/*.scss';
 const scriptFiles = 'src/**/*.js';
@@ -94,20 +94,6 @@ const bundle = () => b.bundle()
   .pipe(gulp.dest('dist/js/'));
 
 gulp.task('scripts', bundle);
-
-gulp.task('dev', (done) => {
-  gulp.watch([styleFiles], ['styles:lint', 'styles']);
-  gulp.watch([scriptFiles], ['scripts:lint', 'scripts']);
-  gulp.watch(['src/**/samples/**/*.html','src/**/README.md', 'docs/**/*'], ['doc']);
-  runSequence('copy-assets', 'icons', 'styles:lint', 'styles', 
-    'scripts:lint', 'scripts', 'doc', 'serve', done);
-});
-
-gulp.task('build', (done) => {
-  runSequence('copy-assets', 'icons',
-    ['styles:lint', 'scripts:lint'], ['styles', 'scripts'],
-    'package', 'doc', 'upload', done);
-});
 
 gulp.task('serve', (done) => {
   bSync.init({
@@ -186,7 +172,7 @@ gulp.task('doc', (taskDone) => {
     .use(layouts({
       engine: 'handlebars',
       directory: './docs/_templates/layouts',
-      default: 'default.hbs'
+      default: 'default.hbs',
     }))
     .use(sitemap({
       hostname: 'http://groundhog.dynalabs.io',
@@ -217,7 +203,7 @@ gulp.task('icons', () => {
   return gulp.src('assets/icons/**/*.svg')
     .pipe(svgo({
       plugins: [
-        { removeAttrs: { attrs: 'fill' } }
+        { removeAttrs: { attrs: 'fill' } },
       ],
     }))
     .pipe(rename((p) => {
@@ -233,8 +219,39 @@ gulp.task('icons', () => {
 
 
 gulp.task('package', () => {
-  const version = packageData.version;
   gulp.src(['./dist/js/main.js', './dist/css/main.css'])
     .pipe(zip(`groundhog-v${version}.zip`))
     .pipe(gulp.dest('./dist/download/'));
+});
+
+gulp.task('replace-asset-urls', () => {
+  gulp.src('dist/**.css')
+    .pipe(replace('url(/assets/)', `url(//assets.dynatrace.com/groundhog/v${version}/)`))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('upload-s3', () => {
+  const aws = JSON.parse(fs.readFileSync('./aws.json'));
+  return gulp.src('dist/assets/**/*')
+    .pipe(rename(p => {
+      p.dirname = `groundhog/v${version}/${p.dirname}`;
+    }))
+    .pipe(s3(aws));
+});
+
+gulp.task('dev', (done) => {
+  gulp.watch([styleFiles], ['styles:lint', 'styles']);
+  gulp.watch([scriptFiles], ['scripts:lint', 'scripts']);
+  gulp.watch(['src/**/samples/**/*.html', 'src/**/README.md', 'docs/**/*'], ['doc']);
+  runSequence('copy-assets', 'icons', 'styles:lint', 'styles',
+    'scripts:lint', 'scripts', 'doc', 'serve', done);
+});
+
+gulp.task('build', (done) => {
+  runSequence('copy-assets', 'icons',
+    ['styles:lint', 'scripts:lint'], ['styles', 'scripts'], 'doc', done);
+});
+
+gulp.task('publish', (done) => {
+  runSequence('replace-asset-urls', 'package', 'upload-s3', done);
 });
