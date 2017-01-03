@@ -1,4 +1,5 @@
-'use strict';
+/* eslint no-param-reassign: 0 */
+/* eslint arrow-body-style: 0 */
 
 const stylelint    = require('stylelint');
 const sass         = require('gulp-sass');
@@ -26,7 +27,7 @@ const zip          = require('gulp-zip');
 /*
 * Metalsmith dependencies
 */
-const Metalsmith        = require('metalsmith');
+const metalsmith        = require('metalsmith');
 const inplace           = require('metalsmith-in-place');
 const layouts           = require('metalsmith-layouts');
 const handlebars        = require('handlebars');
@@ -52,20 +53,20 @@ site.components = globby
   .sync('src/**/README.md')
   .map(el => {
     el = el.replace('README.md', '').replace('src/', '');
-    var parts = el.split('/');
+    const parts = el.split('/');
     return {
       url: el,
-      name: capitalizeFirstLetter(parts[parts.length - 2])
-    }
+      name: capitalizeFirstLetter(parts[parts.length - 2]),
+    };
   });
 
 gulp.task('styles:lint', () => {
   return stylelint.lint({
     files: [styleFiles],
     syntax: 'scss',
-    formatter: "string"
+    formatter: 'string',
   })
-  .then(data => { if(data.errored) { console.error(data.output); } })
+  .then(data => { if (data.errored) { console.error(data.output); } })
   .catch(err => console.error(err.stack));
 });
 
@@ -84,7 +85,7 @@ gulp.task('scripts:lint', () => {
 });
 
 const b = browserify({
-  entries: ['src/main.js']
+  entries: ['src/main.js'],
 }).transform('babelify');
 
 const bundle = () => b.bundle()
@@ -98,36 +99,37 @@ gulp.task('dev', (done) => {
   gulp.watch([styleFiles], ['styles:lint', 'styles']);
   gulp.watch([scriptFiles], ['scripts:lint', 'scripts']);
   gulp.watch(['src/**/samples/**/*.html','src/**/README.md', 'docs/**/*'], ['doc']);
-  runSequence('copy-assets', 'icons', 'styles:lint', 'styles', 'scripts:lint', 'scripts', 'doc', 'serve', done);
+  runSequence('copy-assets', 'icons', 'styles:lint', 'styles', 
+    'scripts:lint', 'scripts', 'doc', 'serve', done);
 });
 
 gulp.task('build', (done) => {
-  runSequence('copy-assets', 'icons', ['styles:lint', 'scripts:lint'], ['styles', 'scripts'], 'package', 'doc', done);
+  runSequence('copy-assets', 'icons',
+    ['styles:lint', 'scripts:lint'], ['styles', 'scripts'],
+    'package', 'doc', 'upload', done);
 });
 
-gulp.task('serve', function(done) {
+gulp.task('serve', (done) => {
   bSync.init({
     server: {
-      baseDir: "./dist",
-      open: false
-    }
+      baseDir: './dist',
+      open: false,
+    },
   });
   done();
 });
 
-markdown.marked.Renderer.prototype.table = function(header, body) {
-  return '<table class="table">\n'
-    + '<thead>\n'
-    + header
-    + '</thead>\n'
-    + '<tbody>\n'
-    + body
-    + '</tbody>\n'
-    + '</table>\n';
-};
+markdown.marked.Renderer.prototype.table = (header, body) => `<table class="table">
+  <thead>
+    ${header}
+  </thead>
+  <tbody>
+    ${body}
+  </tbody>
+</table>`;
 
 
-gulp.task('doc', function(taskDone) {
+gulp.task('doc', (taskDone) => {
   /*
   * setup handlebars
   */
@@ -139,7 +141,7 @@ gulp.task('doc', function(taskDone) {
   const helpers = requiredir('./docs/_templates/helpers');
   Object.keys(helpers).forEach((key) => handlebars.registerHelper(key, helpers[key]));
 
-  Metalsmith('./')
+  metalsmith('./')
     .source('./docs/_pages/')
     .clean(false)
     .destination('dist')
@@ -153,8 +155,10 @@ gulp.task('doc', function(taskDone) {
     }))
     .use(markdownms())
     .use(highlight())
-    .use((files, metalsmith, done) => {
-      Object.keys(files).forEach((key) => files[key].name = path.basename(key, '.html'));
+    .use((files, smith, done) => {
+      Object.keys(files).forEach((key) => {
+        files[key].name = path.basename(key, '.html');
+      });
       done();
     })
     .use(permalinks({
@@ -162,21 +166,21 @@ gulp.task('doc', function(taskDone) {
       relative: false,
       linksets: [{
         match: { type: 'component' },
-        pattern: 'doc/components/:name'
+        pattern: 'doc/components/:name',
       }, {
         match: { type: 'layout' },
-        pattern: 'doc/layouts/:name'
-      }]
+        pattern: 'doc/layouts/:name',
+      }],
     }))
     .use(navigation({
       componentsNav: {
         includeDirs: true,
         filterProperty: 'type',
-        filterValue: 'component'
-      }
+        filterValue: 'component',
+      },
     }, {
       navListProperty: 'nav',
-      permalinks: false
+      permalinks: false,
     }))
     .use(flatnav())
     .use(layouts({
@@ -199,7 +203,7 @@ gulp.task('doc', function(taskDone) {
     });
 });
 
-gulp.task('copy-assets', function() {
+gulp.task('copy-assets', () => {
   return merge(
     gulp.src('assets/**/*')
       .pipe(gulp.dest('dist/assets')),
@@ -207,23 +211,23 @@ gulp.task('copy-assets', function() {
       .pipe(gulp.dest('dist/doc')));
 });
 
-gulp.task('test', ['styles:lint', 'scripts:lint'])
+gulp.task('test', ['styles:lint', 'scripts:lint']);
 
-gulp.task('icons', function() {
+gulp.task('icons', () => {
   return gulp.src('assets/icons/**/*.svg')
     .pipe(svgo({
       plugins: [
         { removeAttrs: { attrs: 'fill' } }
-      ]
+      ],
     }))
-    .pipe(rename(function(path) {
-      path.basename = path.basename.toLowerCase();
-      path.basename = path.basename.replace(/icons_file_00._/, '');
-      path.basename = path.basename.replace(/_/g, '-');
-      path.basename = path.basename.replace(/[^\w\s-]/gi, '');
+    .pipe(rename((p) => {
+      p.basename = p.basename.toLowerCase();
+      p.basename = p.basename.replace(/icons_file_00._/, '');
+      p.basename = p.basename.replace(/_/g, '-');
+      p.basename = p.basename.replace(/[^\w\s-]/gi, '');
     }))
     .pipe(gulp.dest('dist/assets/images/icons'))
-    .pipe(sprites({ templates: ['default-svg']}))
+    .pipe(sprites({ templates: ['default-svg'] }))
     .pipe(gulp.dest('dist/assets/images'));
 });
 

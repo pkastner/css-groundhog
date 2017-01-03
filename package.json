@@ -29,6 +29,7 @@
     "gulp-kramdown": "^0.5.1",
     "gulp-markdown": "^1.2.0",
     "gulp-rename": "^1.2.2",
+    "gulp-s3": "^0.3.0",
     "gulp-sass": "^2.2.0",
     "gulp-svg-symbols": "^1.0.0",
     "gulp-svgo": "^1.0.3",
