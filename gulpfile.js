@@ -225,8 +225,8 @@ gulp.task('package', () => {
 });
 
 gulp.task('replace-asset-urls', () => {
-  gulp.src('dist/**.css')
-    .pipe(replace('url(/assets/)', `url(//assets.dynatrace.com/groundhog/v${version}/)`))
+  gulp.src('dist/**/*.css')
+    .pipe(replace('url(/assets/', `url(//assets.dynatrace.com/groundhog/v${version}/`))
     .pipe(gulp.dest('dist'));
 });
 
