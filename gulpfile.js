@@ -230,6 +230,13 @@ gulp.task('replace-asset-urls', () => {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('replace-asset-urls-in-html', () => {
+  gulp.src('dist/**/*.html')
+    .pipe(replace('="/assets/', `="//assets.dynatrace.com/groundhog/v${version}/`))
+    .pipe(replace('="http://groundhog.dynalab/assets/', `="//assets.dynatrace.com/groundhog/v${version}/`))
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('upload-s3', () => {
   const aws = {
     key: process.env.AWS_KEY,
@@ -258,5 +265,5 @@ gulp.task('build', (done) => {
 });
 
 gulp.task('publish', (done) => {
-  runSequence('replace-asset-urls', 'package', 'upload-s3', done);
+  runSequence('replace-asset-urls', 'replace-asset-urls-in-html', 'package', 'upload-s3', done);
 });
