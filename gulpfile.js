@@ -226,14 +226,16 @@ gulp.task('package', () => {
 
 gulp.task('replace-asset-urls', () => {
   gulp.src('dist/**/*.css')
-    .pipe(replace('url(/assets/', `url(//assets.dynatrace.com/groundhog/v${version}/`))
+    .pipe(replace('url(/assets/', `url(//assets.dynatrace.com/groundhog/v${version}/assets/`))
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('replace-asset-urls-in-html', () => {
   gulp.src('dist/**/*.html')
-    .pipe(replace('="/assets/', `="//assets.dynatrace.com/groundhog/v${version}/`))
-    .pipe(replace('="http://groundhog.dynalab/assets/', `="//assets.dynatrace.com/groundhog/v${version}/`))
+    .pipe(replace('="/assets/', `="//assets.dynatrace.com/groundhog/v${version}/assets/`))
+    .pipe(replace('="http://groundhog.dynalab/assets/', `="//assets.dynatrace.com/groundhog/v${version}/assets/`))
+    .pipe(replace('="/css/', `="//assets.dynatrace.com/groundhog/v${version}/css/`))
+    .pipe(replace('="/js/', `="//assets.dynatrace.com/groundhog/v${version}/js/`))
     .pipe(gulp.dest('dist'));
 });
 
@@ -244,7 +246,7 @@ gulp.task('upload-s3', () => {
     bucket: process.env.AWS_BUCKET,
     region: 'us-standard',
   };
-  return gulp.src('dist/assets/**/*')
+  return gulp.src(['dist/assets/**/*', 'dist/css/**/*', 'dist/js/**/*'], { base: 'dist' })
     .pipe(rename(p => {
       p.dirname = `groundhog/v${version}/${p.dirname}`;
     }))
