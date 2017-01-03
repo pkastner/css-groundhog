@@ -13,7 +13,6 @@ const svgo = require('gulp-svgo');
 const globby = require('globby');
 const path = require('path');
 const bSync = require('browser-sync');
-const fs = require('fs');
 const merge = require('merge2');
 const browserify = require('browserify');
 const watchify = require('watchify');
@@ -246,7 +245,10 @@ gulp.task('upload-s3', () => {
     bucket: process.env.AWS_BUCKET,
     region: 'us-standard',
   };
-  return gulp.src(['dist/assets/**/*', 'dist/css/**/*', 'dist/js/**/*'], { base: 'dist' })
+  return gulp.src(['dist/assets/**/*',
+    'dist/css/**/*',
+    'dist/js/**/*',
+    'dist/download/**/*'], { base: 'dist' })
     .pipe(rename(p => {
       p.dirname = `groundhog/v${version}/${p.dirname}`;
     }))
