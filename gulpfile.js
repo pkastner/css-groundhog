@@ -231,7 +231,12 @@ gulp.task('replace-asset-urls', () => {
 });
 
 gulp.task('upload-s3', () => {
-  const aws = JSON.parse(fs.readFileSync('./aws.json'));
+  const aws = {
+    key: process.env.AWS_KEY,
+    secret: process.env.AWS_SECRET,
+    bucket: process.env.AWS_BUCKET,
+    region: 'us-standard',
+  };
   return gulp.src('dist/assets/**/*')
     .pipe(rename(p => {
       p.dirname = `groundhog/v${version}/${p.dirname}`;
