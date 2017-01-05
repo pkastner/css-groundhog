@@ -49,18 +49,3 @@
   border-bottom-left-radius: 3px;
   padding: 11px;
 }
-
-.expandable__trigger:before {
-  content: " ";
-  position: absolute;
-  background-image: url(/assets/images/icons/dropdown_open.svg);
-  background-size: 1em;
-  width: 40px;
-  height: 40px;
-  background-repeat: no-repeat;
-  background-position: center;
-  left: 0;
-  top: 50%;
-  transform: translate(0, -50%) rotate(0);
-  transition: transform 0.3s ease;
-}
