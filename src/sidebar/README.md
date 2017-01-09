@@ -78,4 +78,4 @@ You don't have to care about that if you use the complete framework.
 
 
 
-[expandable]: /docs/components/expandable/
+[expandable]: /doc/components/expandable/
