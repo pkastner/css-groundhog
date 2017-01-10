@@ -5,4 +5,3 @@ require('./expandable/expandable');
 require('./inputfield/inputfield');
 require('./tabs/tabs');
 require('./slider/slider');
-require('./select/select');
