@@ -1,48 +1,48 @@
-'use strict';
+/* eslint no-param-reassign: 0 */
+/* eslint arrow-body-style: 0 */
 
-const stylelint    = require('stylelint');
-const sass         = require('gulp-sass');
-const prefix       = require('gulp-autoprefixer');
-const gulp         = require('gulp');
-const runSequence  = require('run-sequence');
-const markdown     = require('gulp-markdown');
-const rename       = require('gulp-rename');
-const sprites      = require('gulp-svg-symbols');
-const svgo         = require('gulp-svgo');
-const globby       = require('globby');
-const through2     = require('through2');
-const path         = require('path');
-const bSync        = require('browser-sync');
-const fs           = require('fs');
-const merge        = require('merge2');
-const browserify   = require('browserify');
-const watchify     = require('watchify');
-const source       = require('vinyl-source-stream');
-const eslint       = require('gulp-eslint');
-const packageData  = require('./package.json');
-const zip          = require('gulp-zip');
-
+const stylelint = require('stylelint');
+const sass = require('gulp-sass');
+const prefix = require('gulp-autoprefixer');
+const gulp = require('gulp');
+const runSequence = require('run-sequence');
+const markdown = require('gulp-markdown');
+const rename = require('gulp-rename');
+const sprites = require('gulp-svg-symbols');
+const svgo = require('gulp-svgo');
+const globby = require('globby');
+const path = require('path');
+const bSync = require('browser-sync');
+const merge = require('merge2');
+const browserify = require('browserify');
+const watchify = require('watchify');
+const source = require('vinyl-source-stream');
+const eslint = require('gulp-eslint');
+const packageData = require('./package.json');
+const zip = require('gulp-zip');
+const s3 = require('gulp-s3');
+const replace = require('gulp-replace');
 
 /*
 * Metalsmith dependencies
 */
-const Metalsmith        = require('metalsmith');
-const inplace           = require('metalsmith-in-place');
-const layouts           = require('metalsmith-layouts');
-const handlebars        = require('handlebars');
-const handlebarsLayout  = require('handlebars-layouts');
-const markdownms        = require('metalsmith-markdown');
-const permalinks        = require('metalsmith-permalinks');
-const navigation        = require('metalsmith-navigation');
-const sitemap           = require('metalsmith-sitemap');
-const codehighlight     = require('metalsmith-code-highlight');
-const components        = require('./build/plugins/components');
-const requiredir        = require('require-dir');
-const flatnav           = require('./build/plugins/flatnav');
-const addmeta           = require('./build/plugins/addmeta');
-const highlight         = require('./build/plugins/highlight');
+const metalsmith = require('metalsmith');
+const inplace = require('metalsmith-in-place');
+const layouts = require('metalsmith-layouts');
+const handlebars = require('handlebars');
+const handlebarsLayout = require('handlebars-layouts');
+const markdownms = require('metalsmith-markdown');
+const permalinks = require('metalsmith-permalinks');
+const navigation = require('metalsmith-navigation');
+const sitemap = require('metalsmith-sitemap');
+const components = require('./build/plugins/components');
+const requiredir = require('require-dir');
+const flatnav = require('./build/plugins/flatnav');
+const addmeta = require('./build/plugins/addmeta');
+const highlight = require('./build/plugins/highlight');
 const capitalizeFirstLetter = require('./build/util/capitalizeFirstLetter');
 
+const version = packageData.version;
 
 const styleFiles = 'src/**/*.scss';
 const scriptFiles = 'src/**/*.js';
@@ -52,20 +52,20 @@ site.components = globby
   .sync('src/**/README.md')
   .map(el => {
     el = el.replace('README.md', '').replace('src/', '');
-    var parts = el.split('/');
+    const parts = el.split('/');
     return {
       url: el,
-      name: capitalizeFirstLetter(parts[parts.length - 2])
-    }
+      name: capitalizeFirstLetter(parts[parts.length - 2]),
+    };
   });
 
 gulp.task('styles:lint', () => {
   return stylelint.lint({
     files: [styleFiles],
     syntax: 'scss',
-    formatter: "string"
+    formatter: 'string',
   })
-  .then(data => { if(data.errored) { console.error(data.output); } })
+  .then(data => { if (data.errored) { console.error(data.output); } })
   .catch(err => console.error(err.stack));
 });
 
@@ -84,7 +84,7 @@ gulp.task('scripts:lint', () => {
 });
 
 const b = browserify({
-  entries: ['src/main.js']
+  entries: ['src/main.js'],
 }).transform('babelify');
 
 const bundle = () => b.bundle()
@@ -94,40 +94,27 @@ const bundle = () => b.bundle()
 
 gulp.task('scripts', bundle);
 
-gulp.task('dev', (done) => {
-  gulp.watch([styleFiles], ['styles:lint', 'styles']);
-  gulp.watch([scriptFiles], ['scripts:lint', 'scripts']);
-  gulp.watch(['src/**/samples/**/*.html','src/**/README.md', 'docs/**/*'], ['doc']);
-  runSequence('copy-assets', 'icons', 'styles:lint', 'styles', 'scripts:lint', 'scripts', 'doc', 'serve', done);
-});
-
-gulp.task('build', (done) => {
-  runSequence('copy-assets', 'icons', ['styles:lint', 'scripts:lint'], ['styles', 'scripts'], 'package', 'doc', done);
-});
-
-gulp.task('serve', function(done) {
+gulp.task('serve', (done) => {
   bSync.init({
     server: {
-      baseDir: "./dist",
-      open: false
-    }
+      baseDir: './dist',
+      open: false,
+    },
   });
   done();
 });
 
-markdown.marked.Renderer.prototype.table = function(header, body) {
-  return '<table class="table">\n'
-    + '<thead>\n'
-    + header
-    + '</thead>\n'
-    + '<tbody>\n'
-    + body
-    + '</tbody>\n'
-    + '</table>\n';
-};
+markdown.marked.Renderer.prototype.table = (header, body) => `<table class="table">
+  <thead>
+    ${header}
+  </thead>
+  <tbody>
+    ${body}
+  </tbody>
+</table>`;
 
 
-gulp.task('doc', function(taskDone) {
+gulp.task('doc', (taskDone) => {
   /*
   * setup handlebars
   */
@@ -139,7 +126,7 @@ gulp.task('doc', function(taskDone) {
   const helpers = requiredir('./docs/_templates/helpers');
   Object.keys(helpers).forEach((key) => handlebars.registerHelper(key, helpers[key]));
 
-  Metalsmith('./')
+  metalsmith('./')
     .source('./docs/_pages/')
     .clean(false)
     .destination('dist')
@@ -153,8 +140,10 @@ gulp.task('doc', function(taskDone) {
     }))
     .use(markdownms())
     .use(highlight())
-    .use((files, metalsmith, done) => {
-      Object.keys(files).forEach((key) => files[key].name = path.basename(key, '.html'));
+    .use((files, smith, done) => {
+      Object.keys(files).forEach((key) => {
+        files[key].name = path.basename(key, '.html');
+      });
       done();
     })
     .use(permalinks({
@@ -162,27 +151,27 @@ gulp.task('doc', function(taskDone) {
       relative: false,
       linksets: [{
         match: { type: 'component' },
-        pattern: 'doc/components/:name'
+        pattern: 'doc/components/:name',
       }, {
         match: { type: 'layout' },
-        pattern: 'doc/layouts/:name'
-      }]
+        pattern: 'doc/layouts/:name',
+      }],
     }))
     .use(navigation({
       componentsNav: {
         includeDirs: true,
         filterProperty: 'type',
-        filterValue: 'component'
-      }
+        filterValue: 'component',
+      },
     }, {
       navListProperty: 'nav',
-      permalinks: false
+      permalinks: false,
     }))
     .use(flatnav())
     .use(layouts({
       engine: 'handlebars',
       directory: './docs/_templates/layouts',
-      default: 'default.hbs'
+      default: 'default.hbs',
     }))
     .use(sitemap({
       hostname: 'http://groundhog.dynalabs.io',
@@ -199,7 +188,7 @@ gulp.task('doc', function(taskDone) {
     });
 });
 
-gulp.task('copy-assets', function() {
+gulp.task('copy-assets', () => {
   return merge(
     gulp.src('assets/**/*')
       .pipe(gulp.dest('dist/assets')),
@@ -207,30 +196,78 @@ gulp.task('copy-assets', function() {
       .pipe(gulp.dest('dist/doc')));
 });
 
-gulp.task('test', ['styles:lint', 'scripts:lint'])
+gulp.task('test', ['styles:lint', 'scripts:lint']);
 
-gulp.task('icons', function() {
+gulp.task('icons', () => {
   return gulp.src('assets/icons/**/*.svg')
     .pipe(svgo({
       plugins: [
-        { removeAttrs: { attrs: 'fill' } }
-      ]
+        { removeAttrs: { attrs: 'fill' } },
+      ],
     }))
-    .pipe(rename(function(path) {
-      path.basename = path.basename.toLowerCase();
-      path.basename = path.basename.replace(/icons_file_00._/, '');
-      path.basename = path.basename.replace(/_/g, '-');
-      path.basename = path.basename.replace(/[^\w\s-]/gi, '');
+    .pipe(rename((p) => {
+      p.basename = p.basename.toLowerCase();
+      p.basename = p.basename.replace(/icons_file_00._/, '');
+      p.basename = p.basename.replace(/_/g, '-');
+      p.basename = p.basename.replace(/[^\w\s-]/gi, '');
     }))
     .pipe(gulp.dest('dist/assets/images/icons'))
-    .pipe(sprites({ templates: ['default-svg']}))
+    .pipe(sprites({ templates: ['default-svg'] }))
     .pipe(gulp.dest('dist/assets/images'));
 });
 
 
 gulp.task('package', () => {
-  const version = packageData.version;
   gulp.src(['./dist/js/main.js', './dist/css/main.css'])
     .pipe(zip(`groundhog-v${version}.zip`))
     .pipe(gulp.dest('./dist/download/'));
+});
+
+gulp.task('replace-asset-urls', () => {
+  gulp.src('dist/**/*.css')
+    .pipe(replace('url(/assets/', `url(//assets.dynatrace.com/groundhog/v${version}/assets/`))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('replace-asset-urls-in-html', () => {
+  gulp.src('dist/**/*.html')
+    .pipe(replace('="/assets/', `="//assets.dynatrace.com/groundhog/v${version}/assets/`))
+    .pipe(replace('="http://groundhog.dynalab/assets/', `="//assets.dynatrace.com/groundhog/v${version}/assets/`))
+    .pipe(replace('="/css/', `="//assets.dynatrace.com/groundhog/v${version}/css/`))
+    .pipe(replace('="/js/', `="//assets.dynatrace.com/groundhog/v${version}/js/`))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('upload-s3', () => {
+  const aws = {
+    key: process.env.AWS_KEY,
+    secret: process.env.AWS_SECRET,
+    bucket: process.env.AWS_BUCKET,
+    region: 'us-standard',
+  };
+  return gulp.src(['dist/assets/**/*',
+    'dist/css/**/*',
+    'dist/js/**/*',
+    'dist/download/**/*'], { base: 'dist' })
+    .pipe(rename(p => {
+      p.dirname = `groundhog/v${version}/${p.dirname}`;
+    }))
+    .pipe(s3(aws));
+});
+
+gulp.task('dev', (done) => {
+  gulp.watch([styleFiles], ['styles:lint', 'styles']);
+  gulp.watch([scriptFiles], ['scripts:lint', 'scripts']);
+  gulp.watch(['src/**/samples/**/*.html', 'src/**/README.md', 'docs/**/*'], ['doc']);
+  runSequence('copy-assets', 'icons', 'styles:lint', 'styles',
+    'scripts:lint', 'scripts', 'doc', 'serve', done);
+});
+
+gulp.task('build', (done) => {
+  runSequence('copy-assets', 'icons',
+    ['styles:lint', 'scripts:lint'], ['styles', 'scripts'], 'doc', done);
+});
+
+gulp.task('publish', (done) => {
+  runSequence('replace-asset-urls', 'replace-asset-urls-in-html', 'package', 'upload-s3', done);
 });

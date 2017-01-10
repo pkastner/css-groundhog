@@ -15,6 +15,12 @@
 .checkbox__caption {
   font-family: $mainfont;
   font-size: 14px;
+  padding-right: 20px;
+}
+
+.checkbox__label.theme--dark,
+.theme--dark .checkbox__label {
+  color: #fff;
 }
 
 .checkbox__label:before {
@@ -28,6 +34,11 @@
   box-sizing: border-box;
 }
 
+.checkbox__label.theme--dark:before,
+.theme--dark .checkbox__label:before {
+  border: solid 2px #fff;
+}
+
 .checkbox__label:after {
   content: " ";
   position: absolute;
@@ -39,6 +50,11 @@
   width: 16px;
   margin-left: 2px;
   display: none;
+}
+
+.checkbox__label.theme--dark:after,
+.theme--dark .checkbox__label:after {
+  background-image: url(/assets/images/icons/Icons_file_003_Checkmark_white.svg);
 }
 
 .checkbox__label > icon {
@@ -58,7 +74,15 @@
   border-color: $turquoise-700;
 }
 
-.checkbox:checked + .checkbox__label:after {
+.checkbox__label.theme--dark:hover:before,
+.theme--dark .checkbox__label:hover:before {
+  border-color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.checkbox:checked + .checkbox__label:after,
+.checkbox:checked + .checkbox__label.theme--dark:after,
+.theme--dark .checkbox:checked + .checkbox__label:after {
   display: block;
 }
 
@@ -66,16 +90,21 @@
   box-shadow: 0 0 0 2px $focuscolor;
 }
 
-.checkbox[disabled] + .checkbox__label {
+.checkbox[disabled] + .checkbox__label,
+.checkbox[disabled] + .checkbox__label.theme--dark,
+.theme--dark .checkbox[disabled] + .checkbox__label {
   color: $disabledcolor;
   cursor: default;
 }
 
 .checkbox[disabled] + .checkbox__label:before {
   border-color: $disabledcolor;
+  background-color: transparent;
 }
 
-.checkbox[disabled] + .checkbox__label:after {
+.checkbox[disabled] + .checkbox__label:after,
+.checkbox[disabled] + .checkbox__label.theme--dark:after,
+.theme--dark .checkbox[disabled] + .checkbox__label:after {
   display: none;
 }
 

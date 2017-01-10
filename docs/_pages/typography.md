@@ -214,57 +214,103 @@ The following page contains all basic HTML elements. Here you can see if Groundh
       Minimal semantic form markup, based on the work of Sam Croft
       http://samcroft.co.uk/2011/minimal-form-markup-simple-slender-and-semantic/
   -->
-  <form>
-    <fieldset>
+  <form class="form">
+    <fieldset class="fieldset">
       <legend>Inputs and labels</legend>
 
-      <label for="i0" class="label">Text input</label>
-      <input type="text" class="inputfield" value="default value" id="i0"/>
+      <field class="field">
+        <label for="i0" class="label">Text input</label>
+        <input type="text" class="inputfield" value="default value" id="i0"/>
+      </field>
 
-      <label for="i1" class="label">Email input</label>
-      <input type="email" class="inputfield" id="i1"/>
+      <field class="field">
+        <label for="i1" class="label">Inputfield with hint text</label>
+        <input type="text" class="inputfield" id="i1" aria-describedby="i1"/>
+        <p class="hint" id="i1">Hint text</p>
+      </field>
 
-      <label for="i2" class="label">Search input</label>
-      <input type="search" class="inputfield inputfield--search" id="i2"/>
+      <field class="field">
+        <label for="i2" class="label">Email input</label>
+        <input type="email" class="inputfield" id="i2"/>
+      </field>
 
-      <label for="i3" class="label">Tel input</label>
-      <input type="tel" id="i3"/>
+      <field class="field">
+        <label for="i3" class="label">Search input</label>
+        <input type="search" class="inputfield inputfield--search" id="i3"/>
+      </field>
 
-      <label for="i4" class="label">URL input</label>
-      <input type="url" class="inputfield" placeholder="http://" id="i4"/>
+      <field class="field">
+        <label for="i4" class="label">Tel input</label>
+        <input type="tel" class="inputfield" id="i4"/>
+      </field>
 
-      <label for="i5" class="label">Password input</label>
-      <input type="password" class="inputfield" placeholder="password" id="i5"/>
+      <field class="field">
+        <label for="i5" class="label">URL input</label>
+        <input type="url" class="inputfield" placeholder="http://" id="i5"/>
+      </field>
 
-      <label for="i6" class="label">File input</label>
-      <input type="file" id="i6"/>
+      <field class="field">
+        <label for="i6" class="label">Password input</label>
+        <input type="password" class="inputfield" placeholder="password" id="i6"/>
+      </field>
 
-      <input type="radio" class="radio" name="rad" id="r1">
-      <label class="radio__label" for="r1">
-        <span class="radio__caption">Radio input</span>
-      </label>
-
-      <input type="checkbox" class="checkbox" id="cb1">
-      <label class="checkbox__label" for="cb1">
-        <span class="checkbox__caption">Checkbox input</span>
-      </label>
-
-      <label>
-        <b>Select field</b>
-        <select>
-          <option>Option 01</option>
-          <option>Option 02</option>
-        </select>
-      </label>
-
-      <label for="i7" class="label">Textarea</label>
-      <textarea cols="30" rows="5" class="textarea" placeholder="Textarea text" id="i7"></textarea>
-
+      <field class="field">
+        <label for="i7" class="label">File input</label>
+        <input type="file" id="i7"/>
+      </field>
     </fieldset>
 
-    <fieldset>
+    <fieldset class="fieldset">
+      <field class="field">
+        <input type="radio" class="radio" name="rad" id="r1">
+        <label class="radio__label" for="r1">
+          <span class="radio__caption">Radio input</span>
+        </label>
+      </field>
+
+      <field class="field">
+        <input type="radio" class="radio" name="rad" id="r2">
+        <label class="radio__label" for="r2">
+          <span class="radio__caption">Radio input</span>
+        </label>
+      </field>
+
+      <field class="field">
+        <input type="radio" class="radio" name="rad" id="r3">
+        <label class="radio__label" for="r3">
+          <span class="radio__caption">Radio input</span>
+        </label>
+      </field>
+    </fieldset>
+
+    <fieldset class="fieldset">
+      <field class="field">
+        <input type="checkbox" class="checkbox" id="cb1">
+        <label class="checkbox__label" for="cb1">
+          <span class="checkbox__caption">Checkbox input</span>
+        </label>
+      </field>
+
+      <field class="field">
+        <label for="o1">
+          <b>Select field</b>
+          <select id="o1">
+            <option>Option 01</option>
+            <option>Option 02</option>
+          </select>
+        </label>
+      </field>
+
+      <field class="field">
+        <label for="i8" class="label">Textarea</label>
+        <textarea cols="30" rows="5" class="textarea" placeholder="Textarea text" id="i8"></textarea>
+      </field>
+    </fieldset>
+  </form>
+
+  <form class="form">
+    <fieldset class="fieldset">
       <legend>Clickable inputs and buttons</legend>
-      <input type="image" class="btn" src="http://placekitten.com/90/24" alt="Image (input)">
       <input type="reset" class="btn btn--primary" value="Reset (input)">
       <input type="button" class="btn btn--primary" value="Button (input)">
       <input type="submit" class="btn btn--primary" value="Submit (input)">
@@ -273,39 +319,131 @@ The following page contains all basic HTML elements. Here you can see if Groundh
       <button type="submit" class="btn btn--primary">Submit (button)</button>
     </fieldset>
 
-    <fieldset id="boxsize">
+    <fieldset class="fieldset" id="boxsize">
       <legend>box-sizing tests</legend>
-      <div><input type="text" placeholder="text" class="inputfield"/></div>
-      <div><input type="email" placeholder="email" class="inputfield"/></div>
-      <div><input type="search" placeholder="search" class="inputfield inputfield--search"/></div>
-      <div><input type="url" placeholder="http://example.com" class="inputfield"/></div>
-      <div><input type="password" placeholder="password" class="inputfield"/></div>
 
-      <div><input type="color" placeholder="#000000"></div>
-      <div><input type="number" placeholder="5" class="inputfield"></div>
-      <div><input type="range" placeholder="10"></div>
-      <div><input type="date" placeholder="01/01/1970" class="inputfield inputfield--date--placeholder"></div>
-      <div><input type="month" value="1970-01"></div>
-      <div><input type="week" value="1970-W01"></div>
-      <div><input type="time" value="18:23"></div>
-      <div><input type="datetime" value="1970-01-01T00:00:00Z"></div>
-      <div><input type="datetime-local" value="1970-01-01T00:00"></div>
+      <field class="field">
+        <div><input type="text" placeholder="text" class="inputfield"/></div>
+      </field>
 
-      <div><input type="radio"></div>
-      <div><input type="checkbox"></div>
+      <field class="field">
+        <div><input type="email" placeholder="email" class="inputfield"/></div>
+      </field>
 
-      <div><select><option>Option 01</option><option>Option 02</option></select></div>
-      <div><textarea cols="30" rows="5" class="textarea" placeholder="Textarea text" id="i7"></textarea></div>
+      <field class="field">
+        <div><input type="search" placeholder="search" class="inputfield inputfield--search"/></div>
+      </field>
 
-      <div><input type="image" class="btn" src="http://placekitten.com/90/24" alt="Image (input)"></div>
-      <div><input type="reset" class="btn btn--primary" value="Reset (input)"></div>
-      <div><input type="button" class="btn btn--primary" value="Button (input)"></div>
-      <div><input type="submit" class="btn btn--primary" value="Submit (input)"></div>
+      <field class="field">
+        <div><input type="url" placeholder="http://example.com" class="inputfield"/></div>
+      </field>
 
-      <div><button type="reset" class="btn btn--primary">Reset (button)</button></div>
-      <div><button type="button" class="btn btn--primary">Button (button)</button></div>
-      <div><button type="submit" class="btn btn--primary">Submit (button)</button></div>
+      <field class="field">
+        <div><input type="password" placeholder="password" class="inputfield"/></div>
+      </field>
+
+      <field class="field">
+        <div><input type="color" placeholder="#000000"></div>
+      </field>
+
+      <field class="field">
+        <div><input type="number" placeholder="5" class="inputfield"></div>
+      </field>
+
+      <field class="field">
+        <div><input class="slider" type="range" placeholder="10"></div>
+      </field>
+
+      <field class="field">
+        <div><input type="date" placeholder="01/01/1970" class="inputfield inputfield--date--placeholder"></div>
+      </field>
+
+      <field class="field">
+        <div><input type="month" value="1970-01" class="inputfield"></div>
+      </field>
+
+      <field class="field">
+        <div><input type="week" value="1970-W01" class="inputfield"></div>
+      </field>
+
+      <field class="field">
+        <div><input type="time" value="18:23" class="inputfield"></div>
+      </field>
+
+      <field class="field">
+        <div><input type="datetime" value="1970-01-01T00:00:00Z" class="inputfield"></div>
+      </field>
+
+      <field class="field">
+        <div><input type="datetime-local" value="1970-01-01T00:00" class="inputfield"></div>
+      </field>
     </fieldset>
+
+      <fieldset class="fieldset">
+        <field class="field">
+          <input type="radio" class="radio" name="rad" id="r4">
+          <label class="radio__label" for="r4">
+            <span class="radio__caption">Radio input</span>
+          </label>
+        </field>
+
+        <field class="field">
+          <input type="radio" class="radio" name="rad" id="r5">
+          <label class="radio__label" for="r5">
+            <span class="radio__caption">Radio input</span>
+          </label>
+        </field>
+
+        <field class="field">
+          <input type="radio" class="radio" name="rad" id="r6">
+          <label class="radio__label" for="r6">
+            <span class="radio__caption">Radio input</span>
+          </label>
+        </field>
+
+        <field class="field">
+          <input type="radio" class="radio" name="rad" id="r7">
+          <label class="radio__label" for="r7">
+            <span class="radio__caption">Radio input</span>
+          </label>
+        </field>
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <field class="field">
+          <input type="checkbox" class="checkbox" id="cb2">
+          <label class="checkbox__label" for="cb2">
+            <span class="checkbox__caption">Checkbox input</span>
+          </label>
+        </field>
+
+        <field class="field">
+          <input type="checkbox" class="checkbox" id="cb3">
+          <label class="checkbox__label" for="cb3">
+            <span class="checkbox__caption">Checkbox input</span>
+          </label>
+        </field>
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <field class="field">
+          <div><select><option>Option 01</option><option>Option 02</option></select></div>
+        </field>
+
+        <field class="field">
+          <div><textarea cols="30" rows="5" class="textarea" placeholder="Textarea text" id="i9"></textarea></div>
+        </field>
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <div><input type="reset" class="btn btn--primary" value="Reset (input)"></div>
+        <div><input type="button" class="btn btn--primary" value="Button (input)"></div>
+        <div><input type="submit" class="btn btn--primary" value="Submit (input)"></div>
+
+        <div><button type="reset" class="btn btn--primary">Reset (button)</button></div>
+        <div><button type="button" class="btn btn--primary">Button (button)</button></div>
+        <div><button type="submit" class="btn btn--primary">Submit (button)</button></div>
+      </fieldset>
   </form>
 </article>
 
@@ -320,13 +458,6 @@ The following page contains all basic HTML elements. Here you can see if Groundh
         <th>Gender</th>
       </tr>
     </thead>
-    <tfoot>
-      <tr>
-        <th>Name</th>
-        <th>Phone Number</th>
-        <th>Gender</th>
-      </tr>
-    </tfoot>
     <tbody>
       <tr>
         <td>John Smith</td>

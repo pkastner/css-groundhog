@@ -72,9 +72,9 @@ For the icons to render correctly via the `<use>` reference, the icons in questi
 <svg xmlns="http://www.w3.org/2000/svg">
 </svg>
 ```
-3. This element will usually render on the viewport. To keep the definition element from interfering with the page layout, you should set `width`, `height` and `visiblilty`. Additionally `aria-hidden` can be set as well
+3. This element will usually render on the viewport. To keep the definition element from interfering with the page layout, you should set `width`, `height` and `display`. Additionally `aria-hidden` can be set as well
 ```html
-<svg xmlns="..." style="width:0; height:0; visibility: none;" aria-hidden="true">
+<svg xmlns="..." style="width:0; height:0; display: none;" aria-hidden="true">
 </svg>
 ```
 4. Add a `<symbol>` element for every icon you will need on the page and set the `id` attribute of the `<symbol>` element
