@@ -43,6 +43,12 @@
   background-repeat: no-repeat;
 }
 
+.tag--interactive {
+  color: $turquoise-600;
+  background-color: transparent;
+  border-color: $gray-300;
+}
+
 .tag__key {
   color: $gray-500;
 }
@@ -56,6 +62,13 @@
   text-decoration: none;
   color: $gray-700;
   cursor: default;
+}
+
+.tag--interactive:hover {
+  background-color: $gray-100;
+  border-color: $gray-400;
+  color: $turquoise-700;
+  cursor: pointer;
 }
 
 .tag__delete:hover {
