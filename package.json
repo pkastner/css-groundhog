@@ -1,8 +1,8 @@
 {
   "name": "groundhog",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "CSS components for Dynatrace",
+  "main": "dist/js/main.js",
   "scripts": {
     "dev": "gulp dev",
     "build": "gulp build",
