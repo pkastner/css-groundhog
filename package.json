@@ -1,13 +1,13 @@
 {
-  "name": "groundhog",
-  "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@dynatrace/groundhog",
+  "version": "0.1.1",
+  "description": "CSS components for Dynatrace",
+  "main": "dist/js/main.js",
   "scripts": {
     "dev": "gulp dev",
     "build": "gulp build",
     "test": "gulp test",
-    "publish": "gulp publish",
+    "ci-publish": "gulp publish",
     "deploy": "surge --domain groundhog.dynalabs.io --project ./dist/"
   },
   "author": "",

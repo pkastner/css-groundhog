@@ -1,0 +1,14 @@
+assets
+build
+dist/assets
+dist/doc
+dist/download
+dist/google*.html
+dist/*.html
+dist/robots.txt
+dist/sitemap.xml
+docs
+node_modules
+tmp
+aws.json
+gulpfile.js
