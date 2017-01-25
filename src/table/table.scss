@@ -27,35 +27,34 @@ $includedTable: false !default;
 
   @media (max-width: 920px) {
 
-  .table td {
-    display: block;
-		border: none;
-		border-top: 1px solid #eee;
-		position: relative;
-		padding-left: 50%;
-    width: auto;
-    padding-top: 11px;
-    white-space: normal;
-  }
+    .table td {
+      display: block;
+      border-top: 1px solid $gray-200;
+      position: relative;
+      padding-left: 50%;
+      width: auto;
+      padding-top: 11px;
+      white-space: normal;
+    }
 
-  .table td:before {
-    content: attr(data-th) " ";
-    text-align: left;
-    font-weight: normal;
-    font-size: 12px;
-    position: absolute;
-		border-right: 1px solid #eee;
-    height: 100%;
-		top: inherit;
-		left: 12px;
-		width: 46%;
-    white-space: inherit;
-  }
+    .table td:before {
+      content: attr(data-th) " ";
+      text-align: left;
+      font-weight: normal;
+      font-size: 12px;
+      position: absolute;
+      border-right: 1px solid $gray-200;
+      height: 100%;
+      top: inherit;
+      left: 12px;
+      width: 46%;
+      white-space: inherit;
+    }
 
-  .table thead {
-    display: none;
+    .table thead {
+      display: none;
+    }
   }
-}
 
   .table thead th {
     text-align: left;
