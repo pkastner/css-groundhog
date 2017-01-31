@@ -30,6 +30,25 @@ $breakpoint: 920px;
 
   @media (max-width: $breakpoint) {
 
+    .table {
+      display: block;
+      width: 100%;
+    }
+
+    .table thead {
+      display: none;
+    }
+
+    .table tbody {
+      display: block;
+      width: 100%;
+    }
+
+    .table tr {
+      display: block;
+      width: 100%;
+    }
+
     .table td {
       display: block;
       border-top: 1px solid $gray-200;
@@ -52,10 +71,6 @@ $breakpoint: 920px;
       padding-top: 11px;
       width: calc(50% - 12px);
       white-space: inherit;
-    }
-
-    .table thead {
-      display: none;
     }
   }
 
