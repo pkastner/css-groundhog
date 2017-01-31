@@ -1,3 +1,3 @@
-const $ = (str) => [].slice.call(document.querySelectorAll(str));
+const $ = (str, context = document) => [].slice.call(context.querySelectorAll(str));
 
 export default $;
