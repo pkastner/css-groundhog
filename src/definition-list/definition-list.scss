@@ -2,6 +2,7 @@
 
 .definition-list {
   font-family: $mainfont;
+  font-weight: 400;
   display: inline-block;
   box-sizing: border-box;
   text-decoration: none;
@@ -12,12 +13,8 @@
   line-height: -moz-block-height;
   width: 100%;
   font-size: 14px;
+  overflow: hidden;
 }
-
-.definition-list dl {
-
-}
-
 
 .definition-list dt {
   float: left;
@@ -25,36 +22,35 @@
   font-size: 12px;
   color: $gray-500;
   display: block;
+  position: relative;
 }
 
-.definition-list dt:after {
+.definition-list dt:after,
+.definition-list dt:last-of-type:after {
   content: " ";
   position: absolute;
   background-image: url(/assets/images/icons/dot.svg);
   background-size: 4px;
   margin-top: -2px;
   height: 24px;
-  width: 99999px;
+  width: 100%;
   background-repeat: repeat-x;
   display: inline-block;
 }
 
+.definition-list dt + dt:after {
+  content: " ";
+  background-image: none;
+}
 
 .definition-list dd {
+  background-color: #fff;
+  padding-left: 8px;
+  max-width: 50%;
+  position: relative;
   display: block;
   float: right;
   text-align: right;
   margin-top: -23px;
-  width: 50%;
   padding-bottom: 20px;
-  z-index: -5;
-}
-
-.definition-list dd:after {
-  content: " ";
-  height: 14px;
-  position: absolute;
-  background-color: #fff;
-  z-index: 0;
-  width: 100px;
 }
