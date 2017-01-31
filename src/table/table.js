@@ -1,21 +1,16 @@
 import $ from '../js-common-components/dollar';
 
 const fillData = (table) => {
-  const th = table.querySelectorAll('th');
-  const i = th.length;
-  const header = [];
+  const th = [].slice.call(table.querySelectorAll('th'));
+  const header = th.map(el => el.textContent);
+
   th.forEach(el => {
     header.push(el.textContent);
   });
-  let j = i - 1;
-  const td = table.querySelectorAll('td');
-  td.forEach(cell => {
-    cell.setAttribute('data-th', header[i - 1 - j]);
-    if (j > 0) {
-      j--;
-    } else {
-      j = i - 1;
-    }
+  const tr = [].slice.call(table.querySelectorAll('tr'));
+  tr.forEach(row => {
+    const td = row.querySelectorAll('td');
+    td.forEach((cell, i) => cell.setAttribute('data-th', header[i]));
   });
 };
 

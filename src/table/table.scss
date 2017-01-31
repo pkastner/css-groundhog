@@ -1,6 +1,7 @@
 @import "../common/variables";
 
 $includedTable: false !default;
+$breakpoint: 920px;
 
 @if ($includedTable == false) {
 
@@ -27,7 +28,7 @@ $includedTable: false !default;
     padding-bottom: 11px;
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: $breakpoint) {
 
     .table td {
       display: block;
@@ -41,7 +42,7 @@ $includedTable: false !default;
     .table td:before {
       content: attr(data-th) " ";
       text-align: left;
-      font-weight: normal;
+      font-weight: 400;
       font-size: 12px;
       position: absolute;
       border-right: 1px solid $gray-200;
