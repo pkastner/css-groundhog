@@ -24,8 +24,6 @@ And include the JS at the end of the `<body>` tag of your page:
 </body>
 ```
 
-
-
 ## CDN usage
 
 We uploaded everything to our Dynatrace CDN, use it like that:
@@ -43,6 +41,14 @@ JS goes at the end of the `<body>` tag of your page:
 
 <script type="text/javascript" src="//assets.dynatrace.com/groundhog/v{{sitedata.package.version}}/js/main.js"></script>
 </body>
+```
+
+## Install via npm
+
+Groundhog is available on npm:
+
+```
+npm install --save @dynatrace/groundhog
 ```
 
 ## Custom component builds
