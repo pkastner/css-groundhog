@@ -1,6 +1,6 @@
 # Welcome to Groundhog - CSS components for Dynatrace
 
-![Codeship status](https://codeship.com/projects/9556cd40-41e5-0134-3f7c-4aa295a04468/status?branch=master)
+![Codeship status](https://codeship.com/projects/9556cd40-41e5-0134-3f7c-4aa295a04468/status?branch=master) [![npm version](https://badge.fury.io/js/%40dynatrace%2Fgroundhog.svg)](https://www.npmjs.com/package/@dynatrace/groundhog)
 
 ## What is Groundhog
 
