@@ -1,7 +1,10 @@
 import $ from '../js-common-components/dollar';
 
 const fillData = (table) => {
-  const th = $('th', table);
+  let th = $('th', table);
+  if (!th.length) {
+    th = $('thead td', table);
+  }
   const header = th.map(el => el.textContent);
   const tr = $('tr', table);
   tr.forEach(row => {

@@ -74,15 +74,19 @@ $breakpoint: 920px;
     }
   }
 
-  .table thead th {
+  .table thead th,
+  .table thead td {
     text-align: left;
     font-weight: normal;
     font-size: 12px;
     position: relative;
     overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
-  .table thead th:after {
+  .table thead th:after,
+  .table thead td:after {
     content: " ";
     height: 1px;
     position: absolute;
@@ -92,7 +96,8 @@ $breakpoint: 920px;
     background-color: $gray-200;
   }
 
-  .table thead th:before {
+  .table thead th:before,
+  .table thead td:before {
     content: " ";
     height: 1px;
     position: absolute;
@@ -103,7 +108,8 @@ $breakpoint: 920px;
     z-index: 2;
   }
 
-  .table thead th:last-child:before {
+  .table thead th:last-child:before,
+  .table thead td:last-child:before {
     display: none;
   }
 
