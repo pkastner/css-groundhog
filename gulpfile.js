@@ -219,7 +219,7 @@ gulp.task('icons', () => {
 
 
 gulp.task('package', () => {
-  gulp.src(['dist/js/main.js', 'dist/css/main.css'])
+  return gulp.src(['dist/js/main.js', 'dist/css/main.css'])
     .pipe(count())
     .pipe(zip(`groundhog-v${version}.zip`))
     .pipe(count())
@@ -227,13 +227,13 @@ gulp.task('package', () => {
 });
 
 gulp.task('replace-asset-urls', () => {
-  gulp.src('dist/**/*.css')
+  return gulp.src('dist/**/*.css')
     .pipe(replace('url(/assets/', `url(//assets.dynatrace.com/groundhog/v${version}/assets/`))
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('replace-asset-urls-in-html', () => {
-  gulp.src('dist/**/*.html')
+  return gulp.src('dist/**/*.html')
     .pipe(replace('="/assets/', `="//assets.dynatrace.com/groundhog/v${version}/assets/`))
     .pipe(replace('="http://groundhog.dynalab/assets/', `="//assets.dynatrace.com/groundhog/v${version}/assets/`))
     .pipe(replace('="/css/', `="//assets.dynatrace.com/groundhog/v${version}/css/`))
