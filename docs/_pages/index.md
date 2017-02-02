@@ -34,7 +34,7 @@ find their way into GWT.
 
 ## How to get Groundhog
 
-See [the downloads page](/download) for all options.
+See [the downloads page](/docs/download) for all options.
 
 ## One more thing!
 
