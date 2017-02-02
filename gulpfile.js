@@ -16,6 +16,7 @@ const bSync = require('browser-sync');
 const merge = require('merge2');
 const browserify = require('browserify');
 const watchify = require('watchify');
+const count = require('gulp-count');
 const source = require('vinyl-source-stream');
 const eslint = require('gulp-eslint');
 const packageData = require('./package.json');
@@ -219,7 +220,9 @@ gulp.task('icons', () => {
 
 gulp.task('package', () => {
   gulp.src(['dist/js/main.js', 'dist/css/main.css'])
+    .pipe(count())
     .pipe(zip(`groundhog-v${version}.zip`))
+    .pipe(count())
     .pipe(gulp.dest('dist/download/'));
 });
 
