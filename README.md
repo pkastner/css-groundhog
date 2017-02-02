@@ -1,6 +1,6 @@
 # Welcome to Groundhog - CSS components for Dynatrace
 
-![Codeship status](https://codeship.com/projects/9556cd40-41e5-0134-3f7c-4aa295a04468/status?branch=master)
+![Codeship status](https://codeship.com/projects/9556cd40-41e5-0134-3f7c-4aa295a04468/status?branch=master) [![npm version](https://badge.fury.io/js/%40dynatrace%2Fgroundhog.svg)](https://www.npmjs.com/package/@dynatrace/groundhog)
 
 ## What is Groundhog
 
@@ -24,9 +24,38 @@ find their way into GWT.
 
 ## How to get Groundhog
 
-Right now, we feature a full build with all the components. You'll get a CSS file,
-a JS file and all the images necessary. Please make sure to fit the paths to your
-project.
+You have multiple options to get Groundhog:
+
+### Use via CDN
+
+We uploaded everything to our Dynatrace CDN, use it like that:
+
+CSS goes in the `<head>`
+```html
+<link rel="stylesheet" href="//assets.dynatrace.com/groundhog/vVERSIONNUMBER/css/main.css" />
+```
+
+JS goes at the end of the `<body>` tag of your page:
+
+```html
+<body>
+... all your content
+
+<script type="text/javascript" src="//assets.dynatrace.com/groundhog/vVERSIONNUMBER/js/main.js"></script>
+</body>
+```
+
+VERSIONNUMBER is the version that you want to install. Check the [website for more information](http://groundhog.dynalabs.io/doc/download/).
+
+### Install via npm
+
+Groundhog is available on npm:
+
+```
+npm install --save @dynatrace/groundhog
+```
+
+### Custom build
 
 If you want to have a more advanced build, check us out on GitHub and do a plain build:
 
@@ -34,8 +63,16 @@ If you want to have a more advanced build, check us out on GitHub and do a plain
 npm install
 npm run build
 ```
-
 You will then find compiled stylesheets for all the components that we got.
+
+### Development
+
+You can also chime in and develop with us!
+
+```
+npm install
+npm run dev
+```
 
 ## Font and Assets
 

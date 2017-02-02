@@ -34,30 +34,7 @@ find their way into GWT.
 
 ## How to get Groundhog
 
-Right now, we feature a full build with all the components. You'll get a CSS file,
-a JS file and all the images necessary. Please make sure to fit the paths to your
-project.
-
-If you want to have a more advanced build, check us out on GitHub and do a plain build:
-
-```
-npm install
-npm run build
-```
-
-You will then find compiled stylesheets for all the components that we got.
-
-## Font and assets
-
-The font we're using is called Bernina. You can find downloads for this font and
-usage terms in our [asset library](http://assets.ruxitlabs.com/brand/groundhog/). If you
-can't use Bernina for some reason, the open source alternative "[Open Sans](https://www.google.com/fonts/specimen/Open+Sans)" works as well.
-Make sure you get the 300 and 400 font styles.
-
-### Icons
-
-Same goes for the iconography used with Groundhog. You can find them in the asset
-package available in the [asset library](http://assets.ruxitlabs.com/brand/groundhog/).
+See [the downloads page](/download) for all options.
 
 ## One more thing!
 
