@@ -45,7 +45,7 @@ JS goes at the end of the `<body>` tag of your page:
 </body>
 ```
 
-VERSIONNUMBER is the version that you want to install. Check the [website for more information](http://groundhog.dynalabs.io/download).
+VERSIONNUMBER is the version that you want to install. Check the [website for more information](http://groundhog.dynalabs.io/doc/download/).
 
 ### Install via npm
 
