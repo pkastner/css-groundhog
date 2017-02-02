@@ -49,22 +49,6 @@ hideCode: true
   </div>
 
   <div class="island presentation-tile">
-    <h2>assets.ruxitlabs.com</h2>
-    <figure>
-      <img src="/assets/images/showcase/assets.ruxitlabs.com.jpg" alt="assets.ruxitlabs.com">
-    </figure>
-    <p>
-      The Dynatrace asset library is your one-stop for any information on how the product's
-      components should be designed, or if you need any further information on style guides,
-      graphics, etc. And of course it features some Groundhog components in its code.
-    </p>
-    <p>
-      <a href="http://assets.ruxitlabs.com" class="btn btn--primary">See it in action</a>
-    </p>
-  </div>
-
-
-  <div class="island presentation-tile">
     <h2>jobs.dynatrace.at</h2>
     <figure>
       <img src="/assets/images/showcase/jobs.dynatrace.com.jpg" alt="jobs.dynatrace.at">
