@@ -92,7 +92,7 @@ The following page contains all basic HTML elements. Here you can see if Groundh
     The <dfn>dfn element</dfn> and <dfn title="Title text">dfn element with title</dfn> examples<br>
     The <em>em element</em> example<br>
     The <i>i element</i> example<br>
-    The img element <img src="http://placekitten.com/16/16" alt=""> example<br>
+    The img element <img src="http://placehold.it/16x16" alt=""> example<br>
     The <ins>ins element</ins> example<br>
     The <kbd>kbd element</kbd> example<br>
     The <mark>mark element</mark> example<br>
@@ -186,8 +186,8 @@ The following page contains all basic HTML elements. Here you can see if Groundh
 
   <h3>img</h3>
 
-  <img src="http://placekitten.com/100/100" alt="">
-  <a href="#"><img src="http://placekitten.com/100/100" alt=""></a>
+  <img src="http://placehold.it/100x100" alt="">
+  <a href="#"><img src="http://placehold.it/100x100" alt=""></a>
 
   <h3>figure</h3>
 
