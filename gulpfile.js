@@ -218,9 +218,9 @@ gulp.task('icons', () => {
 
 
 gulp.task('package', () => {
-  gulp.src(['./dist/js/main.js', './dist/css/main.css'])
+  gulp.src(['dist/js/main.js', 'dist/css/main.css'])
     .pipe(zip(`groundhog-v${version}.zip`))
-    .pipe(gulp.dest('./dist/download/'));
+    .pipe(gulp.dest('dist/download/'));
 });
 
 gulp.task('replace-asset-urls', () => {
