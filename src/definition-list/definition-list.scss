@@ -1,9 +1,10 @@
 @import "../common/variables";
 
 .definition-list {
+  background-color: #fff;
   font-family: $mainfont;
   font-weight: 400;
-  display: inline-block;
+  display: block;
   box-sizing: border-box;
   text-decoration: none;
   border: none;
@@ -14,43 +15,40 @@
   width: 100%;
   font-size: 14px;
   overflow: hidden;
+  position: relative;
 }
 
 .definition-list dt {
-  float: left;
-  width: 100%;
   font-size: 12px;
   color: $gray-500;
   display: block;
   position: relative;
+  background-color: inherit;
 }
 
-.definition-list dt:after,
-.definition-list dt:last-of-type:after {
+.definition-list dd:before {
   content: " ";
   position: absolute;
   background-image: url(/assets/images/icons/dot.svg);
   background-size: 4px;
-  margin-top: -2px;
+  right: 0%;
   height: 24px;
-  width: 100%;
+  width: 100vw;
   background-repeat: repeat-x;
   display: inline-block;
 }
 
-.definition-list dt + dt:after {
-  content: " ";
-  background-image: none;
+.definition-list dd + dd {
+  margin-top: 8px;
 }
 
 .definition-list dd {
-  background-color: #fff;
   padding-left: 8px;
   max-width: 50%;
   position: relative;
   display: block;
-  float: right;
   text-align: right;
-  margin-top: -23px;
+  margin-top: -22px;
   padding-bottom: 20px;
+  right: 0;
 }
